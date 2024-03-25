@@ -2,9 +2,9 @@
 
 Frame::Frame() {}
 
-Frame::Frame(int width, int height)
+Frame::Frame(int size) : size(size)
 {
-    pixels = new int[height * width * 4] {};
+    pixels = new int[size * size * 4] {};
 }
 
 Frame::~Frame()
@@ -13,12 +13,12 @@ Frame::~Frame()
 }
 
 
-Frame::setPixel(int frameX, int frameY, int *rgba)
+void Frame::setPixel(int frameX, int frameY, int *rgba)
 {
-    int pixelArrayIndex = (pixelY * width + pixelX) * 4;
+    int pixelArrayIndex = (frameY * size + frameX) * 4;
 
-    pixels[pixelArrayIndex] = rbga[0];
-    pixels[pixelArrayIndex+1] = rbga[1];
-    pixels[pixelArrayIndex+2] = rbga[2];
-    pixels[pixelArrayIndex+3] = rbga[3];
+    pixels[pixelArrayIndex] = rgba[0];
+    pixels[pixelArrayIndex+1] = rgba[1];
+    pixels[pixelArrayIndex+2] = rgba[2];
+    pixels[pixelArrayIndex+3] = rgba[3];
 }

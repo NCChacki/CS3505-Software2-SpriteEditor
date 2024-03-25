@@ -11,10 +11,10 @@ public:
 
     ///
     /// \brief Constructor for frame
-    /// \param width of frame
-    /// \param height of frame
+    /// \param size of frame
     ///
-    Frame(int width, int height) : width{width}, height{height}
+    ///
+    Frame(int size);
 
     ///
     /// \brief Destructor for frame. Deletes backing pixel array.
@@ -29,7 +29,7 @@ public:
     /// \param frameX X coordinate within frame. coordinate is O, O in top left corner
     /// \param rgba
     ///
-    setPixel(int frameX, int frameY, int* rgba);
+    void setPixel(int frameX, int frameY, int* rgba);
 
 
 
@@ -37,7 +37,7 @@ public:
 
 
 private:
-    int width,height;
+    int size;
     int* pixels;
 };
 
