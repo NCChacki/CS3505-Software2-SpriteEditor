@@ -9,6 +9,8 @@ void CanvasWidget::mouseMoveEvent(QMouseEvent * event)
 {
     QPointF pos = event->position();
 
-    std::cout << pos.rx() << ", " << pos.ry() << std::endl;
+    //std::cout << pos.rx() << ", " << pos.ry() << std::endl;
+
+    emit canvasClicked(pos.rx(), pos.ry());
 
 }

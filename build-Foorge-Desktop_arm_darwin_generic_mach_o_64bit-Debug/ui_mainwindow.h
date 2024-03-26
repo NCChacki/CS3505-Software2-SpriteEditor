@@ -22,8 +22,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QWidget *centralwidget;
-    CanvasWidget *widget;
+    QWidget *mainWidget;
+    CanvasWidget *canvasWidget;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -32,13 +32,31 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 600);
-        centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName("centralwidget");
-        widget = new CanvasWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(279, 150, 241, 151));
-        widget->setAutoFillBackground(true);
-        MainWindow->setCentralWidget(centralwidget);
+        mainWidget = new QWidget(MainWindow);
+        mainWidget->setObjectName("mainWidget");
+        canvasWidget = new CanvasWidget(mainWidget);
+        canvasWidget->setObjectName("canvasWidget");
+        canvasWidget->setGeometry(QRect(239, 130, 351, 221));
+        QPalette palette;
+        QBrush brush(QColor(253, 253, 253, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Light, brush);
+        QBrush brush1(QColor(247, 251, 250, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Midlight, brush1);
+        QBrush brush2(QColor(117, 117, 117, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Light, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Midlight, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Light, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Midlight, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush2);
+        canvasWidget->setPalette(palette);
+        canvasWidget->setAutoFillBackground(true);
+        MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 800, 22));

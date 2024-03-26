@@ -55,12 +55,14 @@ OBJECTS_DIR   = ./
 SOURCES       = ../Foorge/canvaswidget.cpp \
 		../Foorge/frame.cpp \
 		../Foorge/main.cpp \
-		../Foorge/mainwindow.cpp moc_canvaswidget.cpp \
+		../Foorge/mainwindow.cpp \
+		../Foorge/model.cpp moc_canvaswidget.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = canvaswidget.o \
 		frame.o \
 		main.o \
 		mainwindow.o \
+		model.o \
 		moc_canvaswidget.o \
 		moc_mainwindow.o
 DIST          = /Users/evanblanchard/Qt/6.6.2/macos/mkspecs/features/spec_pre.prf \
@@ -229,10 +231,12 @@ DIST          = /Users/evanblanchard/Qt/6.6.2/macos/mkspecs/features/spec_pre.pr
 		/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/features/lex.prf \
 		../Foorge/Foorge.pro ../Foorge/canvaswidget.h \
 		../Foorge/frame.h \
-		../Foorge/mainwindow.h ../Foorge/canvaswidget.cpp \
+		../Foorge/mainwindow.h \
+		../Foorge/model.h ../Foorge/canvaswidget.cpp \
 		../Foorge/frame.cpp \
 		../Foorge/main.cpp \
-		../Foorge/mainwindow.cpp
+		../Foorge/mainwindow.cpp \
+		../Foorge/model.cpp
 QMAKE_TARGET  = Foorge
 DESTDIR       = 
 TARGET        = Foorge.app/Contents/MacOS/Foorge
@@ -618,8 +622,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Foorge/canvaswidget.h ../Foorge/frame.h ../Foorge/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Foorge/canvaswidget.cpp ../Foorge/frame.cpp ../Foorge/main.cpp ../Foorge/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Foorge/canvaswidget.h ../Foorge/frame.h ../Foorge/mainwindow.h ../Foorge/model.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Foorge/canvaswidget.cpp ../Foorge/frame.cpp ../Foorge/main.cpp ../Foorge/mainwindow.cpp ../Foorge/model.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Foorge/mainwindow.ui $(DISTDIR)/
 
 
@@ -721,6 +725,10 @@ mainwindow.o: ../Foorge/mainwindow.cpp ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QMouseEvent \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Foorge/mainwindow.cpp
+
+model.o: ../Foorge/model.cpp ../Foorge/model.h \
+		../Foorge/frame.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o model.o ../Foorge/model.cpp
 
 moc_canvaswidget.o: moc_canvaswidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_canvaswidget.o moc_canvaswidget.cpp

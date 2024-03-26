@@ -12,12 +12,14 @@ SOURCES += \
     canvaswidget.cpp \
     frame.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    model.cpp
 
 HEADERS += \
     canvaswidget.h \
     frame.h \
-    mainwindow.h
+    mainwindow.h \
+    model.h
 
 FORMS += \
     mainwindow.ui
