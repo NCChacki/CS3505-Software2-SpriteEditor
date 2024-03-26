@@ -11,6 +11,7 @@ CONFIG += c++11 ## changed from 17 to 11
 SOURCES += \
     canvaswidget.cpp \
     frame.cpp \
+    json.cpp \
     main.cpp \
     mainwindow.cpp \
     model.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     canvaswidget.h \
     frame.h \
+    json.h \
     mainwindow.h \
     model.h
 

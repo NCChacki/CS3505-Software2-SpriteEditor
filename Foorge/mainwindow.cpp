@@ -1,17 +1,37 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "model.h"
+#include "json.h"
 
 MainWindow::MainWindow(Model& model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , model(model)
 {
     ui->setupUi(this);
+
 
     connect(ui->canvasWidget,
             &CanvasWidget::canvasClicked,
             this,
             &MainWindow::pixelChanged);
+
+
+    //connections for Save/create/load
+    connect(ui->saveProjectButton,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::onSaveClicked);
+
+    // connect(ui->loadProjectButton,
+    //         &QPushButton::clicked,
+    //         this,
+    //         &MainWindow::onLoadClicked);
+
+    // connect(ui->createProjectButton,
+    //         &QPushButton::clicked,
+    //         this,
+    //         &MainWindow::onCreateClicked);
 
 }
 
@@ -30,3 +50,19 @@ void MainWindow::pixelChanged(int canvasX, int canvasY)
 
 
 }
+
+void MainWindow::onSaveClicked()
+{
+    //we can get rid of the hard coded path...i was just using it to test for now hehe
+    JSON::save(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
+}
+
+// MainWindow::onLoadClicked()
+// {
+
+// }
+
+// MainWindow::onCreateClicked()
+// {
+
+// }

@@ -14,13 +14,17 @@ public:
     ~Model();
 
     explicit Model(QObject *parent = nullptr);
+    std::vector<Frame> animationFrames;
+
 
 
 private:
     int* currentColor;
     int brushSize;
     int frameSize;
-    std::vector<Frame> animationFrames;
+    //std::vector<Frame> animationFrames;
+
+
 
 public slots:
     void pixelChanged(int canvasX, int canvasY);

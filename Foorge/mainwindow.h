@@ -19,6 +19,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(Model& model, QWidget *parent = nullptr); //
     ~MainWindow();
+    Model& model;
+
 
 public slots:
 
@@ -31,6 +33,10 @@ public slots:
     /// \param canvasY
     ///
     void pixelChanged(int canvasX, int canvasY);
+
+    void onSaveClicked();
+    // void onLoadClicked();
+    // void onCreateClicked();
 
 private:
     Ui::MainWindow *ui;

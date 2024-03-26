@@ -32,13 +32,14 @@ public:
     void setPixel(int frameX, int frameY, int* rgba);
 
 
-
+    int size;
+    int* pixels;
 
 
 
 private:
-    int size;
-    int* pixels;
+    //int size;
+    //int* pixels;
 };
 
 #endif // FRAME_H
