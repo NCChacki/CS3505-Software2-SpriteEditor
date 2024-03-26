@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <iostream>
-//#include "model.h"
+#include "model.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -17,7 +17,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr); //Model& model,
+    MainWindow(Model& model, QWidget *parent = nullptr); //
     ~MainWindow();
 
 public slots:

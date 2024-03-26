@@ -57,14 +57,16 @@ SOURCES       = ../Foorge/canvaswidget.cpp \
 		../Foorge/main.cpp \
 		../Foorge/mainwindow.cpp \
 		../Foorge/model.cpp moc_canvaswidget.cpp \
-		moc_mainwindow.cpp
+		moc_mainwindow.cpp \
+		moc_model.cpp
 OBJECTS       = canvaswidget.o \
 		frame.o \
 		main.o \
 		mainwindow.o \
 		model.o \
 		moc_canvaswidget.o \
-		moc_mainwindow.o
+		moc_mainwindow.o \
+		moc_model.o
 DIST          = /Users/evanblanchard/Qt/6.6.2/macos/mkspecs/features/spec_pre.prf \
 		/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/features/device_config.prf \
 		/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/common/unix.conf \
@@ -653,9 +655,9 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_canvaswidget.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_canvaswidget.cpp moc_mainwindow.cpp moc_model.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_canvaswidget.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_canvaswidget.cpp moc_mainwindow.cpp moc_model.cpp
 moc_canvaswidget.cpp: ../Foorge/canvaswidget.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -667,8 +669,19 @@ moc_canvaswidget.cpp: ../Foorge/canvaswidget.h \
 moc_mainwindow.cpp: ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Foorge/model.h \
+		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc
 	/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/macx-clang -I'/Users/evanblanchard/Downloads/Spring 2024/CS 3505/Assignment8/cs3505-assignment8-J-Sandhu/Foorge' -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/evanblanchard/Qt/6.6.2/macos/lib ../Foorge/mainwindow.h -o moc_mainwindow.cpp
+
+moc_model.cpp: ../Foorge/model.h \
+		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc
+	/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/macx-clang -I'/Users/evanblanchard/Downloads/Spring 2024/CS 3505/Assignment8/cs3505-assignment8-J-Sandhu/Foorge' -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/evanblanchard/Qt/6.6.2/macos/lib ../Foorge/model.h -o moc_model.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -711,6 +724,10 @@ frame.o: ../Foorge/frame.cpp ../Foorge/frame.h
 main.o: ../Foorge/main.cpp ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Foorge/model.h \
+		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Foorge/main.cpp
@@ -718,6 +735,10 @@ main.o: ../Foorge/main.cpp ../Foorge/mainwindow.h \
 mainwindow.o: ../Foorge/mainwindow.cpp ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Foorge/model.h \
+		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
 		ui_mainwindow.h \
 		../Foorge/canvaswidget.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
@@ -727,7 +748,9 @@ mainwindow.o: ../Foorge/mainwindow.cpp ../Foorge/mainwindow.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Foorge/mainwindow.cpp
 
 model.o: ../Foorge/model.cpp ../Foorge/model.h \
-		../Foorge/frame.h
+		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o model.o ../Foorge/model.cpp
 
 moc_canvaswidget.o: moc_canvaswidget.cpp 
@@ -735,6 +758,9 @@ moc_canvaswidget.o: moc_canvaswidget.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_model.o: moc_model.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_model.o moc_model.cpp
 
 ####### Install
 
