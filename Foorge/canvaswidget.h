@@ -15,9 +15,11 @@ public:
     explicit CanvasWidget(QWidget *parent = nullptr);
 
      void mouseMoveEvent(QMouseEvent * event);
+     void mousePressEvent(QMouseEvent * event);
 
 signals:
      void canvasClicked(QPointF point);
+
 };
 
 #endif // CANVASWIDGET_H

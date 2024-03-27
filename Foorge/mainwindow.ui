@@ -131,27 +131,33 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>500</width>
-       <height>500</height>
+       <width>400</width>
+       <height>400</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
-       <width>500</width>
-       <height>500</height>
+       <width>400</width>
+       <height>400</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>500</width>
-       <height>500</height>
+       <width>400</width>
+       <height>400</height>
       </size>
+     </property>
+     <property name="accessibleDescription">
+      <string/>
      </property>
      <property name="autoFillBackground">
       <bool>true</bool>
      </property>
      <property name="text">
       <string>There is text on this QLabel</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>

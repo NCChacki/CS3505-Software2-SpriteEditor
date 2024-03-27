@@ -64,10 +64,11 @@ public:
         canvasWidget->setAutoFillBackground(false);
         canvasLabel = new QLabel(canvasWidget);
         canvasLabel->setObjectName("canvasLabel");
-        canvasLabel->setGeometry(QRect(0, 0, 500, 500));
-        canvasLabel->setMinimumSize(QSize(500, 500));
-        canvasLabel->setMaximumSize(QSize(500, 500));
+        canvasLabel->setGeometry(QRect(0, 0, 400, 400));
+        canvasLabel->setMinimumSize(QSize(400, 400));
+        canvasLabel->setMaximumSize(QSize(400, 400));
         canvasLabel->setAutoFillBackground(true);
+        canvasLabel->setScaledContents(true);
         saveProjectButton = new QPushButton(mainWidget);
         saveProjectButton->setObjectName("saveProjectButton");
         saveProjectButton->setGeometry(QRect(10, 30, 100, 32));
@@ -94,6 +95,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+#if QT_CONFIG(accessibility)
+        canvasLabel->setAccessibleDescription(QString());
+#endif // QT_CONFIG(accessibility)
         canvasLabel->setText(QCoreApplication::translate("MainWindow", "There is text on this QLabel", nullptr));
         saveProjectButton->setText(QCoreApplication::translate("MainWindow", "Save Project", nullptr));
         loadProjectButton->setText(QCoreApplication::translate("MainWindow", "Load Project", nullptr));
