@@ -30,6 +30,11 @@ private:
     // current color and brush size
     QPen pen;
 
+    //Temporary variable for window size
+    // not sure if this is where we will want to keep this,
+    // or if we want to pass this to the model somewhere
+    int windowSize = 500;
+
 
 
 

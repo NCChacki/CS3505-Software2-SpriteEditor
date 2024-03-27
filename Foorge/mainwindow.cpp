@@ -73,7 +73,10 @@ void MainWindow::onSaveClicked()
 
 void MainWindow::updateLabelImage(QImage image)
 {
-    ui->canvasLabel->setPixmap(QPixmap::fromImage(image));
+    QPixmap pixmap = QPixmap::fromImage(image);
+
+
+    ui->canvasLabel->setPixmap(pixmap.scaledToHeight(500,Qt::FastTransformation));
 }
 // MainWindow::onLoadClicked()
 // {
