@@ -54,6 +54,7 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Foorge/canvaswidget.cpp \
 		../Foorge/frame.cpp \
+		../Foorge/json.cpp \
 		../Foorge/main.cpp \
 		../Foorge/mainwindow.cpp \
 		../Foorge/model.cpp moc_canvaswidget.cpp \
@@ -61,6 +62,7 @@ SOURCES       = ../Foorge/canvaswidget.cpp \
 		moc_model.cpp
 OBJECTS       = canvaswidget.o \
 		frame.o \
+		json.o \
 		main.o \
 		mainwindow.o \
 		model.o \
@@ -233,9 +235,11 @@ DIST          = /Users/evanblanchard/Qt/6.6.2/macos/mkspecs/features/spec_pre.pr
 		/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/features/lex.prf \
 		../Foorge/Foorge.pro ../Foorge/canvaswidget.h \
 		../Foorge/frame.h \
+		../Foorge/json.h \
 		../Foorge/mainwindow.h \
 		../Foorge/model.h ../Foorge/canvaswidget.cpp \
 		../Foorge/frame.cpp \
+		../Foorge/json.cpp \
 		../Foorge/main.cpp \
 		../Foorge/mainwindow.cpp \
 		../Foorge/model.cpp
@@ -624,8 +628,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Foorge/canvaswidget.h ../Foorge/frame.h ../Foorge/mainwindow.h ../Foorge/model.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Foorge/canvaswidget.cpp ../Foorge/frame.cpp ../Foorge/main.cpp ../Foorge/mainwindow.cpp ../Foorge/model.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Foorge/canvaswidget.h ../Foorge/frame.h ../Foorge/json.h ../Foorge/mainwindow.h ../Foorge/model.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Foorge/canvaswidget.cpp ../Foorge/frame.cpp ../Foorge/json.cpp ../Foorge/main.cpp ../Foorge/mainwindow.cpp ../Foorge/model.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Foorge/mainwindow.ui $(DISTDIR)/
 
 
@@ -663,6 +667,8 @@ moc_canvaswidget.cpp: ../Foorge/canvaswidget.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QMouseEvent \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc
 	/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/macx-clang -I'/Users/evanblanchard/Downloads/Spring 2024/CS 3505/Assignment8/cs3505-assignment8-J-Sandhu/Foorge' -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/evanblanchard/Qt/6.6.2/macos/lib ../Foorge/canvaswidget.h -o moc_canvaswidget.cpp
 
@@ -671,15 +677,33 @@ moc_mainwindow.cpp: ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../Foorge/model.h \
 		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qimage.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QPen \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qpen.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc
 	/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/macx-clang -I'/Users/evanblanchard/Downloads/Spring 2024/CS 3505/Assignment8/cs3505-assignment8-J-Sandhu/Foorge' -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/evanblanchard/Qt/6.6.2/macos/lib ../Foorge/mainwindow.h -o moc_mainwindow.cpp
 
 moc_model.cpp: ../Foorge/model.h \
 		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qimage.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QPen \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qpen.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc
 	/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/macx-clang -I'/Users/evanblanchard/Downloads/Spring 2024/CS 3505/Assignment8/cs3505-assignment8-J-Sandhu/Foorge' -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/evanblanchard/Qt/6.6.2/macos/lib ../Foorge/model.h -o moc_model.cpp
 
@@ -696,7 +720,9 @@ ui_mainwindow.h: ../Foorge/mainwindow.ui \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QMouseEvent \
-		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h
 	/Users/evanblanchard/Qt/6.6.2/macos/libexec/uic ../Foorge/mainwindow.ui -o ui_mainwindow.h
 
 compiler_rez_source_make_all:
@@ -715,19 +741,68 @@ canvaswidget.o: ../Foorge/canvaswidget.cpp ../Foorge/canvaswidget.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QMouseEvent \
-		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o canvaswidget.o ../Foorge/canvaswidget.cpp
 
-frame.o: ../Foorge/frame.cpp ../Foorge/frame.h
+frame.o: ../Foorge/frame.cpp ../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qimage.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QPen \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qpen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o frame.o ../Foorge/frame.cpp
+
+json.o: ../Foorge/json.cpp ../Foorge/json.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qstring.h \
+		../Foorge/model.h \
+		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qimage.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QPen \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qpen.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QJsonObject \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qjsonobject.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qbytearray.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QJsonArray \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qjsonarray.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QJsonValue \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qjsonvalue.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QJsonDocument \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qjsondocument.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QFile \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qfile.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QLatin1String \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qlatin1stringview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o json.o ../Foorge/json.cpp
 
 main.o: ../Foorge/main.cpp ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../Foorge/model.h \
 		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qimage.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QPen \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qpen.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Foorge/main.cpp
@@ -737,20 +812,38 @@ mainwindow.o: ../Foorge/mainwindow.cpp ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../Foorge/model.h \
 		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qimage.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
-		ui_mainwindow.h \
-		../Foorge/canvaswidget.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QPen \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qpen.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qcolor.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QMouseEvent \
-		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h \
+		ui_mainwindow.h \
+		../Foorge/json.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qstring.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Foorge/mainwindow.cpp
 
 model.o: ../Foorge/model.cpp ../Foorge/model.h \
 		../Foorge/frame.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qimage.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QObject \
-		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QPen \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qpen.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o model.o ../Foorge/model.cpp
 
 moc_canvaswidget.o: moc_canvaswidget.cpp 

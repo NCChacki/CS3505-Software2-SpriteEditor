@@ -42,7 +42,7 @@ public:
         mainWidget->setObjectName("mainWidget");
         canvasWidget = new CanvasWidget(mainWidget);
         canvasWidget->setObjectName("canvasWidget");
-        canvasWidget->setGeometry(QRect(170, 30, 500, 500));
+        canvasWidget->setGeometry(QRect(200, 0, 400, 400));
         QPalette palette;
         QBrush brush(QColor(253, 253, 253, 255));
         brush.setStyle(Qt::SolidPattern);
