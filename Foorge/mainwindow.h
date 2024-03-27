@@ -42,6 +42,7 @@ public slots:
     /// \param image
     ///
     void updateLabelImage(QImage image);
+    void updatePreviewImage(QImage image);
     void onLoadClicked();
     // void onCreateClicked();
 

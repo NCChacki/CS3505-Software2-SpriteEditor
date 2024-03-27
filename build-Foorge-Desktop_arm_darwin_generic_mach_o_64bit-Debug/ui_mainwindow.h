@@ -30,6 +30,7 @@ public:
     QPushButton *saveProjectButton;
     QPushButton *loadProjectButton;
     QPushButton *createProjectButton;
+    QLabel *previewLabel;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -78,6 +79,9 @@ public:
         createProjectButton = new QPushButton(mainWidget);
         createProjectButton->setObjectName("createProjectButton");
         createProjectButton->setGeometry(QRect(10, 90, 100, 32));
+        previewLabel = new QLabel(mainWidget);
+        previewLabel->setObjectName("previewLabel");
+        previewLabel->setGeometry(QRect(650, 0, 100, 100));
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -102,6 +106,7 @@ public:
         saveProjectButton->setText(QCoreApplication::translate("MainWindow", "Save Project", nullptr));
         loadProjectButton->setText(QCoreApplication::translate("MainWindow", "Load Project", nullptr));
         createProjectButton->setText(QCoreApplication::translate("MainWindow", "Create Project", nullptr));
+        previewLabel->setText(QCoreApplication::translate("MainWindow", "Preview Window", nullptr));
     } // retranslateUi
 
 };

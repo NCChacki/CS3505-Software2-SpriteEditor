@@ -6,6 +6,7 @@
 #include <QPen>
 #include <QColor>
 #include <QWidget>
+#include <QTimer>
 
 class Model : public QObject
 {
@@ -41,15 +42,22 @@ private:
     // or if we want to pass this to the model somewhere
     int windowSize = 500;
 
+    // preview variables
+    int currentPreviewFrame = 0;
+    QTimer* previewTimer;
+    int timerFrameRate;
+
 
 
 
 
 public slots:
     void imageChanged(QPointF point);
+    void timeToUpdatePreview();
 
 signals:
     void imageUpdated(QImage image);
+    void previewUpdated(QImage image);
 
 
 

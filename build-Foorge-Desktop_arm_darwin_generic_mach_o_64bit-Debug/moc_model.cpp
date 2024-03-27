@@ -42,18 +42,22 @@ constexpr auto qt_meta_stringdata_CLASSModelENDCLASS = QtMocHelpers::stringData(
     "imageUpdated",
     "",
     "image",
+    "previewUpdated",
     "imageChanged",
-    "point"
+    "point",
+    "timeToUpdatePreview"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSModelENDCLASS_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[16];
     char stringdata0[6];
     char stringdata1[13];
     char stringdata2[1];
     char stringdata3[6];
-    char stringdata4[13];
-    char stringdata5[6];
+    char stringdata4[15];
+    char stringdata5[13];
+    char stringdata6[6];
+    char stringdata7[20];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSModelENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -63,15 +67,19 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(6, 12),  // "imageUpdated"
         QT_MOC_LITERAL(19, 0),  // ""
         QT_MOC_LITERAL(20, 5),  // "image"
-        QT_MOC_LITERAL(26, 12),  // "imageChanged"
-        QT_MOC_LITERAL(39, 5)   // "point"
+        QT_MOC_LITERAL(26, 14),  // "previewUpdated"
+        QT_MOC_LITERAL(41, 12),  // "imageChanged"
+        QT_MOC_LITERAL(54, 5),  // "point"
+        QT_MOC_LITERAL(60, 19)   // "timeToUpdatePreview"
     },
     "Model",
     "imageUpdated",
     "",
     "image",
+    "previewUpdated",
     "imageChanged",
-    "point"
+    "point",
+    "timeToUpdatePreview"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -83,24 +91,28 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   26,    2, 0x06,    1 /* Public */,
+       1,    1,   38,    2, 0x06,    1 /* Public */,
+       4,    1,   41,    2, 0x06,    3 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    1,   29,    2, 0x0a,    3 /* Public */,
+       5,    1,   44,    2, 0x0a,    5 /* Public */,
+       7,    0,   47,    2, 0x0a,    7 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QImage,    3,
+    QMetaType::Void, QMetaType::QImage,    3,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QPointF,    5,
+    QMetaType::Void, QMetaType::QPointF,    6,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -117,9 +129,14 @@ Q_CONSTINIT const QMetaObject Model::staticMetaObject = { {
         // method 'imageUpdated'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
+        // method 'previewUpdated'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
         // method 'imageChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QPointF, std::false_type>
+        QtPrivate::TypeAndForceComplete<QPointF, std::false_type>,
+        // method 'timeToUpdatePreview'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -131,7 +148,9 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         (void)_t;
         switch (_id) {
         case 0: _t->imageUpdated((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
-        case 1: _t->imageChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 1: _t->previewUpdated((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
+        case 2: _t->imageChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 3: _t->timeToUpdatePreview(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -140,6 +159,13 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
             using _t = void (Model::*)(QImage );
             if (_t _q_method = &Model::imageUpdated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (Model::*)(QImage );
+            if (_t _q_method = &Model::previewUpdated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
                 return;
             }
         }
@@ -165,13 +191,13 @@ int Model::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 4;
     }
     return _id;
 }
@@ -181,5 +207,12 @@ void Model::imageUpdated(QImage _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void Model::previewUpdated(QImage _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP

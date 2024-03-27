@@ -29,6 +29,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::updateLabelImage);
 
+    connect(&model,
+            &Model::previewUpdated,
+            this,
+            &MainWindow::updatePreviewImage);
+
     //connections for Save/create/load
     connect(ui->saveProjectButton,
             &QPushButton::clicked,
@@ -75,6 +80,14 @@ void MainWindow::updateLabelImage(QImage image)
 
 
     ui->canvasLabel->setPixmap(pixmap.scaledToHeight(500,Qt::FastTransformation));
+}
+
+void MainWindow::updatePreviewImage(QImage image)
+{
+    QPixmap pixmap = QPixmap::fromImage(image);
+
+
+    ui->previewLabel->setPixmap(pixmap.scaledToHeight(100,Qt::FastTransformation));
 }
 void MainWindow::onLoadClicked()
 {
