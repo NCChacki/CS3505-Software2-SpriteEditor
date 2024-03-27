@@ -44,11 +44,12 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "point",
     "onSaveClicked",
     "updateLabelImage",
-    "image"
+    "image",
+    "onLoadClicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[14];
+    uint offsetsAndSizes[16];
     char stringdata0[11];
     char stringdata1[13];
     char stringdata2[1];
@@ -56,6 +57,7 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata4[14];
     char stringdata5[17];
     char stringdata6[6];
+    char stringdata7[14];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -67,7 +69,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(25, 5),  // "point"
         QT_MOC_LITERAL(31, 13),  // "onSaveClicked"
         QT_MOC_LITERAL(45, 16),  // "updateLabelImage"
-        QT_MOC_LITERAL(62, 5)   // "image"
+        QT_MOC_LITERAL(62, 5),  // "image"
+        QT_MOC_LITERAL(68, 13)   // "onLoadClicked"
     },
     "MainWindow",
     "pixelChanged",
@@ -75,7 +78,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "point",
     "onSaveClicked",
     "updateLabelImage",
-    "image"
+    "image",
+    "onLoadClicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -87,7 +91,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -95,14 +99,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   32,    2, 0x0a,    1 /* Public */,
-       4,    0,   35,    2, 0x0a,    3 /* Public */,
-       5,    1,   36,    2, 0x0a,    4 /* Public */,
+       1,    1,   38,    2, 0x0a,    1 /* Public */,
+       4,    0,   41,    2, 0x0a,    3 /* Public */,
+       5,    1,   42,    2, 0x0a,    4 /* Public */,
+       7,    0,   45,    2, 0x0a,    6 /* Public */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QPointF,    3,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QImage,    6,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -123,7 +129,9 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'updateLabelImage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QImage, std::false_type>
+        QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
+        // method 'onLoadClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -137,6 +145,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->pixelChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
         case 1: _t->onSaveClicked(); break;
         case 2: _t->updateLabelImage((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
+        case 3: _t->onLoadClicked(); break;
         default: ;
         }
     }
@@ -161,13 +170,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

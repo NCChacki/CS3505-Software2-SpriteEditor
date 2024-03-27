@@ -8,7 +8,8 @@ Model::~Model()
 Model::Model(QObject *parent) : QObject(parent)
 {
 
-    Frame firstFrame(16);
+    frameSize = 16;
+    Frame firstFrame(frameSize);
     animationFrames.push_back(firstFrame);
     currentFrame=0;
     QColor color(255,0,0,255);
@@ -18,8 +19,10 @@ Model::Model(QObject *parent) : QObject(parent)
 
 void Model::imageChanged(QPointF point)
 {
+    QWidget* canvasWidget = qobject_cast<QWidget*>(sender());
 
-    QPointF transformedPoint(point.rx()/(windowSize/16), point.ry()/(windowSize/16));
+
+    QPointF transformedPoint(point.rx()/(canvasWidget->height()/frameSize), point.ry()/(canvasWidget->height()/frameSize));
 
     animationFrames.at(currentFrame).setPixel(transformedPoint,pen);
     emit imageUpdated(animationFrames.at(currentFrame).imageData);

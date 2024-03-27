@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QPen>
 #include <QColor>
+#include <QWidget>
 
 class Model : public QObject
 {
