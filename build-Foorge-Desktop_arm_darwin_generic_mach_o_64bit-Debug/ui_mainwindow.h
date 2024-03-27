@@ -11,10 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 #include "canvaswidget.h"
@@ -31,6 +33,11 @@ public:
     QPushButton *loadProjectButton;
     QPushButton *createProjectButton;
     QLabel *previewLabel;
+    QScrollArea *previewScrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *newFrameButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -82,6 +89,34 @@ public:
         previewLabel = new QLabel(mainWidget);
         previewLabel->setObjectName("previewLabel");
         previewLabel->setGeometry(QRect(650, 0, 100, 100));
+        previewScrollArea = new QScrollArea(mainWidget);
+        previewScrollArea->setObjectName("previewScrollArea");
+        previewScrollArea->setGeometry(QRect(199, 440, 401, 80));
+        QPalette palette1;
+        QBrush brush3(QColor(145, 145, 145, 255));
+        brush3.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::Window, brush3);
+        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush3);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush3);
+        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush3);
+        previewScrollArea->setPalette(palette1);
+        previewScrollArea->setAutoFillBackground(true);
+        previewScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        previewScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        previewScrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 399, 78));
+        horizontalLayoutWidget = new QWidget(scrollAreaWidgetContents);
+        horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
+        horizontalLayoutWidget->setGeometry(QRect(-1, -1, 401, 81));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        previewScrollArea->setWidget(scrollAreaWidgetContents);
+        newFrameButton = new QPushButton(mainWidget);
+        newFrameButton->setObjectName("newFrameButton");
+        newFrameButton->setGeometry(QRect(90, 440, 100, 32));
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -107,6 +142,7 @@ public:
         loadProjectButton->setText(QCoreApplication::translate("MainWindow", "Load Project", nullptr));
         createProjectButton->setText(QCoreApplication::translate("MainWindow", "Create Project", nullptr));
         previewLabel->setText(QCoreApplication::translate("MainWindow", "Preview Window", nullptr));
+        newFrameButton->setText(QCoreApplication::translate("MainWindow", "New Frame", nullptr));
     } // retranslateUi
 
 };

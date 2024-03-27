@@ -19,7 +19,7 @@ Model::Model(QObject *parent) : QObject(parent)
     pen.setWidth(1);
     
     // initialize default framerate of 30fps
-    timerFrameRate = 30;
+    timerFrameRate = 2;
     //create timer
     previewTimer = new QTimer(this);
     //connect timer to slot that will emit update signal
@@ -53,6 +53,12 @@ void Model::timeToUpdatePreview()
 
     if(currentPreviewFrame == animationFrames.size())
         currentPreviewFrame=0;
+}
+
+void Model::addNewFrame()
+{
+    Frame newFrame(frameSize);
+    animationFrames.push_back(newFrame);
 }
 
 

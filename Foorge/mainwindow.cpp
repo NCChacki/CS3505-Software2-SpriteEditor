@@ -18,6 +18,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::pixelChanged);
 
+    connect(ui->newFrameButton,
+            &QPushButton::clicked,
+            &model,
+            &Model::addNewFrame);
+
     // this is the one that actually does stuff
     connect(ui->canvasWidget,
             &CanvasWidget::canvasClicked,

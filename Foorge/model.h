@@ -54,6 +54,7 @@ private:
 public slots:
     void imageChanged(QPointF point);
     void timeToUpdatePreview();
+    void addNewFrame();
 
 signals:
     void imageUpdated(QImage image);
