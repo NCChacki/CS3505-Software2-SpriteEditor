@@ -35,7 +35,7 @@ public:
 
     int size;
 
-    QImage pixels;
+    QImage imageData;
 
 
 

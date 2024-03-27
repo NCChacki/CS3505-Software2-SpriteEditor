@@ -15,4 +15,8 @@ Model::Model(QObject *parent) : QObject(parent)
 void Model::pixelChanged(QPointF point)
 {
     animationFrames.at(currentFrame).setPixel(point,pen);
+    emit imageUpdated(animationFrames.at(currentFrame).imageData);
 }
+
+
+

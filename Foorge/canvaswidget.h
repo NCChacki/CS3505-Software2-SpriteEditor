@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QMouseEvent>
 #include <iostream>
+#include <QPointF>
 
 
 class CanvasWidget : public QWidget
@@ -16,7 +17,7 @@ public:
      void mouseMoveEvent(QMouseEvent * event);
 
 signals:
-     void canvasClicked(int canvasX, int canvasY);
+     void canvasClicked(QPointF point);
 };
 
 #endif // CANVASWIDGET_H

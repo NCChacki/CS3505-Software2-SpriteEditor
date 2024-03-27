@@ -3,6 +3,7 @@
 #include "model.h"
 #include "json.h"
 
+
 MainWindow::MainWindow(Model& model, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -23,6 +24,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::onSaveClicked);
 
+    connect(&model,
+            &Model::imageUpdated,
+            this,
+            &MainWindow::updateLabelImage);
+
     // connect(ui->loadProjectButton,
     //         &QPushButton::clicked,
     //         this,
@@ -41,9 +47,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::pixelChanged(int canvasX, int canvasY)
+void MainWindow::pixelChanged(QPointF point)
 {
-    std::cout<< canvasX << " , " << canvasY << std::endl;
+    std::cout<< point.rx() << " , " << point.ry() << std::endl;
     std::cout << "receiving coords in mainwindow ^" << std::endl;
     // How will we alert the model of this change?
     return; // stub
@@ -57,6 +63,10 @@ void MainWindow::onSaveClicked()
     //JSON::save(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
 }
 
+void MainWindow::updateLabelImage(QImage image)
+{
+    ui->canvasLabel->setPixmap(QPixmap::fromImage(image));
+}
 // MainWindow::onLoadClicked()
 // {
 

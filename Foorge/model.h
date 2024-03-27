@@ -37,6 +37,7 @@ public slots:
     void pixelChanged(QPointF point);
 
 signals:
+    void imageUpdated(QImage image);
 
 
 

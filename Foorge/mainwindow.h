@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <iostream>
 #include "model.h"
-
+#include <QPointF>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -32,9 +32,16 @@ public slots:
     /// \param canvasX
     /// \param canvasY
     ///
-    void pixelChanged(int canvasX, int canvasY);
+    void pixelChanged(QPointF point);
 
     void onSaveClicked();
+
+
+    ///
+    /// \brief updates image in label
+    /// \param image
+    ///
+    void updateLabelImage(QImage image);
     // void onLoadClicked();
     // void onCreateClicked();
 
