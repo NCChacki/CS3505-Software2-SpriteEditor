@@ -12,7 +12,7 @@ Model::Model(QObject *parent) : QObject(parent)
     animationFrames.push_back(firstFrame);
 }
 
-void Model::pixelChanged(int canvasX, int canvasY)
+void Model::pixelChanged(QPointF point)
 {
-    return; // stub
+    animationFrames.at(currentFrame).setPixel(point,pen);
 }
