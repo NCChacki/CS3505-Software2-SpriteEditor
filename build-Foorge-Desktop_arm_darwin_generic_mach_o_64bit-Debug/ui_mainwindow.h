@@ -11,8 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 #include "canvaswidget.h"
@@ -24,6 +26,10 @@ class Ui_MainWindow
 public:
     QWidget *mainWidget;
     CanvasWidget *canvasWidget;
+    QLabel *canvasLabel;
+    QPushButton *saveProjectButton;
+    QPushButton *loadProjectButton;
+    QPushButton *createProjectButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,7 +42,7 @@ public:
         mainWidget->setObjectName("mainWidget");
         canvasWidget = new CanvasWidget(mainWidget);
         canvasWidget->setObjectName("canvasWidget");
-        canvasWidget->setGeometry(QRect(239, 130, 351, 221));
+        canvasWidget->setGeometry(QRect(170, 30, 500, 500));
         QPalette palette;
         QBrush brush(QColor(253, 253, 253, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -55,7 +61,20 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::Base, brush2);
         palette.setBrush(QPalette::Disabled, QPalette::Window, brush2);
         canvasWidget->setPalette(palette);
-        canvasWidget->setAutoFillBackground(true);
+        canvasWidget->setAutoFillBackground(false);
+        canvasLabel = new QLabel(canvasWidget);
+        canvasLabel->setObjectName("canvasLabel");
+        canvasLabel->setGeometry(QRect(0, 0, 500, 500));
+        canvasLabel->setAutoFillBackground(true);
+        saveProjectButton = new QPushButton(mainWidget);
+        saveProjectButton->setObjectName("saveProjectButton");
+        saveProjectButton->setGeometry(QRect(10, 30, 100, 32));
+        loadProjectButton = new QPushButton(mainWidget);
+        loadProjectButton->setObjectName("loadProjectButton");
+        loadProjectButton->setGeometry(QRect(10, 60, 100, 32));
+        createProjectButton = new QPushButton(mainWidget);
+        createProjectButton->setObjectName("createProjectButton");
+        createProjectButton->setGeometry(QRect(10, 90, 100, 32));
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -73,6 +92,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        canvasLabel->setText(QCoreApplication::translate("MainWindow", "There is text on this QLabel", nullptr));
+        saveProjectButton->setText(QCoreApplication::translate("MainWindow", "Save Project", nullptr));
+        loadProjectButton->setText(QCoreApplication::translate("MainWindow", "Load Project", nullptr));
+        createProjectButton->setText(QCoreApplication::translate("MainWindow", "Create Project", nullptr));
     } // retranslateUi
 
 };

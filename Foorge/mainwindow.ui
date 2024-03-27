@@ -17,10 +17,10 @@
    <widget class="CanvasWidget" name="canvasWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>239</x>
-      <y>130</y>
-      <width>351</width>
-      <height>221</height>
+      <x>170</x>
+      <y>30</y>
+      <width>500</width>
+      <height>500</height>
      </rect>
     </property>
     <property name="palette">
@@ -124,8 +124,24 @@
      </palette>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
+    <widget class="QLabel" name="canvasLabel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>500</width>
+       <height>500</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string>There is text on this QLabel</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="saveProjectButton">
     <property name="geometry">
@@ -173,7 +189,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

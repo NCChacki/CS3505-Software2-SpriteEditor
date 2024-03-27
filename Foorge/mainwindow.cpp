@@ -54,7 +54,7 @@ void MainWindow::pixelChanged(int canvasX, int canvasY)
 void MainWindow::onSaveClicked()
 {
     //we can get rid of the hard coded path...i was just using it to test for now hehe
-    JSON::save(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
+    //JSON::save(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
 }
 
 // MainWindow::onLoadClicked()
