@@ -65,6 +65,8 @@ public:
         canvasLabel = new QLabel(canvasWidget);
         canvasLabel->setObjectName("canvasLabel");
         canvasLabel->setGeometry(QRect(0, 0, 500, 500));
+        canvasLabel->setMinimumSize(QSize(500, 500));
+        canvasLabel->setMaximumSize(QSize(500, 500));
         canvasLabel->setAutoFillBackground(true);
         saveProjectButton = new QPushButton(mainWidget);
         saveProjectButton->setObjectName("saveProjectButton");

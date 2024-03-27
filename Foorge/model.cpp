@@ -8,11 +8,15 @@ Model::~Model()
 Model::Model(QObject *parent) : QObject(parent)
 {
 
-    Frame firstFrame(16);
+    Frame firstFrame(64);
     animationFrames.push_back(firstFrame);
+    currentFrame=0;
+    QColor color(255,0,0,255);
+    pen.setColor(color);
+    pen.setWidth(1000);
 }
 
-void Model::pixelChanged(QPointF point)
+void Model::imageChanged(QPointF point)
 {
     animationFrames.at(currentFrame).setPixel(point,pen);
     emit imageUpdated(animationFrames.at(currentFrame).imageData);

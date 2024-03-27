@@ -11,11 +11,17 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
 {
     ui->setupUi(this);
 
-
+    // this one is a waste
     connect(ui->canvasWidget,
             &CanvasWidget::canvasClicked,
             this,
             &MainWindow::pixelChanged);
+
+    // this is the one that actually does stuff
+    connect(ui->canvasWidget,
+            &CanvasWidget::canvasClicked,
+            &model,
+            &Model::imageChanged);
 
 
     //connections for Save/create/load
@@ -28,6 +34,8 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &Model::imageUpdated,
             this,
             &MainWindow::updateLabelImage);
+
+
 
     // connect(ui->loadProjectButton,
     //         &QPushButton::clicked,

@@ -4,6 +4,7 @@
 #include "frame.h"
 #include <QObject>
 #include <QPen>
+#include <QColor>
 
 class Model : public QObject
 {
@@ -34,7 +35,7 @@ private:
 
 
 public slots:
-    void pixelChanged(QPointF point);
+    void imageChanged(QPointF point);
 
 signals:
     void imageUpdated(QImage image);

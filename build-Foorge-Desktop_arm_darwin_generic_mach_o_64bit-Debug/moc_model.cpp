@@ -42,7 +42,7 @@ constexpr auto qt_meta_stringdata_CLASSModelENDCLASS = QtMocHelpers::stringData(
     "imageUpdated",
     "",
     "image",
-    "pixelChanged",
+    "imageChanged",
     "point"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
@@ -63,14 +63,14 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(6, 12),  // "imageUpdated"
         QT_MOC_LITERAL(19, 0),  // ""
         QT_MOC_LITERAL(20, 5),  // "image"
-        QT_MOC_LITERAL(26, 12),  // "pixelChanged"
+        QT_MOC_LITERAL(26, 12),  // "imageChanged"
         QT_MOC_LITERAL(39, 5)   // "point"
     },
     "Model",
     "imageUpdated",
     "",
     "image",
-    "pixelChanged",
+    "imageChanged",
     "point"
 };
 #undef QT_MOC_LITERAL
@@ -117,7 +117,7 @@ Q_CONSTINIT const QMetaObject Model::staticMetaObject = { {
         // method 'imageUpdated'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
-        // method 'pixelChanged'
+        // method 'imageChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QPointF, std::false_type>
     >,
@@ -131,7 +131,7 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         (void)_t;
         switch (_id) {
         case 0: _t->imageUpdated((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
-        case 1: _t->pixelChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 1: _t->imageChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

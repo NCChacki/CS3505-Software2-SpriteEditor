@@ -6,7 +6,7 @@ Frame::Frame() {}
 
 Frame::Frame(int size) : size(size)
 {
-   imageData = QImage(size, size, QImage::Format_Indexed8);
+   imageData = QImage(size, size, QImage::Format_ARGB32);
 }
 
 Frame::~Frame()
