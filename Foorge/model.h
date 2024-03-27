@@ -59,6 +59,7 @@ public slots:
 signals:
     void imageUpdated(QImage image);
     void previewUpdated(QImage image);
+    void addFrameToPreview(QImage image);
 
 
 

@@ -50,6 +50,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::onLoadClicked);
 
+    // connect(&model,
+    //         &Model::addFrameToPreview,
+    //         this,
+    //         &MainWindow::frameSelectorUpdated);
+
     // connect(ui->createProjectButton,
     //         &QPushButton::clicked,
     //         this,
@@ -85,6 +90,7 @@ void MainWindow::updateLabelImage(QImage image)
 
 
     ui->canvasLabel->setPixmap(pixmap.scaledToHeight(500,Qt::FastTransformation));
+    ui->frameLabel3->setPixmap(pixmap.scaledToHeight(100,Qt::FastTransformation));
 }
 
 void MainWindow::updatePreviewImage(QImage image)
@@ -101,6 +107,28 @@ void MainWindow::onLoadClicked()
     JSON::load(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
 }
 
+
+// void MainWindow::frameSelectorUpdated(QImage image)
+// {
+//     //Turn QImage to Qpixmap
+//     QPixmap pixmap = QPixmap::fromImage(image);
+
+//     std::cout << "calling frame selector update##########################" <<std::endl;
+//     //create a framelabel with the desired pixmap
+
+
+//     ui->frameLabel1->setPixmap(pixmap.scaledToHeight(80,Qt::FastTransformation));
+//     // ui->frameLabel2->setPixmap(pixmap.scaledToHeight(80,Qt::FastTransformation));
+//     // ui->frameLabel3->setPixmap(pixmap.scaledToHeight(80,Qt::FastTransformation));
+//     // ui->frameLabel4->setPixmap(pixmap.scaledToHeight(80,Qt::FastTransformation));
+
+
+//     //put the framelabel you created into the horizontal layout
+//     //ui->previewScrollArea->setWidget(frameLabel);
+
+//     //clean up the dynamically allocated QLabel
+//     //delete frameLabel;
+// }
 // MainWindow::onCreateClicked()
 // {
 

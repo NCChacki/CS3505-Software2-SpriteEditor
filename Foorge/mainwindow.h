@@ -44,6 +44,8 @@ public slots:
     void updateLabelImage(QImage image);
     void updatePreviewImage(QImage image);
     void onLoadClicked();
+    //void frameSelectorUpdated(QImage image);
+
     // void onCreateClicked();
 
 private:

@@ -10,14 +10,24 @@ Model::~Model()
 Model::Model(QObject *parent) : QObject(parent)
 {
 
+    //setup first frame
     frameSize = 16;
     Frame firstFrame(frameSize);
     animationFrames.push_back(firstFrame);
     currentFrame=0;
+
+
+
+    //prepare pen
     QColor color(255,0,0,255);
     pen.setColor(color);
     pen.setWidth(1);
     
+    // initalize preview updating stuff
+
+    // let the view know that the first frame is ready to be added to preview
+//emit addFrameToPreview(animationFrames.at(0).imageData);
+
     // initialize default framerate of 30fps
     timerFrameRate = 2;
     //create timer
@@ -37,6 +47,9 @@ void Model::imageChanged(QPointF point)
     animationFrames.at(currentFrame).setPixel(transformedPoint,pen);
 
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
+
+    //This is temporary just to ensure that signal is being emitted.
+    emit addFrameToPreview(animationFrames.at(currentFrame).imageData);
 }
 
 void Model::resetModel()
