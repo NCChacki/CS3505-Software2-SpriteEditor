@@ -14,10 +14,15 @@ class Model : public QObject
 public:
 
     ~Model();
+    ///
+    /// \brief resetModel - clears the Model object but doesn't destroy it
+    ///
+    void resetModel();
 
     explicit Model(QObject *parent = nullptr);
     std::vector<Frame> animationFrames;
     int currentFrame;
+
 
 
 

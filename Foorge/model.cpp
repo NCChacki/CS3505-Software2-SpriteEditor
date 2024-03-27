@@ -25,5 +25,11 @@ void Model::imageChanged(QPointF point)
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
 }
 
+void Model::resetModel()
+{
+    animationFrames.clear();
+    currentFrame = 0;
+}
+
 
 

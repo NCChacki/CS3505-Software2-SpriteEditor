@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "model.h"
 #include "json.h"
+#include <QDebug>
 
 
 MainWindow::MainWindow(Model& model, QWidget *parent)
@@ -23,6 +24,10 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &model,
             &Model::imageChanged);
 
+    connect(&model,
+            &Model::imageUpdated,
+            this,
+            &MainWindow::updateLabelImage);
 
     //connections for Save/create/load
     connect(ui->saveProjectButton,
@@ -30,17 +35,10 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::onSaveClicked);
 
-    connect(&model,
-            &Model::imageUpdated,
+    connect(ui->loadProjectButton,
+            &QPushButton::clicked,
             this,
-            &MainWindow::updateLabelImage);
-
-
-
-    // connect(ui->loadProjectButton,
-    //         &QPushButton::clicked,
-    //         this,
-    //         &MainWindow::onLoadClicked);
+            &MainWindow::onLoadClicked);
 
     // connect(ui->createProjectButton,
     //         &QPushButton::clicked,
@@ -68,7 +66,7 @@ void MainWindow::pixelChanged(QPointF point)
 void MainWindow::onSaveClicked()
 {
     //we can get rid of the hard coded path...i was just using it to test for now hehe
-    //JSON::save(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
+    JSON::save(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
 }
 
 void MainWindow::updateLabelImage(QImage image)
@@ -78,10 +76,12 @@ void MainWindow::updateLabelImage(QImage image)
 
     ui->canvasLabel->setPixmap(pixmap.scaledToHeight(500,Qt::FastTransformation));
 }
-// MainWindow::onLoadClicked()
-// {
-
-// }
+void MainWindow::onLoadClicked()
+{
+    //will have to change to have a pop up window
+    model.resetModel();
+    JSON::load(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
+}
 
 // MainWindow::onCreateClicked()
 // {
