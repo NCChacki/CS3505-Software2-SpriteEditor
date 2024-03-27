@@ -1,24 +1,23 @@
 #include "frame.h"
+#include <QPen>
+#include <ostream>
 
 Frame::Frame() {}
 
 Frame::Frame(int size) : size(size)
 {
-    pixels = new int[size * size * 4] {};
+    pixels = QImage(size, size, QImage::Format_Indexed8);
 }
 
 Frame::~Frame()
 {
-    delete pixels;
 }
 
 
-void Frame::setPixel(int frameX, int frameY, int *rgba)
+void Frame::setPixel(QPointF point, QPen pen)
 {
-    int pixelArrayIndex = (frameY * size + frameX) * 4;
+    //int pixelArrayIndex = (frameY * size + frameX) * 4;
 
-    pixels[pixelArrayIndex] = rgba[0];
-    pixels[pixelArrayIndex+1] = rgba[1];
-    pixels[pixelArrayIndex+2] = rgba[2];
-    pixels[pixelArrayIndex+3] = rgba[3];
+    pixels.setPixelColor(point.toPoint(), pen.color());
+
 }

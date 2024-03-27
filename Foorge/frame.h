@@ -1,6 +1,7 @@
 #ifndef FRAME_H
 #define FRAME_H
 
+#include <QImage>
 class Frame
 {
 public:
@@ -29,11 +30,13 @@ public:
     /// \param frameX X coordinate within frame. coordinate is O, O in top left corner
     /// \param rgba
     ///
-    void setPixel(int frameX, int frameY, int* rgba);
+    void setPixel(QPointF point,  QPen pen);
 
 
     int size;
-    int* pixels;
+
+    QImage pixels;
+
 
 
 

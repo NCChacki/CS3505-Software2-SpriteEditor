@@ -3,6 +3,7 @@
 #include <vector>
 #include "frame.h"
 #include <QObject>
+#include <QPen>
 
 class Model : public QObject
 {
@@ -15,19 +16,25 @@ public:
 
     explicit Model(QObject *parent = nullptr);
     std::vector<Frame> animationFrames;
+    int currentFrame;
 
 
 
 private:
-    int* currentColor;
-    int brushSize;
+    // int* currentColor;
+    // int brushSize;
     int frameSize;
     //std::vector<Frame> animationFrames;
+
+    // current color and brush size
+    QPen pen;
+
+
 
 
 
 public slots:
-    void pixelChanged(int canvasX, int canvasY);
+    void pixelChanged(QPointF point);
 
 signals:
 
