@@ -52,6 +52,13 @@ public slots:
     void updateLabelImage(QImage image);
     void updatePreviewImage(QImage image);
 
+    ///
+    /// \brief slot for updating the frame preview window
+    /// \param previewImages vector of preview images, selected image
+    /// is at index 3
+    ///
+    void updateFramePreview(std::vector<QImage> previewImages);
+
     //void frameSelectorUpdated(QImage image);
 protected:
     void closeEvent(QCloseEvent *event);

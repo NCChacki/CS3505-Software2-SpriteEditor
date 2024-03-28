@@ -7,6 +7,7 @@
 #include <QColor>
 #include <QWidget>
 #include <QTimer>
+#include <iostream>
 
 class Model : public QObject
 {
@@ -47,6 +48,13 @@ private:
     QTimer* previewTimer;
     int timerFrameRate;
 
+    ///
+    /// \brief helper method for deterimining what 5 frames should be sent to view
+    /// to be shown in frame preview window
+    /// \return a vector of 5 images with the image at index 2 being the selected frame
+    ///
+    std::vector<QImage> getPreviewFrames();
+
 
 
 
@@ -55,11 +63,20 @@ public slots:
     void imageChanged(QPointF point);
     void timeToUpdatePreview();
     void addNewFrame();
+    void nextFrame();
+    void previousFrame();
 
 signals:
     void imageUpdated(QImage image);
     void previewUpdated(QImage image);
-    void addFrameToPreview(QImage image);
+    ///
+    /// \brief signal for alerting the view of what frames should be displayed within
+    /// the frame preview.
+    /// The third image is the currently selected image
+    /// \param imageArray is an array of the 5 QImages that need to be displayed
+    ///
+    void sendPreviewFrames(std::vector<QImage> imageVector);
+    //void addFrameToPreview(QImage image);
 
 
 

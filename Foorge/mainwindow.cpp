@@ -27,10 +27,21 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::pixelChanged);
 
+
     connect(ui->newFrameButton,
             &QPushButton::clicked,
             &model,
             &Model::addNewFrame);
+
+    connect(ui->nextFrameButton,
+            &QPushButton::clicked,
+            &model,
+            &Model::nextFrame);
+
+    connect(ui->previousFrameButton,
+            &QPushButton::clicked,
+            &model,
+            &Model::previousFrame);
 
     // this is the one that actually does stuff
     connect(ui->canvasWidget,
@@ -64,6 +75,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::updateLabelImage);
 
+    connect(&model,
+            &Model::sendPreviewFrames,
+            this,
+            &MainWindow::updateFramePreview);
+
     // connect(&model,
     //         &Model::addFrameToPreview,
     //         this,
@@ -84,8 +100,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::pixelChanged(QPointF point)
 {
-    std::cout<< point.rx() << " , " << point.ry() << std::endl;
-    std::cout << "receiving coords in mainwindow ^" << std::endl;
+   // std::cout<< point.rx() << " , " << point.ry() << std::endl;
+   // std::cout << "receiving coords in mainwindow ^" << std::endl;
     // How will we alert the model of this change?
     canvasChanged = true;
     return; // stub
@@ -200,6 +216,16 @@ void MainWindow::closeEvent(QCloseEvent* closeEvent)
             break;
         }
     }
+}
+
+void MainWindow::updateFramePreview(std::vector<QImage> previewImages)
+{
+    std::cout << "calling mainwindow update frame preview" << std::endl;
+    ui->frameLabel1->setPixmap(QPixmap::fromImage(previewImages.at(0)).scaledToHeight(100,Qt::FastTransformation));
+    ui->frameLabel2->setPixmap(QPixmap::fromImage(previewImages.at(1)).scaledToHeight(100,Qt::FastTransformation));
+    ui->frameLabel3->setPixmap(QPixmap::fromImage(previewImages.at(2)).scaledToHeight(100,Qt::FastTransformation));
+    ui->frameLabel4->setPixmap(QPixmap::fromImage(previewImages.at(3)).scaledToHeight(100,Qt::FastTransformation));
+    ui->frameLabel5->setPixmap(QPixmap::fromImage(previewImages.at(4)).scaledToHeight(100,Qt::FastTransformation));
 }
 
 

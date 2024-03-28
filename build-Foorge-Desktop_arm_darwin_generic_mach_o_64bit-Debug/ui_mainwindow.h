@@ -34,16 +34,16 @@ public:
     QPushButton *createProjectButton;
     QLabel *previewLabel;
     QPushButton *newFrameButton;
-    QFrame *frame;
+    QPushButton *nextFrameButton;
+    QPushButton *previousFrameButton;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *frameLabel1;
     QLabel *frameLabel2;
+    QFrame *frame_2;
     QLabel *frameLabel3;
     QLabel *frameLabel4;
     QLabel *frameLabel5;
-    QPushButton *previousFrameButton;
-    QPushButton *nextFrameButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -97,49 +97,65 @@ public:
         previewLabel->setGeometry(QRect(650, 0, 100, 100));
         newFrameButton = new QPushButton(mainWidget);
         newFrameButton->setObjectName("newFrameButton");
-        newFrameButton->setGeometry(QRect(89, 450, 101, 32));
-        frame = new QFrame(mainWidget);
-        frame->setObjectName("frame");
-        frame->setGeometry(QRect(200, 440, 500, 100));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        horizontalLayoutWidget = new QWidget(frame);
+        newFrameButton->setGeometry(QRect(40, 450, 101, 32));
+        nextFrameButton = new QPushButton(mainWidget);
+        nextFrameButton->setObjectName("nextFrameButton");
+        nextFrameButton->setGeometry(QRect(40, 480, 101, 32));
+        previousFrameButton = new QPushButton(mainWidget);
+        previousFrameButton->setObjectName("previousFrameButton");
+        previousFrameButton->setGeometry(QRect(40, 510, 101, 32));
+        horizontalLayoutWidget = new QWidget(mainWidget);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(-1, -1, 501, 101));
+        horizontalLayoutWidget->setGeometry(QRect(150, 440, 591, 102));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         frameLabel1 = new QLabel(horizontalLayoutWidget);
         frameLabel1->setObjectName("frameLabel1");
+        frameLabel1->setMinimumSize(QSize(100, 100));
+        frameLabel1->setMaximumSize(QSize(100, 100));
 
         horizontalLayout->addWidget(frameLabel1);
 
         frameLabel2 = new QLabel(horizontalLayoutWidget);
         frameLabel2->setObjectName("frameLabel2");
+        frameLabel2->setMinimumSize(QSize(100, 100));
+        frameLabel2->setMaximumSize(QSize(100, 100));
 
         horizontalLayout->addWidget(frameLabel2);
 
-        frameLabel3 = new QLabel(horizontalLayoutWidget);
+        frame_2 = new QFrame(horizontalLayoutWidget);
+        frame_2->setObjectName("frame_2");
+        frame_2->setEnabled(true);
+        frame_2->setMinimumSize(QSize(100, 100));
+        frame_2->setMaximumSize(QSize(100, 100));
+        frame_2->setFrameShape(QFrame::Box);
+        frame_2->setFrameShadow(QFrame::Raised);
+        frame_2->setLineWidth(2);
+        frameLabel3 = new QLabel(frame_2);
         frameLabel3->setObjectName("frameLabel3");
+        frameLabel3->setEnabled(true);
+        frameLabel3->setGeometry(QRect(0, 0, 100, 100));
+        frameLabel3->setMinimumSize(QSize(100, 100));
+        frameLabel3->setMaximumSize(QSize(100, 100));
 
-        horizontalLayout->addWidget(frameLabel3);
+        horizontalLayout->addWidget(frame_2);
 
         frameLabel4 = new QLabel(horizontalLayoutWidget);
         frameLabel4->setObjectName("frameLabel4");
+        frameLabel4->setMinimumSize(QSize(100, 100));
+        frameLabel4->setMaximumSize(QSize(100, 100));
 
         horizontalLayout->addWidget(frameLabel4);
 
         frameLabel5 = new QLabel(horizontalLayoutWidget);
         frameLabel5->setObjectName("frameLabel5");
+        frameLabel5->setMinimumSize(QSize(100, 100));
+        frameLabel5->setMaximumSize(QSize(100, 100));
 
         horizontalLayout->addWidget(frameLabel5);
 
-        previousFrameButton = new QPushButton(mainWidget);
-        previousFrameButton->setObjectName("previousFrameButton");
-        previousFrameButton->setGeometry(QRect(89, 480, 101, 32));
-        nextFrameButton = new QPushButton(mainWidget);
-        nextFrameButton->setObjectName("nextFrameButton");
-        nextFrameButton->setGeometry(QRect(89, 510, 101, 32));
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -160,19 +176,19 @@ public:
 #if QT_CONFIG(accessibility)
         canvasLabel->setAccessibleDescription(QString());
 #endif // QT_CONFIG(accessibility)
-        canvasLabel->setText(QCoreApplication::translate("MainWindow", "There is text on this QLabel", nullptr));
+        canvasLabel->setText(QString());
         saveProjectButton->setText(QCoreApplication::translate("MainWindow", "Save Project", nullptr));
         loadProjectButton->setText(QCoreApplication::translate("MainWindow", "Load Project", nullptr));
         createProjectButton->setText(QCoreApplication::translate("MainWindow", "Create Project", nullptr));
         previewLabel->setText(QCoreApplication::translate("MainWindow", "Preview Window", nullptr));
         newFrameButton->setText(QCoreApplication::translate("MainWindow", "New Frame", nullptr));
-        frameLabel1->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        frameLabel2->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        frameLabel3->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        frameLabel4->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        frameLabel5->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        previousFrameButton->setText(QCoreApplication::translate("MainWindow", "Next Frame", nullptr));
-        nextFrameButton->setText(QCoreApplication::translate("MainWindow", "Previous Frame", nullptr));
+        nextFrameButton->setText(QCoreApplication::translate("MainWindow", "Next Frame", nullptr));
+        previousFrameButton->setText(QCoreApplication::translate("MainWindow", "Previous Frame", nullptr));
+        frameLabel1->setText(QString());
+        frameLabel2->setText(QString());
+        frameLabel3->setText(QString());
+        frameLabel4->setText(QString());
+        frameLabel5->setText(QString());
     } // retranslateUi
 
 };

@@ -691,6 +691,10 @@ moc_mainwindow.cpp: ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QCloseEvent \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc
 	/Users/evanblanchard/Qt/6.6.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/evanblanchard/Qt/6.6.2/macos/mkspecs/macx-clang -I'/Users/evanblanchard/Downloads/Spring 2024/CS 3505/Assignment8/cs3505-assignment8-J-Sandhu/Foorge' -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers -I/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/evanblanchard/Qt/6.6.2/macos/lib ../Foorge/mainwindow.h -o moc_mainwindow.cpp
 
@@ -811,6 +815,10 @@ main.o: ../Foorge/main.cpp ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QCloseEvent \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Foorge/main.cpp
@@ -834,12 +842,18 @@ mainwindow.o: ../Foorge/mainwindow.cpp ../Foorge/mainwindow.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QPointF \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/QCloseEvent \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtGui.framework/Headers/qevent.h \
 		ui_mainwindow.h \
 		../Foorge/json.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QString \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qstring.h \
 		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/QDebug \
-		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qdebug.h
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/QFileDialog \
+		/Users/evanblanchard/Qt/6.6.2/macos/lib/QtWidgets.framework/Headers/qfiledialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Foorge/mainwindow.cpp
 
 model.o: ../Foorge/model.cpp ../Foorge/model.h \

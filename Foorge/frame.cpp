@@ -7,6 +7,8 @@ Frame::Frame() {}
 Frame::Frame(int size) : size(size)
 {
    imageData = QImage(size, size, QImage::Format_ARGB32);
+   QColor transparent(255,255,255,0);
+   imageData.fill(transparent);
 }
 
 Frame::~Frame()
