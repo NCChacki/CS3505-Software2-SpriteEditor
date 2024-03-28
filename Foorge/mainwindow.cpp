@@ -3,6 +3,10 @@
 #include "model.h"
 #include "json.h"
 #include <QDebug>
+#include <QCloseEvent>
+#include <QFileDialog>
+
+
 
 
 MainWindow::MainWindow(Model& model, QWidget *parent)
@@ -11,6 +15,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
     , model(model)
 {
     ui->setupUi(this);
+
+    //set up warning msg box
+    msgBox.setInformativeText("Do you want to save your changes?");
+    msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+    msgBox.setDefaultButton(QMessageBox::Save);
 
     // this one is a waste
     connect(ui->canvasWidget,
@@ -50,6 +59,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::onLoadClicked);
 
+    connect(this,
+            &MainWindow::fileLoadedSignal,
+            this,
+            &MainWindow::updateLabelImage);
+
     // connect(&model,
     //         &Model::addFrameToPreview,
     //         this,
@@ -73,15 +87,22 @@ void MainWindow::pixelChanged(QPointF point)
     std::cout<< point.rx() << " , " << point.ry() << std::endl;
     std::cout << "receiving coords in mainwindow ^" << std::endl;
     // How will we alert the model of this change?
+    canvasChanged = true;
     return; // stub
-
-
 }
 
 void MainWindow::onSaveClicked()
 {
-    //we can get rid of the hard coded path...i was just using it to test for now hehe
-    JSON::save(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
+    QString saveAsFileName = QFileDialog::getSaveFileName(this, tr("Save File"), "./",  "Any files (*)");
+
+    if (saveAsFileName == "")
+    {
+        QMessageBox::warning(this, tr("Warning"), tr("File name not given, please provide a file name to save as"), QMessageBox::Ok, QMessageBox::Ok);
+        return;
+    }
+
+    JSON::save(model, saveAsFileName);
+    canvasChanged = false;
 }
 
 void MainWindow::updateLabelImage(QImage image)
@@ -100,11 +121,30 @@ void MainWindow::updatePreviewImage(QImage image)
 
     ui->previewLabel->setPixmap(pixmap.scaledToHeight(100,Qt::FastTransformation));
 }
+
 void MainWindow::onLoadClicked()
 {
-    //will have to change to have a pop up window
+    if (canvasChanged)
+    {
+        int ret = QMessageBox::warning(this, tr("Warning"), tr("Do you want to load a new file without saving?"), QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Ok);
+
+        switch (ret) {
+        case QMessageBox::Ok:
+            // Save was clicked
+            break;
+        default:
+            return;
+        }
+    }
+    QString selectedFileName = QFileDialog::getOpenFileName(this, tr("Select File"), "./", "Any files (*)");
+    if (selectedFileName == "")
+    {
+        QMessageBox::warning(this, tr("Warning"), tr("File name not given, please provide a file name to open"), QMessageBox::Ok, QMessageBox::Ok);
+        return;
+    }
     model.resetModel();
-    JSON::load(model, "/Users/victoriayong/Projects/Examples/cs3505Assignment8/Foorge/blah");
+    JSON::load(model, selectedFileName);
+    emit fileLoadedSignal(model.animationFrames[0].imageData);
 }
 
 
@@ -129,7 +169,37 @@ void MainWindow::onLoadClicked()
 //     //clean up the dynamically allocated QLabel
 //     //delete frameLabel;
 // }
+
 // MainWindow::onCreateClicked()
 // {
 
 // }
+
+void MainWindow::closeEvent(QCloseEvent* closeEvent)
+{
+    if(canvasChanged)
+    {
+        closeEvent -> ignore();
+        int ret = msgBox.exec();
+
+        switch (ret) {
+        case QMessageBox::Save:
+            // Save was clicked
+            onSaveClicked();
+            closeEvent -> accept();
+            break;
+        case QMessageBox::Discard:
+            // Don't Save was clicked
+            closeEvent -> accept();
+            break;
+        case QMessageBox::Cancel:
+            // Cancel was clicked
+            break;
+        default:
+            // should never be reached
+            break;
+        }
+    }
+}
+
+

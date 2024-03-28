@@ -5,6 +5,8 @@
 #include <iostream>
 #include "model.h"
 #include <QPointF>
+#include <QMessageBox>
+#include <QCloseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,10 +22,14 @@ public:
     MainWindow(Model& model, QWidget *parent = nullptr); //
     ~MainWindow();
     Model& model;
+    QMessageBox msgBox;
+    bool canvasChanged = false;
+
+signals:
+    void fileLoadedSignal(QImage image);
 
 
 public slots:
-
     ///
     /// \brief slot to be subscribed to mouse events within CanvasWidget.
     /// This is where the logic for converting from Canvas coordinatees to
@@ -35,6 +41,8 @@ public slots:
     void pixelChanged(QPointF point);
 
     void onSaveClicked();
+    void onLoadClicked();
+    // void onCreateClicked();
 
 
     ///
@@ -43,11 +51,10 @@ public slots:
     ///
     void updateLabelImage(QImage image);
     void updatePreviewImage(QImage image);
-    void onLoadClicked();
+
     //void frameSelectorUpdated(QImage image);
-
-    // void onCreateClicked();
-
+protected:
+    void closeEvent(QCloseEvent *event);
 private:
     Ui::MainWindow *ui;
 
