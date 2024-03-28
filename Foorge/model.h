@@ -32,11 +32,11 @@ public:
     void initializeSelector();
 
 
-
 private:
     // int* currentColor;
     // int brushSize;
     int frameSize;
+    bool onionState;
     //std::vector<Frame> animationFrames;
 
     // current color and brush size
@@ -67,6 +67,7 @@ private:
 
 public slots:
     void imageChanged(QPointF point);
+<<<<<<< Updated upstream
     void timeToUpdatePreview();
     void addNewFrame();
     void nextFrame();
@@ -86,6 +87,14 @@ signals:
     void sendPreviewFrames(std::vector<QImage> imageVector);
     //void addFrameToPreview(QImage image);
 
+=======
+    void toggleOnion();
+
+signals:
+    void imageUpdated(QImage image);
+    void enableOnion(QImage image);
+    void disableOnion(QImage image);
+>>>>>>> Stashed changes
 
 
 };

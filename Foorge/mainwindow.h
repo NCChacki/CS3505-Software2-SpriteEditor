@@ -43,6 +43,8 @@ public slots:
     void onLoadClicked();
     // void onCreateClicked();
 
+    void receiveOnionFrame(QImage onionImage);
+    void disableOnionFrame(QImage onionImage);
 
     ///
     /// \brief updates image in label
@@ -64,6 +66,7 @@ protected:
     void closeEvent(QCloseEvent *event);
 private:
     Ui::MainWindow *ui;
+    QImage transparent;
 
 };
 #endif // MAINWINDOW_H
