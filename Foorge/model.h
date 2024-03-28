@@ -79,6 +79,11 @@ public slots:
     void deleteFrame();
     void toggleOnion();
 
+    void colorChanged(QColor newColor);
+    void eraseClicked();
+    void eraseScreen();
+    void brushSizeChanged(int newSize);
+
 signals:
     void imageUpdated(QImage image);
     void previewUpdated(QImage image);

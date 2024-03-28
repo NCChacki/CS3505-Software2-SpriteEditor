@@ -16,10 +16,43 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
 {
     ui->setupUi(this);
 
+    //set up the color dialog box, for chosing colors
+    colorPicker= new QColorDialog(parent);
+    ui->colorPickerLayout->addWidget(colorPicker);
+
     //set up warning msg box
     msgBox.setInformativeText("Do you want to save your changes?");
     msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
     msgBox.setDefaultButton(QMessageBox::Save);
+
+    //set up brush size box
+    QList<QString> brushSizes;
+    brushSizes.append({"10", "15", "20"});
+    ui->brushSizeBox->addItems(brushSizes);
+
+
+    // connect(ui->brushSizeBox,
+    //         &QComboBox,
+    //         &model,
+    //         &Model::)
+
+    //connect the erase buttons
+    connect(ui->eraseButton,
+            &QPushButton::clicked,
+            &model,
+            &Model::eraseClicked);
+
+    connect(ui->eraseScreen,
+            &QPushButton::clicked,
+            &model,
+            &Model::eraseScreen);
+
+    //conections fo rcolor picker
+    connect( colorPicker,
+            &QColorDialog::currentColorChanged,
+            &model,
+            &Model::colorChanged
+            );
 
     // this one is a waste
     connect(ui->canvasWidget,

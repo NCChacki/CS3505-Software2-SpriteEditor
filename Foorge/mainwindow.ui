@@ -17,7 +17,7 @@
    <widget class="CanvasWidget" name="canvasWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>300</x>
       <y>0</y>
       <width>400</width>
       <height>400</height>
@@ -169,6 +169,18 @@
        <height>400</height>
       </rect>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>400</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>400</width>
+       <height>400</height>
+      </size>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -181,6 +193,18 @@
        <width>400</width>
        <height>400</height>
       </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>400</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>400</width>
+       <height>400</height>
+      </size>
      </property>
      <property name="palette">
       <palette>
@@ -278,8 +302,8 @@
    <widget class="QLabel" name="previewLabel">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>0</y>
+      <x>700</x>
+      <y>10</y>
       <width>100</width>
       <height>100</height>
      </rect>
@@ -330,8 +354,8 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>440</y>
+      <x>220</x>
+      <y>410</y>
       <width>591</width>
       <height>102</height>
      </rect>
@@ -477,8 +501,8 @@
    <widget class="QSlider" name="frameRateSlider">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>110</y>
+      <x>700</x>
+      <y>120</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -526,6 +550,53 @@
     </property>
     <property name="text">
      <string>Onion Button</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>250</y>
+      <width>160</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="colorPickerLayout"/>
+   </widget>
+   <widget class="QPushButton" name="eraseButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Erase</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="eraseScreen">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>190</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EraseScreen</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="brushSizeBox">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>370</y>
+      <width>103</width>
+      <height>32</height>
+     </rect>
     </property>
    </widget>
   </widget>

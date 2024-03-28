@@ -7,6 +7,7 @@
 #include <QPointF>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QColorDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,6 +25,7 @@ public:
     Model& model;
     QMessageBox msgBox;
     bool canvasChanged = false;
+    QColorDialog *colorPicker;
 
 signals:
     void fileLoadedSignal(QImage image);
