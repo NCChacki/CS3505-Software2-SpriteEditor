@@ -53,11 +53,12 @@ constexpr auto qt_meta_stringdata_CLASSModelENDCLASS = QtMocHelpers::stringData(
     "nextFrame",
     "previousFrame",
     "frameRateChanged",
-    "newFrameRate"
+    "newFrameRate",
+    "deleteFrame"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSModelENDCLASS_t {
-    uint offsetsAndSizes[32];
+    uint offsetsAndSizes[34];
     char stringdata0[6];
     char stringdata1[13];
     char stringdata2[1];
@@ -74,6 +75,7 @@ struct qt_meta_stringdata_CLASSModelENDCLASS_t {
     char stringdata13[14];
     char stringdata14[17];
     char stringdata15[13];
+    char stringdata16[12];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSModelENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -94,7 +96,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(142, 9),  // "nextFrame"
         QT_MOC_LITERAL(152, 13),  // "previousFrame"
         QT_MOC_LITERAL(166, 16),  // "frameRateChanged"
-        QT_MOC_LITERAL(183, 12)   // "newFrameRate"
+        QT_MOC_LITERAL(183, 12),  // "newFrameRate"
+        QT_MOC_LITERAL(196, 11)   // "deleteFrame"
     },
     "Model",
     "imageUpdated",
@@ -111,7 +114,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
     "nextFrame",
     "previousFrame",
     "frameRateChanged",
-    "newFrameRate"
+    "newFrameRate",
+    "deleteFrame"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -123,7 +127,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -131,17 +135,18 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   68,    2, 0x06,    1 /* Public */,
-       4,    1,   71,    2, 0x06,    3 /* Public */,
-       5,    1,   74,    2, 0x06,    5 /* Public */,
+       1,    1,   74,    2, 0x06,    1 /* Public */,
+       4,    1,   77,    2, 0x06,    3 /* Public */,
+       5,    1,   80,    2, 0x06,    5 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       8,    1,   77,    2, 0x0a,    7 /* Public */,
-      10,    0,   80,    2, 0x0a,    9 /* Public */,
-      11,    0,   81,    2, 0x0a,   10 /* Public */,
-      12,    0,   82,    2, 0x0a,   11 /* Public */,
-      13,    0,   83,    2, 0x0a,   12 /* Public */,
-      14,    1,   84,    2, 0x0a,   13 /* Public */,
+       8,    1,   83,    2, 0x0a,    7 /* Public */,
+      10,    0,   86,    2, 0x0a,    9 /* Public */,
+      11,    0,   87,    2, 0x0a,   10 /* Public */,
+      12,    0,   88,    2, 0x0a,   11 /* Public */,
+      13,    0,   89,    2, 0x0a,   12 /* Public */,
+      14,    1,   90,    2, 0x0a,   13 /* Public */,
+      16,    0,   93,    2, 0x0a,   15 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QImage,    3,
@@ -155,6 +160,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -190,7 +196,9 @@ Q_CONSTINIT const QMetaObject Model::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'frameRateChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'deleteFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -210,6 +218,7 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 6: _t->nextFrame(); break;
         case 7: _t->previousFrame(); break;
         case 8: _t->frameRateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->deleteFrame(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -257,13 +266,13 @@ int Model::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

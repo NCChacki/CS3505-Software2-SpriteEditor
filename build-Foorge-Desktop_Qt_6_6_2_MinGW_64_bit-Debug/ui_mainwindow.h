@@ -11,15 +11,22 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+<<<<<<< HEAD
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
+=======
+#include <QtWidgets/QFrame>
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+<<<<<<< HEAD
 #include <QtWidgets/QVBoxLayout>
+=======
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 #include <QtWidgets/QWidget>
 #include "canvaswidget.h"
 
@@ -30,10 +37,16 @@ class Ui_MainWindow
 public:
     QWidget *mainWidget;
     CanvasWidget *canvasWidget;
+<<<<<<< HEAD
+=======
+    QLabel *transparentLabel;
+    QLabel *onionLabel;
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
     QLabel *canvasLabel;
     QPushButton *saveProjectButton;
     QPushButton *loadProjectButton;
     QPushButton *createProjectButton;
+<<<<<<< HEAD
     QLabel *previewLabel;
     QPushButton *newFrameButton;
     QPushButton *nextFrameButton;
@@ -51,6 +64,13 @@ public:
     QPushButton *eraseButton;
     QPushButton *eraseScreen;
     QComboBox *brushSizeBox;
+=======
+    QPushButton *pushButton;
+    QFrame *line;
+    QFrame *line_2;
+    QFrame *line_3;
+    QFrame *line_4;
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -58,12 +78,21 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
+<<<<<<< HEAD
         MainWindow->resize(1359, 962);
+=======
+        MainWindow->resize(800, 600);
+        MainWindow->setAutoFillBackground(false);
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
         mainWidget = new QWidget(MainWindow);
         mainWidget->setObjectName("mainWidget");
         canvasWidget = new CanvasWidget(mainWidget);
         canvasWidget->setObjectName("canvasWidget");
+<<<<<<< HEAD
         canvasWidget->setGeometry(QRect(200, 0, 400, 400));
+=======
+        canvasWidget->setGeometry(QRect(130, 30, 501, 501));
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
         QPalette palette;
         QBrush brush(QColor(253, 253, 253, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -82,6 +111,7 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::Base, brush2);
         palette.setBrush(QPalette::Disabled, QPalette::Window, brush2);
         canvasWidget->setPalette(palette);
+<<<<<<< HEAD
         canvasWidget->setAutoFillBackground(false);
         canvasLabel = new QLabel(canvasWidget);
         canvasLabel->setObjectName("canvasLabel");
@@ -93,12 +123,34 @@ public:
         saveProjectButton = new QPushButton(mainWidget);
         saveProjectButton->setObjectName("saveProjectButton");
         saveProjectButton->setGeometry(QRect(10, 30, 100, 32));
+=======
+        canvasWidget->setAutoFillBackground(true);
+        canvasWidget->setStyleSheet(QString::fromUtf8(""));
+        transparentLabel = new QLabel(canvasWidget);
+        transparentLabel->setObjectName("transparentLabel");
+        transparentLabel->setGeometry(QRect(0, 0, 501, 501));
+        onionLabel = new QLabel(canvasWidget);
+        onionLabel->setObjectName("onionLabel");
+        onionLabel->setGeometry(QRect(0, 0, 501, 501));
+        onionLabel->setAutoFillBackground(false);
+        canvasLabel = new QLabel(canvasWidget);
+        canvasLabel->setObjectName("canvasLabel");
+        canvasLabel->setGeometry(QRect(0, 0, 500, 500));
+        canvasLabel->setMinimumSize(QSize(500, 500));
+        canvasLabel->setMaximumSize(QSize(500, 500));
+        canvasLabel->setAutoFillBackground(false);
+        saveProjectButton = new QPushButton(mainWidget);
+        saveProjectButton->setObjectName("saveProjectButton");
+        saveProjectButton->setGeometry(QRect(10, 30, 100, 32));
+        saveProjectButton->setAutoFillBackground(false);
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
         loadProjectButton = new QPushButton(mainWidget);
         loadProjectButton->setObjectName("loadProjectButton");
         loadProjectButton->setGeometry(QRect(10, 60, 100, 32));
         createProjectButton = new QPushButton(mainWidget);
         createProjectButton->setObjectName("createProjectButton");
         createProjectButton->setGeometry(QRect(10, 90, 100, 32));
+<<<<<<< HEAD
         previewLabel = new QLabel(mainWidget);
         previewLabel->setObjectName("previewLabel");
         previewLabel->setGeometry(QRect(650, 0, 100, 100));
@@ -182,6 +234,35 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1359, 17));
+=======
+        pushButton = new QPushButton(mainWidget);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(700, 30, 80, 18));
+        line = new QFrame(mainWidget);
+        line->setObjectName("line");
+        line->setGeometry(QRect(120, 30, 20, 501));
+        line->setFrameShape(QFrame::VLine);
+        line->setFrameShadow(QFrame::Sunken);
+        line_2 = new QFrame(mainWidget);
+        line_2->setObjectName("line_2");
+        line_2->setGeometry(QRect(620, 30, 20, 501));
+        line_2->setFrameShape(QFrame::VLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+        line_3 = new QFrame(mainWidget);
+        line_3->setObjectName("line_3");
+        line_3->setGeometry(QRect(130, 520, 501, 20));
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+        line_4 = new QFrame(mainWidget);
+        line_4->setObjectName("line_4");
+        line_4->setGeometry(QRect(130, 20, 501, 20));
+        line_4->setFrameShape(QFrame::HLine);
+        line_4->setFrameShadow(QFrame::Sunken);
+        MainWindow->setCentralWidget(mainWidget);
+        menubar = new QMenuBar(MainWindow);
+        menubar->setObjectName("menubar");
+        menubar->setGeometry(QRect(0, 0, 800, 17));
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -195,6 +276,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+<<<<<<< HEAD
 #if QT_CONFIG(accessibility)
         canvasLabel->setAccessibleDescription(QString());
 #endif // QT_CONFIG(accessibility)
@@ -213,6 +295,18 @@ public:
         frameLabel5->setText(QString());
         eraseButton->setText(QCoreApplication::translate("MainWindow", "Erase", nullptr));
         eraseScreen->setText(QCoreApplication::translate("MainWindow", "Erase Screen", nullptr));
+=======
+        transparentLabel->setText(QCoreApplication::translate("MainWindow", "\n"
+"\n"
+"Transparent Layer", nullptr));
+        onionLabel->setText(QCoreApplication::translate("MainWindow", "\n"
+"Onion Laya", nullptr));
+        canvasLabel->setText(QCoreApplication::translate("MainWindow", "There is text on this QLabel", nullptr));
+        saveProjectButton->setText(QCoreApplication::translate("MainWindow", "Save Project", nullptr));
+        loadProjectButton->setText(QCoreApplication::translate("MainWindow", "Load Project", nullptr));
+        createProjectButton->setText(QCoreApplication::translate("MainWindow", "Create Project", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "onion", nullptr));
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
     } // retranslateUi
 
 };

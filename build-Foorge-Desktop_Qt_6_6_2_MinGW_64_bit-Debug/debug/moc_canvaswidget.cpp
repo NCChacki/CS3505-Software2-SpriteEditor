@@ -6,7 +6,11 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+<<<<<<< HEAD
 #include "../../../../GitHub/cs3505-assignment8-J-Sandhu/Foorge/canvaswidget.h"
+=======
+#include "../../Foorge/canvaswidget.h"
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 #include <QtCore/qmetatype.h>
 
 #if __has_include(<QtCore/qtmochelpers.h>)

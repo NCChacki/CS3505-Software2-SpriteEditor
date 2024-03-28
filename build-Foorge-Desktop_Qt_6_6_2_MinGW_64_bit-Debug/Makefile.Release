@@ -292,10 +292,16 @@ release/moc_canvaswidget.cpp: ../Foorge/canvaswidget.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qnativeinterface.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QMouseEvent \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QPointF \
 		release/moc_predefs.h \
 		C:/Qt/6.6.2/mingw_64/bin/moc.exe
 	C:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Norman Canning/OneDrive - University of Utah/Documents/foorge/cs3505-assignment8-J-Sandhu/build-Foorge-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/Norman Canning/OneDrive - University of Utah/Documents/foorge/cs3505-assignment8-J-Sandhu/Foorge" -IC:/Qt/6.6.2/mingw_64/include -IC:/Qt/6.6.2/mingw_64/include/QtWidgets -IC:/Qt/6.6.2/mingw_64/include/QtGui -IC:/Qt/6.6.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Foorge\canvaswidget.h -o release\moc_canvaswidget.cpp
+=======
+		release/moc_predefs.h \
+		C:/Qt/6.6.2/mingw_64/bin/moc.exe
+	C:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/jaibir/Documents/GitHub/cs3505-assignment8-J-Sandhu/build-Foorge-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/jaibir/Documents/GitHub/cs3505-assignment8-J-Sandhu/Foorge -IC:/Qt/6.6.2/mingw_64/include -IC:/Qt/6.6.2/mingw_64/include/QtWidgets -IC:/Qt/6.6.2/mingw_64/include/QtGui -IC:/Qt/6.6.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Foorge\canvaswidget.h -o release\moc_canvaswidget.cpp
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 
 release/moc_mainwindow.cpp: ../Foorge/mainwindow.h \
 		C:/Qt/6.6.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -464,6 +470,7 @@ release/moc_mainwindow.cpp: ../Foorge/mainwindow.h \
 		C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
 		../Foorge/model.h \
 		../Foorge/frame.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QImage \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QPen \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qpen.h \
@@ -487,6 +494,18 @@ release/moc_model.cpp: ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QImage \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qtguiglobal.h \
+=======
+		release/moc_predefs.h \
+		C:/Qt/6.6.2/mingw_64/bin/moc.exe
+	C:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/jaibir/Documents/GitHub/cs3505-assignment8-J-Sandhu/build-Foorge-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/jaibir/Documents/GitHub/cs3505-assignment8-J-Sandhu/Foorge -IC:/Qt/6.6.2/mingw_64/include -IC:/Qt/6.6.2/mingw_64/include/QtWidgets -IC:/Qt/6.6.2/mingw_64/include/QtGui -IC:/Qt/6.6.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Foorge\mainwindow.h -o release\moc_mainwindow.cpp
+
+release/moc_model.cpp: ../Foorge/model.h \
+		../Foorge/frame.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/QObject \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qnamespace.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtconfiginclude.h \
@@ -530,6 +549,7 @@ release/moc_model.cpp: ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qversiontagging.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qtgui-config.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qtguiexports.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qcolor.h \
@@ -547,11 +567,27 @@ release/moc_model.cpp: ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/q20functional.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/q20memory.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qhashfunctions.h \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearray.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qrefcount.h \
+<<<<<<< HEAD
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qxptype_traits.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/q20functional.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/q20memory.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearrayview.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringfwd.h \
@@ -563,6 +599,7 @@ release/moc_model.cpp: ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qutf8stringview.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringtokenizer.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringbuilder.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qiterator.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearraylist.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qalgorithms.h \
@@ -592,6 +629,21 @@ release/moc_model.cpp: ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qcoreevent.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qmetatype.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qcompare.h \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qiodevicebase.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qfloat16.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qmath.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qiterable.h \
@@ -601,6 +653,7 @@ release/moc_model.cpp: ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qscopeguard.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbindingstorage.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QPen \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qpen.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qbrush.h \
@@ -656,6 +709,11 @@ release/moc_model.cpp: ../Foorge/model.h \
 		release/moc_predefs.h \
 		C:/Qt/6.6.2/mingw_64/bin/moc.exe
 	C:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Norman Canning/OneDrive - University of Utah/Documents/foorge/cs3505-assignment8-J-Sandhu/build-Foorge-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -I"C:/Users/Norman Canning/OneDrive - University of Utah/Documents/foorge/cs3505-assignment8-J-Sandhu/Foorge" -IC:/Qt/6.6.2/mingw_64/include -IC:/Qt/6.6.2/mingw_64/include/QtWidgets -IC:/Qt/6.6.2/mingw_64/include/QtGui -IC:/Qt/6.6.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Foorge\model.h -o release\moc_model.cpp
+=======
+		release/moc_predefs.h \
+		C:/Qt/6.6.2/mingw_64/bin/moc.exe
+	C:\Qt\6.6.2\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/jaibir/Documents/GitHub/cs3505-assignment8-J-Sandhu/build-Foorge-Desktop_Qt_6_6_2_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.6.2/mingw_64/mkspecs/win32-g++ -IC:/Users/jaibir/Documents/GitHub/cs3505-assignment8-J-Sandhu/Foorge -IC:/Qt/6.6.2/mingw_64/include -IC:/Qt/6.6.2/mingw_64/include/QtWidgets -IC:/Qt/6.6.2/mingw_64/include/QtGui -IC:/Qt/6.6.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Foorge\model.h -o release\moc_model.cpp
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -829,8 +887,12 @@ ui_mainwindow.h: ../Foorge/mainwindow.ui \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qnativeinterface.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QMouseEvent \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QPointF
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtGui/QMouseEvent
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 	C:\Qt\6.6.2\mingw_64\bin\uic.exe ..\Foorge\mainwindow.ui -o ui_mainwindow.h
 
 compiler_yacc_decl_make_all:
@@ -1008,6 +1070,7 @@ release/canvaswidget.o: ../Foorge/canvaswidget.cpp ../Foorge/canvaswidget.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qnativeinterface.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QMouseEvent \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QPointF
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\canvaswidget.o ..\Foorge\canvaswidget.cpp
@@ -1121,6 +1184,12 @@ release/frame.o: ../Foorge/frame.cpp ../Foorge/frame.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qbrush.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qpixmap.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qshareddata.h
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtGui/QMouseEvent
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\canvaswidget.o ..\Foorge\canvaswidget.cpp
+
+release/frame.o: ../Foorge/frame.cpp ../Foorge/frame.h
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\frame.o ..\Foorge\frame.cpp
 
 release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
@@ -1196,6 +1265,7 @@ release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringbuilder.h \
 		../Foorge/model.h \
 		../Foorge/frame.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QImage \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qtguiglobal.h \
@@ -1204,10 +1274,18 @@ release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qcolor.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qrgb.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringlist.h \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/QObject \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qlist.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qhashfunctions.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qiterator.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearraylist.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qalgorithms.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringmatcher.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qrgba64.h \
@@ -1235,6 +1313,17 @@ release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qcoreevent.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qmetatype.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qcompare.h \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qiodevicebase.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qfloat16.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qmath.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qiterable.h \
@@ -1244,6 +1333,7 @@ release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qscopeguard.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbindingstorage.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QPen \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qpen.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qbrush.h \
@@ -1258,6 +1348,16 @@ release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qaction.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qkeysequence.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qicon.h \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/QJsonObject \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qjsonobject.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qshareddata.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcborvalue.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qlocale.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qvariant.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qdebug.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtextstream.h \
@@ -1270,6 +1370,7 @@ release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qset.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qhash.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qvarlengtharray.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qfont.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qfontmetrics.h \
@@ -1308,6 +1409,14 @@ release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/quuid.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QByteArray \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/q23utility.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcborcommon.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qurl.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/quuid.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qendian.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QJsonArray \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qjsonarray.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QJsonValue \
@@ -1316,8 +1425,12 @@ release/json.o: ../Foorge/json.cpp ../Foorge/json.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QFile \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qfile.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qfiledevice.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QDebug \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QLatin1String
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qiodevice.h
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\json.o ..\Foorge\json.cpp
 
 release/main.o: ../Foorge/main.cpp ../Foorge/mainwindow.h \
@@ -1487,6 +1600,7 @@ release/main.o: ../Foorge/main.cpp ../Foorge/mainwindow.h \
 		C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
 		../Foorge/model.h \
 		../Foorge/frame.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QImage \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QPen \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qpen.h \
@@ -1501,6 +1615,8 @@ release/main.o: ../Foorge/main.cpp ../Foorge/mainwindow.h \
 		C:/Qt/6.6.2/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.6.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QCloseEvent \
+=======
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.6.2/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qcoreapplication.h \
@@ -1692,6 +1808,7 @@ release/mainwindow.o: ../Foorge/mainwindow.cpp ../Foorge/mainwindow.h \
 		C:/Qt/6.6.2/mingw_64/include/QtWidgets/qtabwidget.h \
 		../Foorge/model.h \
 		../Foorge/frame.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QImage \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QPen \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qpen.h \
@@ -1763,13 +1880,25 @@ release/mainwindow.o: ../Foorge/mainwindow.cpp ../Foorge/mainwindow.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qdatetime.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qcalendar.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtimezone.h
+=======
+		ui_mainwindow.h \
+		../Foorge/json.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/QString
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Foorge\mainwindow.cpp
 
 release/model.o: ../Foorge/model.cpp ../Foorge/model.h \
 		../Foorge/frame.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QImage \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qimage.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qtguiglobal.h \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/QObject \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobject.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qnamespace.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qglobal.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtversionchecks.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtconfiginclude.h \
@@ -1813,6 +1942,7 @@ release/model.o: ../Foorge/model.cpp ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtresource.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qttranslation.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qversiontagging.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qtgui-config.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qtguiexports.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qcolor.h \
@@ -1830,11 +1960,27 @@ release/model.o: ../Foorge/model.cpp ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/q20functional.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/q20memory.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qhashfunctions.h \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstring.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qchar.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringview.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearray.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qrefcount.h \
+<<<<<<< HEAD
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qxptype_traits.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/q20functional.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/q20memory.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearrayview.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringfwd.h \
@@ -1846,6 +1992,7 @@ release/model.o: ../Foorge/model.cpp ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qutf8stringview.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringtokenizer.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringbuilder.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qiterator.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearraylist.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qalgorithms.h \
@@ -1875,6 +2022,21 @@ release/model.o: ../Foorge/model.cpp ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qcoreevent.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qmetatype.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qcompare.h \
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qlist.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qhashfunctions.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qiterator.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qbytearraylist.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringlist.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qalgorithms.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qstringmatcher.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcoreevent.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qscopedpointer.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qmetatype.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qcompare.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qdatastream.h \
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qiodevicebase.h \
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qfloat16.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qmath.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qiterable.h \
@@ -1883,6 +2045,7 @@ release/model.o: ../Foorge/model.cpp ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtaggedpointer.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qscopeguard.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qobject_impl.h \
+<<<<<<< HEAD
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbindingstorage.h \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/QPen \
 		C:/Qt/6.6.2/mingw_64/include/QtGui/qpen.h \
@@ -1936,6 +2099,9 @@ release/model.o: ../Foorge/model.cpp ../Foorge/model.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/QTimer \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qtimer.h \
 		C:/Qt/6.6.2/mingw_64/include/QtCore/qbasictimer.h
+=======
+		C:/Qt/6.6.2/mingw_64/include/QtCore/qbindingstorage.h
+>>>>>>> 4db0a34eff9898ab77d0ddd7188137ddd4b9b36d
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\model.o ..\Foorge\model.cpp
 
 release/moc_canvaswidget.o: release/moc_canvaswidget.cpp 
