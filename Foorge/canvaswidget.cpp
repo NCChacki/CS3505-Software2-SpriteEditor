@@ -2,7 +2,9 @@
 
 CanvasWidget::CanvasWidget(QWidget *parent)
     : QWidget{parent}
-{}
+{
+    setStyleSheet("background-color:black;");
+}
 
 
 void CanvasWidget::mouseMoveEvent(QMouseEvent * event)

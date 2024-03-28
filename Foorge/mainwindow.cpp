@@ -16,10 +16,25 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
 {
     ui->setupUi(this);
 
+<<<<<<< Updated upstream
     //set up warning msg box
     msgBox.setInformativeText("Do you want to save your changes?");
     msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
     msgBox.setDefaultButton(QMessageBox::Save);
+=======
+    QImage transparent(500,500,QImage::Format_ARGB32);
+    for(int x=0; x<500;x++)
+    {
+        for (int y=0; y<500;y++)
+        {
+            if (((x/10)+(y/10))%2 ==0)
+                transparent.setPixelColor(x,y,QColorConstants::Gray);
+            else transparent.setPixelColor(x,y,QColorConstants::White);
+        }
+    }
+    QPixmap tPixmap = QPixmap::fromImage(transparent);
+    ui->transparentLabel->setPixmap(tPixmap);
+>>>>>>> Stashed changes
 
     // this one is a waste
     connect(ui->canvasWidget,
@@ -90,6 +105,18 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
     //         this,
     //         &MainWindow::onCreateClicked);
 
+    connect(&model,
+            &Model::enableOnion,
+            this,
+            &MainWindow::receiveOnionFrame);
+    connect(&model,
+            &Model::disableOnion,
+            this,
+            &MainWindow::disableOnionFrame);
+    connect(ui->pushButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::toggleOnion);
 }
 
 
@@ -105,6 +132,10 @@ void MainWindow::pixelChanged(QPointF point)
     // How will we alert the model of this change?
     canvasChanged = true;
     return; // stub
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
 
 void MainWindow::onSaveClicked()
@@ -191,6 +222,7 @@ void MainWindow::onLoadClicked()
 
 // }
 
+<<<<<<< Updated upstream
 void MainWindow::closeEvent(QCloseEvent* closeEvent)
 {
     if(canvasChanged)
@@ -229,3 +261,21 @@ void MainWindow::updateFramePreview(std::vector<QImage> previewImages)
 }
 
 
+=======
+void MainWindow::receiveOnionFrame(QImage onionImage)
+{
+    QPixmap onionPixmap = QPixmap::fromImage(onionImage);
+    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(500,Qt::FastTransformation));
+
+
+    ui->pushButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,100,100);}"));
+}
+
+void MainWindow::disableOnionFrame(QImage onionImage)
+{
+    QPixmap onionPixmap = QPixmap::fromImage(onionImage);
+    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(500,Qt::FastTransformation));
+
+    ui->pushButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
+}
+>>>>>>> Stashed changes
