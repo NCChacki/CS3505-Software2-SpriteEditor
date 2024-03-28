@@ -85,6 +85,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &model,
             &Model::frameRateChanged);
 
+    connect(ui->deleteFrameButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::deleteFrame);
+
     // connect(&model,
     //         &Model::addFrameToPreview,
     //         this,

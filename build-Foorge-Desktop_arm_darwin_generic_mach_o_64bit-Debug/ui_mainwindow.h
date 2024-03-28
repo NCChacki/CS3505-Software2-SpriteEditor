@@ -46,6 +46,7 @@ public:
     QLabel *frameLabel4;
     QLabel *frameLabel5;
     QSlider *frameRateSlider;
+    QPushButton *deleteFrameButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -99,13 +100,13 @@ public:
         previewLabel->setGeometry(QRect(650, 0, 100, 100));
         newFrameButton = new QPushButton(mainWidget);
         newFrameButton->setObjectName("newFrameButton");
-        newFrameButton->setGeometry(QRect(40, 450, 101, 32));
+        newFrameButton->setGeometry(QRect(40, 430, 101, 32));
         nextFrameButton = new QPushButton(mainWidget);
         nextFrameButton->setObjectName("nextFrameButton");
-        nextFrameButton->setGeometry(QRect(40, 480, 101, 32));
+        nextFrameButton->setGeometry(QRect(40, 490, 101, 32));
         previousFrameButton = new QPushButton(mainWidget);
         previousFrameButton->setObjectName("previousFrameButton");
-        previousFrameButton->setGeometry(QRect(40, 510, 101, 32));
+        previousFrameButton->setGeometry(QRect(40, 520, 101, 32));
         horizontalLayoutWidget = new QWidget(mainWidget);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
         horizontalLayoutWidget->setGeometry(QRect(150, 440, 591, 102));
@@ -163,10 +164,13 @@ public:
         frameRateSlider->setGeometry(QRect(650, 110, 101, 31));
         frameRateSlider->setMinimum(1);
         frameRateSlider->setMaximum(12);
-        frameRateSlider->setSingleStep(5);
+        frameRateSlider->setSingleStep(2);
         frameRateSlider->setValue(1);
         frameRateSlider->setSliderPosition(1);
         frameRateSlider->setOrientation(Qt::Horizontal);
+        deleteFrameButton = new QPushButton(mainWidget);
+        deleteFrameButton->setObjectName("deleteFrameButton");
+        deleteFrameButton->setGeometry(QRect(40, 460, 100, 32));
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -200,6 +204,7 @@ public:
         frameLabel3->setText(QString());
         frameLabel4->setText(QString());
         frameLabel5->setText(QString());
+        deleteFrameButton->setText(QCoreApplication::translate("MainWindow", "Delete Frame", nullptr));
     } // retranslateUi
 
 };
