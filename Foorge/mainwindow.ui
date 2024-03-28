@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1359</width>
+    <height>962</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -399,6 +399,7 @@
      </item>
     </layout>
    </widget>
+<<<<<<< Updated upstream
    <widget class="QSlider" name="frameRateSlider">
     <property name="geometry">
      <rect>
@@ -425,6 +426,53 @@
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+=======
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>560</y>
+      <width>511</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="colorPickerLayout"/>
+   </widget>
+   <widget class="QPushButton" name="eraseButton">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>560</y>
+      <width>80</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Erase</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="eraseScreen">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>560</y>
+      <width>80</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Erase Screen</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="brushSizeBox">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>600</y>
+      <width>55</width>
+      <height>22</height>
+     </rect>
+>>>>>>> Stashed changes
     </property>
    </widget>
   </widget>
@@ -433,8 +481,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>22</height>
+     <width>1359</width>
+     <height>17</height>
     </rect>
    </property>
   </widget>

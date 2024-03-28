@@ -9,6 +9,7 @@
 #include <QTimer>
 #include <iostream>
 
+
 class Model : public QObject
 {
 
@@ -71,7 +72,14 @@ public slots:
     void addNewFrame();
     void nextFrame();
     void previousFrame();
+<<<<<<< Updated upstream
     void frameRateChanged(int newFrameRate);
+=======
+    void colorChanged(QColor newColor);
+    void eraseClicked();
+    void eraseScreen();
+    void brushSizeChanged(int newSize);
+>>>>>>> Stashed changes
 
 signals:
     void imageUpdated(QImage image);

@@ -65,6 +65,32 @@ void Model::imageChanged(QPointF point)
 
 }
 
+
+void Model::colorChanged(QColor newColor)
+{
+    pen.setColor(newColor);
+}
+
+void Model::eraseClicked()
+{
+    QColor erase(0,0,0,0);
+    pen.setColor(erase);
+}
+
+
+void Model::eraseScreen()
+{
+    QColor erase(0,0,0,0);
+    animationFrames.at(currentFrame).imageData.fill(erase);
+    emit imageUpdated(animationFrames.at(currentFrame).imageData);
+}
+
+void Model::brushSizeChanged(int newSize)
+{
+
+}
+
+
 void Model::resetModel()
 {
     animationFrames.clear();

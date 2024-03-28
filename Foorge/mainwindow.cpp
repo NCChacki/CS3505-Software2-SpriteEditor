@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QCloseEvent>
 #include <QFileDialog>
+#include <QList>
 
 
 
@@ -14,18 +15,49 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
     , ui(new Ui::MainWindow)
     , model(model)
 {
+
+
     ui->setupUi(this);
+
+    //set up the color dialog box, for chosing colors
+    colorPicker= new QColorDialog(parent);
+    ui->colorPickerLayout->addWidget(colorPicker);
 
     //set up warning msg box
     msgBox.setInformativeText("Do you want to save your changes?");
     msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
     msgBox.setDefaultButton(QMessageBox::Save);
 
+
+    //set up brush size box
+    QList<QString> brushSizes;
+    brushSizes.append({"10", "15", "20"});
+    ui->brushSizeBox->addItems(brushSizes);
+
+
+    connect(ui->brushSizeBox,
+            &QComboBox,
+            &model,
+            &Model::)
+
+
     // this one is a waste
     connect(ui->canvasWidget,
             &CanvasWidget::canvasClicked,
             this,
             &MainWindow::pixelChanged);
+
+
+    //connect the erase buttons
+    connect(ui->eraseButton,
+            &QPushButton::clicked,
+            &model,
+            &Model::eraseClicked);
+
+    connect(ui->eraseScreen,
+            &QPushButton::clicked,
+            &model,
+            &Model::eraseScreen);
 
 
     connect(ui->newFrameButton,
@@ -80,10 +112,21 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::updateFramePreview);
 
+<<<<<<< Updated upstream
     connect(ui->frameRateSlider,
             &QAbstractSlider::sliderMoved,
             &model,
             &Model::frameRateChanged);
+=======
+
+
+    //conections fo rcolor picker
+    connect( colorPicker,
+            &QColorDialog::currentColorChanged,
+            &model,
+            &Model::colorChanged
+            );
+>>>>>>> Stashed changes
 
     // connect(&model,
     //         &Model::addFrameToPreview,
