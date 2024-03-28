@@ -72,6 +72,7 @@ public slots:
     void nextFrame();
     void previousFrame();
     void frameRateChanged(int newFrameRate);
+    void deleteFrame();
 
 signals:
     void imageUpdated(QImage image);

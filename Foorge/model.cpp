@@ -73,12 +73,14 @@ void Model::resetModel()
 
 void Model::timeToUpdatePreview()
 {
+    if(currentPreviewFrame >= animationFrames.size())
+        currentPreviewFrame=0;
+
     emit previewUpdated(animationFrames.at(currentPreviewFrame).imageData);
 
+    //std::cout << "sending preview frame at index: " << currentPreviewFrame << std::endl;
     currentPreviewFrame++;
 
-    if(currentPreviewFrame == animationFrames.size())
-        currentPreviewFrame=0;
 }
 
 void Model::addNewFrame()
@@ -205,8 +207,30 @@ void Model::initializeSelector()
     emit sendPreviewFrames(getPreviewFrames());
 }
 
+void Model::deleteFrame()
+{
+
+    // if the selected frame is the only frame
+    if(animationFrames.size() == 1)
+        return;
+
+    // otherwise, stop the previewTimer briefly to allow deletion.
+
+    //previewTimer->stop();
+    //std::cout << "deleting frame at : " << currentFrame << std::endl;
+    animationFrames.erase(animationFrames.begin()+currentFrame);
+    // select the previous frame
+    //std::cout << "Changes the size to: " << animationFrames.size() << std::endl;
+    if(currentFrame != 0)
+        currentFrame--;
+
+    //previewTimer->start(1000/timerFrameRate);
+    //std::cout << "updating the image so the new selected frame is at : " << currentFrame << std::endl;
+    emit imageUpdated(animationFrames.at(currentFrame).imageData);
+    emit sendPreviewFrames(getPreviewFrames());
 
 
+}
 
 
 
