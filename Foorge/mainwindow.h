@@ -7,7 +7,6 @@
 #include <QPointF>
 #include <QMessageBox>
 #include <QCloseEvent>
-#include <QColorDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,10 +24,10 @@ public:
     Model& model;
     QMessageBox msgBox;
     bool canvasChanged = false;
-    QColorDialog *colorPicker;
 
 signals:
     void fileLoadedSignal(QImage image);
+
 
 public slots:
     ///
@@ -45,8 +44,6 @@ public slots:
     void onLoadClicked();
     // void onCreateClicked();
 
-    void receiveOnionFrame(QImage onionImage);
-    void disableOnionFrame(QImage onionImage);
 
     ///
     /// \brief updates image in label
@@ -62,13 +59,11 @@ public slots:
     ///
     void updateFramePreview(std::vector<QImage> previewImages);
 
-
     //void frameSelectorUpdated(QImage image);
 protected:
     void closeEvent(QCloseEvent *event);
 private:
     Ui::MainWindow *ui;
-    QImage transparent;
 
 };
 #endif // MAINWINDOW_H

@@ -16,15 +16,17 @@ Model::Model(QObject *parent) : QObject(parent)
     animationFrames.push_back(firstFrame);
     currentFrame=0;
 
+
+
     //prepare pen
     QColor color(255,0,0,255);
     pen.setColor(color);
     pen.setWidth(1);
+    
     // initalize preview updating stuff
 
     // let the view know that the first frame is ready to be added to preview
-
-    //emit addFrameToPreview(animationFrames.at(0).imageData);
+//emit addFrameToPreview(animationFrames.at(0).imageData);
 
     // initialize default framerate of 30fps
     timerFrameRate = 2;
@@ -37,16 +39,7 @@ Model::Model(QObject *parent) : QObject(parent)
 
 
     // alert the view of initialized framepreview
-    // emit sendPreviewFrames(getPreviewFrames());
-}
-
-void Model::frameRateChanged(int newFrameRate)
-{
-    timerFrameRate = newFrameRate;
-    previewTimer->stop();
-    connect(previewTimer, &QTimer::timeout, this, &Model::timeToUpdatePreview);
-    previewTimer->start(1000/newFrameRate);
-    //std::cout << "calling frameRateChanged with framerate: ##################3" << newFrameRate << std::endl;
+    emit sendPreviewFrames(getPreviewFrames());
 }
 
 void Model::imageChanged(QPointF point)
@@ -59,37 +52,9 @@ void Model::imageChanged(QPointF point)
 
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
 
-    //emit sendPreviewFrames(getPreviewFrames());
     //This is temporary just to ensure that signal is being emitted.
     //emit addFrameToPreview(animationFrames.at(currentFrame).imageData);
-
 }
-
-
-void Model::colorChanged(QColor newColor)
-{
-    pen.setColor(newColor);
-}
-
-void Model::eraseClicked()
-{
-    QColor erase(0,0,0,0);
-    pen.setColor(erase);
-}
-
-
-void Model::eraseScreen()
-{
-    QColor erase(0,0,0,0);
-    animationFrames.at(currentFrame).imageData.fill(erase);
-    emit imageUpdated(animationFrames.at(currentFrame).imageData);
-}
-
-void Model::brushSizeChanged(int newSize)
-{
-
-}
-
 
 void Model::resetModel()
 {
@@ -99,14 +64,12 @@ void Model::resetModel()
 
 void Model::timeToUpdatePreview()
 {
-    if(currentPreviewFrame >= animationFrames.size())
-        currentPreviewFrame=0;
-
     emit previewUpdated(animationFrames.at(currentPreviewFrame).imageData);
 
-    //std::cout << "sending preview frame at index: " << currentPreviewFrame << std::endl;
     currentPreviewFrame++;
 
+    if(currentPreviewFrame == animationFrames.size())
+        currentPreviewFrame=0;
 }
 
 void Model::addNewFrame()
@@ -226,36 +189,6 @@ std::vector<QImage> Model::getPreviewFrames()
     }
 
     return previewFrames;
-}
-
-void Model::initializeSelector()
-{
-    emit sendPreviewFrames(getPreviewFrames());
-}
-
-void Model::deleteFrame()
-{
-
-    // if the selected frame is the only frame
-    if(animationFrames.size() == 1)
-        return;
-
-    // otherwise, stop the previewTimer briefly to allow deletion.
-
-    //previewTimer->stop();
-    //std::cout << "deleting frame at : " << currentFrame << std::endl;
-    animationFrames.erase(animationFrames.begin()+currentFrame);
-    // select the previous frame
-    //std::cout << "Changes the size to: " << animationFrames.size() << std::endl;
-    if(currentFrame != 0)
-        currentFrame--;
-
-    //previewTimer->start(1000/timerFrameRate);
-    //std::cout << "updating the image so the new selected frame is at : " << currentFrame << std::endl;
-    emit imageUpdated(animationFrames.at(currentFrame).imageData);
-    emit sendPreviewFrames(getPreviewFrames());
-
-
 }
 
 

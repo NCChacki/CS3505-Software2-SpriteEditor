@@ -44,8 +44,6 @@ void JSON::load(Model& model, QString fileName){
         //add to model's animationFrame
         model.animationFrames.push_back(f);
     }
-
-    model.initializeSelector();
 }
 
 void JSON::save(Model& model, QString fileName){
