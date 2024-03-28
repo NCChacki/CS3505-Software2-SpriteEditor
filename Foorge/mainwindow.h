@@ -58,6 +58,10 @@ public slots:
     ///
     void updateFramePreview(std::vector<QImage> previewImages);
 
+    void receiveOnionFrame(QImage onionImage);
+    void disableOnionFrame(QImage onionImage);
+
+
 
     //void frameSelectorUpdated(QImage image);
 protected:

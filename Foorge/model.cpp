@@ -35,6 +35,8 @@ Model::Model(QObject *parent) : QObject(parent)
     //start the timer on its way
     previewTimer->start(1000/timerFrameRate);
 
+    // jai onion stuff
+    onionState=false;
 
     // alert the view of initialized framepreview
     // emit sendPreviewFrames(getPreviewFrames());
@@ -227,6 +229,26 @@ void Model::deleteFrame()
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
     emit sendPreviewFrames(getPreviewFrames());
 
+}
+
+void Model::toggleOnion()
+{
+    if (onionState==true)
+    {
+        onionState=false;
+        QColor transparent(0,0,0,0);
+        QImage blank(frameSize,frameSize,QImage::Format_ARGB32);
+        blank.fill(transparent);
+        emit disableOnion(blank);
+    }
+    else
+    {
+        onionState=true;
+        if (currentFrame!=0)
+        {
+            emit enableOnion(animationFrames[currentFrame-1].imageData);
+        }
+    }
 }
 
 

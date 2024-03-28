@@ -90,6 +90,34 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &model,
             &Model::deleteFrame);
 
+    /// jai's onion skin business
+    QImage transparent(500,500,QImage::Format_ARGB32);
+    for(int x=0; x<500;x++)
+    {
+        for (int y=0; y<500;y++)
+        {
+            if (((x/10)+(y/10))%2 ==0)
+                transparent.setPixelColor(x,y,QColorConstants::Gray);
+            else transparent.setPixelColor(x,y,QColorConstants::White);
+        }
+    }
+
+    QPixmap tPixmap = QPixmap::fromImage(transparent);
+    ui->transparentLabel->setPixmap(tPixmap);
+    ui->canvasLabel->raise();
+
+    connect(&model,
+            &Model::enableOnion,
+            this,
+            &MainWindow::receiveOnionFrame);
+    connect(&model,
+            &Model::disableOnion,
+            this,
+            &MainWindow::disableOnionFrame);
+    connect(ui->onionButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::toggleOnion);
     // connect(&model,
     //         &Model::addFrameToPreview,
     //         this,
@@ -238,6 +266,24 @@ void MainWindow::updateFramePreview(std::vector<QImage> previewImages)
     ui->frameLabel3->setPixmap(QPixmap::fromImage(previewImages.at(2)).scaledToHeight(100,Qt::FastTransformation));
     ui->frameLabel4->setPixmap(QPixmap::fromImage(previewImages.at(3)).scaledToHeight(100,Qt::FastTransformation));
     ui->frameLabel5->setPixmap(QPixmap::fromImage(previewImages.at(4)).scaledToHeight(100,Qt::FastTransformation));
+}
+
+// Jai's onion stuff
+void MainWindow::receiveOnionFrame(QImage onionImage)
+{
+    QPixmap onionPixmap = QPixmap::fromImage(onionImage);
+    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(500,Qt::FastTransformation));
+
+
+    ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,100,100);}"));
+}
+
+void MainWindow::disableOnionFrame(QImage onionImage)
+{
+    QPixmap onionPixmap = QPixmap::fromImage(onionImage);
+    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(500,Qt::FastTransformation));
+
+    ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
 }
 
 

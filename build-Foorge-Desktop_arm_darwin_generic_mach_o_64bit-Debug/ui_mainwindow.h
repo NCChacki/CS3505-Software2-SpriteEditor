@@ -30,6 +30,8 @@ public:
     QWidget *mainWidget;
     CanvasWidget *canvasWidget;
     QLabel *canvasLabel;
+    QLabel *transparentLabel;
+    QLabel *onionLabel;
     QPushButton *saveProjectButton;
     QPushButton *loadProjectButton;
     QPushButton *createProjectButton;
@@ -47,6 +49,7 @@ public:
     QLabel *frameLabel5;
     QSlider *frameRateSlider;
     QPushButton *deleteFrameButton;
+    QPushButton *onionButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -84,8 +87,23 @@ public:
         canvasLabel->setGeometry(QRect(0, 0, 400, 400));
         canvasLabel->setMinimumSize(QSize(400, 400));
         canvasLabel->setMaximumSize(QSize(400, 400));
-        canvasLabel->setAutoFillBackground(true);
+        canvasLabel->setAutoFillBackground(false);
         canvasLabel->setScaledContents(true);
+        transparentLabel = new QLabel(canvasWidget);
+        transparentLabel->setObjectName("transparentLabel");
+        transparentLabel->setGeometry(QRect(0, 0, 400, 400));
+        onionLabel = new QLabel(canvasWidget);
+        onionLabel->setObjectName("onionLabel");
+        onionLabel->setGeometry(QRect(0, 0, 400, 400));
+        QPalette palette1;
+        QBrush brush3(QColor(117, 117, 117, 0));
+        brush3.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::Window, brush3);
+        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush3);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush3);
+        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush3);
+        onionLabel->setPalette(palette1);
+        onionLabel->setAutoFillBackground(false);
         saveProjectButton = new QPushButton(mainWidget);
         saveProjectButton->setObjectName("saveProjectButton");
         saveProjectButton->setGeometry(QRect(10, 30, 100, 32));
@@ -171,6 +189,9 @@ public:
         deleteFrameButton = new QPushButton(mainWidget);
         deleteFrameButton->setObjectName("deleteFrameButton");
         deleteFrameButton->setGeometry(QRect(40, 460, 100, 32));
+        onionButton = new QPushButton(mainWidget);
+        onionButton->setObjectName("onionButton");
+        onionButton->setGeometry(QRect(40, 150, 100, 41));
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -192,6 +213,8 @@ public:
         canvasLabel->setAccessibleDescription(QString());
 #endif // QT_CONFIG(accessibility)
         canvasLabel->setText(QString());
+        transparentLabel->setText(QString());
+        onionLabel->setText(QString());
         saveProjectButton->setText(QCoreApplication::translate("MainWindow", "Save Project", nullptr));
         loadProjectButton->setText(QCoreApplication::translate("MainWindow", "Load Project", nullptr));
         createProjectButton->setText(QCoreApplication::translate("MainWindow", "Create Project", nullptr));
@@ -205,6 +228,7 @@ public:
         frameLabel4->setText(QString());
         frameLabel5->setText(QString());
         deleteFrameButton->setText(QCoreApplication::translate("MainWindow", "Delete Frame", nullptr));
+        onionButton->setText(QCoreApplication::translate("MainWindow", "Onion Button", nullptr));
     } // retranslateUi
 
 };

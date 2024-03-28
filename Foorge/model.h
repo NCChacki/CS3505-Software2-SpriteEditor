@@ -59,6 +59,10 @@ private:
     ///
     std::vector<QImage> getPreviewFrames();
 
+    bool onionState;
+
+
+
 
 
 
@@ -73,6 +77,7 @@ public slots:
     void previousFrame();
     void frameRateChanged(int newFrameRate);
     void deleteFrame();
+    void toggleOnion();
 
 signals:
     void imageUpdated(QImage image);
@@ -85,6 +90,9 @@ signals:
     ///
     void sendPreviewFrames(std::vector<QImage> imageVector);
     //void addFrameToPreview(QImage image);
+    void enableOnion(QImage image);
+    void disableOnion(QImage image);
+
 
 
 
