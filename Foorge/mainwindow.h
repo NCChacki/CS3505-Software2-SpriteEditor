@@ -28,7 +28,6 @@ public:
 signals:
     void fileLoadedSignal(QImage image);
 
-
 public slots:
     ///
     /// \brief slot to be subscribed to mouse events within CanvasWidget.
@@ -60,6 +59,7 @@ public slots:
     /// is at index 3
     ///
     void updateFramePreview(std::vector<QImage> previewImages);
+
 
     //void frameSelectorUpdated(QImage image);
 protected:

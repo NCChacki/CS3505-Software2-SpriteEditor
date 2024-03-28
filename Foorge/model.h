@@ -26,6 +26,10 @@ public:
     std::vector<Frame> animationFrames;
     int currentFrame;
 
+    ///
+    /// \brief Method for updating frame selector after loading file.
+    ///
+    void initializeSelector();
 
 
 private:
@@ -59,6 +63,8 @@ private:
 
 
 
+
+
 public slots:
     void imageChanged(QPointF point);
 <<<<<<< Updated upstream
@@ -66,6 +72,7 @@ public slots:
     void addNewFrame();
     void nextFrame();
     void previousFrame();
+    void frameRateChanged(int newFrameRate);
 
 signals:
     void imageUpdated(QImage image);

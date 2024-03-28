@@ -9,35 +9,22 @@ Model::~Model()
 
 Model::Model(QObject *parent) : QObject(parent)
 {
-<<<<<<< Updated upstream
 
     //setup first frame
     frameSize = 32;
-=======
-    frameSize = 16;
->>>>>>> Stashed changes
     Frame firstFrame(frameSize);
-
-    //--------JAI's ONION DEBUG ZONE
-    Frame backgroundFrame(frameSize);
-    animationFrames.push_back(backgroundFrame);
-    //--------END OF JAI's ONION DEBUG ZONE
-
     animationFrames.push_back(firstFrame);
     currentFrame=0;
-<<<<<<< Updated upstream
-
-
 
     //prepare pen
     QColor color(255,0,0,255);
     pen.setColor(color);
     pen.setWidth(1);
-    
     // initalize preview updating stuff
 
     // let the view know that the first frame is ready to be added to preview
-//emit addFrameToPreview(animationFrames.at(0).imageData);
+
+    //emit addFrameToPreview(animationFrames.at(0).imageData);
 
     // initialize default framerate of 30fps
     timerFrameRate = 2;
@@ -50,16 +37,16 @@ Model::Model(QObject *parent) : QObject(parent)
 
 
     // alert the view of initialized framepreview
-    emit sendPreviewFrames(getPreviewFrames());
-=======
-    currentFrame=1;                    //JAI'S ONION DEBUG LINE
-    QColor color(255,0,0,255);
-    pen.setColor(color);
-    pen.setWidth(1);
+    // emit sendPreviewFrames(getPreviewFrames());
+}
 
-    onionState=false;
-
->>>>>>> Stashed changes
+void Model::frameRateChanged(int newFrameRate)
+{
+    timerFrameRate = newFrameRate;
+    previewTimer->stop();
+    connect(previewTimer, &QTimer::timeout, this, &Model::timeToUpdatePreview);
+    previewTimer->start(1000/newFrameRate);
+    //std::cout << "calling frameRateChanged with framerate: ##################3" << newFrameRate << std::endl;
 }
 
 void Model::imageChanged(QPointF point)
@@ -72,27 +59,12 @@ void Model::imageChanged(QPointF point)
 
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
 
+    //emit sendPreviewFrames(getPreviewFrames());
     //This is temporary just to ensure that signal is being emitted.
     //emit addFrameToPreview(animationFrames.at(currentFrame).imageData);
+
 }
 
-void Model::toggleOnion()
-{
-    if (onionState==false)
-    {
-        onionState=true;
-        if (currentFrame!=0)
-            emit enableOnion(animationFrames.at(currentFrame-1).imageData);
-    }
-    else
-    {
-        onionState=false;
-        QImage blank(frameSize,frameSize,QImage::Format_ARGB32);
-        QColor transparent(0,0,0,0);
-        blank.fill(transparent);
-        emit disableOnion(blank);
-    }
-}
 void Model::resetModel()
 {
     animationFrames.clear();
@@ -227,6 +199,14 @@ std::vector<QImage> Model::getPreviewFrames()
 
     return previewFrames;
 }
+
+void Model::initializeSelector()
+{
+    emit sendPreviewFrames(getPreviewFrames());
+}
+
+
+
 
 
 

@@ -95,6 +95,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::updateFramePreview);
 
+    connect(ui->frameRateSlider,
+            &QAbstractSlider::sliderMoved,
+            &model,
+            &Model::frameRateChanged);
+
     // connect(&model,
     //         &Model::addFrameToPreview,
     //         this,
@@ -192,6 +197,8 @@ void MainWindow::onLoadClicked()
     model.resetModel();
     JSON::load(model, selectedFileName);
     emit fileLoadedSignal(model.animationFrames[0].imageData);
+
+
 }
 
 
@@ -252,7 +259,7 @@ void MainWindow::closeEvent(QCloseEvent* closeEvent)
 
 void MainWindow::updateFramePreview(std::vector<QImage> previewImages)
 {
-    std::cout << "calling mainwindow update frame preview" << std::endl;
+    //std::cout << "calling mainwindow update frame preview" << std::endl;
     ui->frameLabel1->setPixmap(QPixmap::fromImage(previewImages.at(0)).scaledToHeight(100,Qt::FastTransformation));
     ui->frameLabel2->setPixmap(QPixmap::fromImage(previewImages.at(1)).scaledToHeight(100,Qt::FastTransformation));
     ui->frameLabel3->setPixmap(QPixmap::fromImage(previewImages.at(2)).scaledToHeight(100,Qt::FastTransformation));
