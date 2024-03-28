@@ -16,17 +16,15 @@ Model::Model(QObject *parent) : QObject(parent)
     animationFrames.push_back(firstFrame);
     currentFrame=0;
 
-
-
     //prepare pen
     QColor color(255,0,0,255);
     pen.setColor(color);
     pen.setWidth(1);
-    
     // initalize preview updating stuff
 
     // let the view know that the first frame is ready to be added to preview
-//emit addFrameToPreview(animationFrames.at(0).imageData);
+
+    //emit addFrameToPreview(animationFrames.at(0).imageData);
 
     // initialize default framerate of 30fps
     timerFrameRate = 2;
@@ -39,7 +37,16 @@ Model::Model(QObject *parent) : QObject(parent)
 
 
     // alert the view of initialized framepreview
-    emit sendPreviewFrames(getPreviewFrames());
+    // emit sendPreviewFrames(getPreviewFrames());
+}
+
+void Model::frameRateChanged(int newFrameRate)
+{
+    timerFrameRate = newFrameRate;
+    previewTimer->stop();
+    connect(previewTimer, &QTimer::timeout, this, &Model::timeToUpdatePreview);
+    previewTimer->start(1000/newFrameRate);
+    //std::cout << "calling frameRateChanged with framerate: ##################3" << newFrameRate << std::endl;
 }
 
 void Model::imageChanged(QPointF point)
@@ -52,8 +59,10 @@ void Model::imageChanged(QPointF point)
 
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
 
+    //emit sendPreviewFrames(getPreviewFrames());
     //This is temporary just to ensure that signal is being emitted.
     //emit addFrameToPreview(animationFrames.at(currentFrame).imageData);
+
 }
 
 void Model::resetModel()
@@ -190,6 +199,14 @@ std::vector<QImage> Model::getPreviewFrames()
 
     return previewFrames;
 }
+
+void Model::initializeSelector()
+{
+    emit sendPreviewFrames(getPreviewFrames());
+}
+
+
+
 
 
 

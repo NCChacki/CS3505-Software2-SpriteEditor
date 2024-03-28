@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 #include "canvaswidget.h"
@@ -44,6 +45,7 @@ public:
     QLabel *frameLabel3;
     QLabel *frameLabel4;
     QLabel *frameLabel5;
+    QSlider *frameRateSlider;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -156,6 +158,15 @@ public:
 
         horizontalLayout->addWidget(frameLabel5);
 
+        frameRateSlider = new QSlider(mainWidget);
+        frameRateSlider->setObjectName("frameRateSlider");
+        frameRateSlider->setGeometry(QRect(650, 110, 101, 31));
+        frameRateSlider->setMinimum(1);
+        frameRateSlider->setMaximum(12);
+        frameRateSlider->setSingleStep(5);
+        frameRateSlider->setValue(1);
+        frameRateSlider->setSliderPosition(1);
+        frameRateSlider->setOrientation(Qt::Horizontal);
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -180,7 +191,7 @@ public:
         saveProjectButton->setText(QCoreApplication::translate("MainWindow", "Save Project", nullptr));
         loadProjectButton->setText(QCoreApplication::translate("MainWindow", "Load Project", nullptr));
         createProjectButton->setText(QCoreApplication::translate("MainWindow", "Create Project", nullptr));
-        previewLabel->setText(QCoreApplication::translate("MainWindow", "Preview Window", nullptr));
+        previewLabel->setText(QString());
         newFrameButton->setText(QCoreApplication::translate("MainWindow", "New Frame", nullptr));
         nextFrameButton->setText(QCoreApplication::translate("MainWindow", "Next Frame", nullptr));
         previousFrameButton->setText(QCoreApplication::translate("MainWindow", "Previous Frame", nullptr));
