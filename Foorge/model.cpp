@@ -15,6 +15,7 @@ Model::Model(QObject *parent) : QObject(parent)
     Frame firstFrame(frameSize);
     animationFrames.push_back(firstFrame);
     currentFrame=0;
+    paintEnabled=true;
 
     //prepare pen
     QColor color(255,0,0,255);
@@ -58,7 +59,7 @@ void Model::imageChanged(QPointF point)
 
     QPointF transformedPoint(point.rx()/(canvasWidget->height()/frameSize), point.ry()/(canvasWidget->height()/frameSize));
 
-    animationFrames.at(currentFrame).setPixel(transformedPoint,pen);
+    animationFrames.at(currentFrame).setPixel(transformedPoint,pen, paintEnabled);
 
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
 
@@ -278,13 +279,16 @@ void Model::updateOnion()
 
 void Model::colorChanged(QColor newColor)
 {
+    paintEnabled=true;
     pen.setColor(newColor);
 }
 
 void Model::eraseClicked()
 {
-    QColor erase(0,0,0,0);
-    pen.setColor(erase);
+    // QColor erase(0,0,0,0);
+    // pen.setColor(erase);
+    paintEnabled=false;
+
 }
 
 

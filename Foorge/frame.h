@@ -3,6 +3,7 @@
 
 #include <QImage>
 #include <QPainter>
+#include <QColor>
 class Frame
 {
 public:
@@ -31,7 +32,7 @@ public:
     /// \param frameX X coordinate within frame. coordinate is O, O in top left corner
     /// \param rgba
     ///
-    void setPixel(QPointF point,  QPen pen);
+    void setPixel(QPointF point,  QPen pen, bool paintCall = true);
 
 
     int size;

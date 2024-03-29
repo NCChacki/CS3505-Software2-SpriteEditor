@@ -53,6 +53,8 @@ private:
     int timerFrameRate;
     QImage blank;
 
+    bool paintEnabled;
+
     ///
     /// \brief helper method for deterimining what 5 frames should be sent to view
     /// to be shown in frame preview window
