@@ -304,6 +304,35 @@ void Model::brushSizeChanged(QString newSize)
     pen.setWidth(newSize.toInt());
 }
 
+void Model::pushSelectedFrame()
+{
+    // if they're at the last frame, do nothing
+    if(currentFrame == animationFrames.size()-1)
+        return;
+
+    // if they're not at the last frame
+    // swap the current frame with the next one
+    std::swap(animationFrames.at(currentFrame), animationFrames.at(currentFrame+1));
+    // update the current frame to keep the frame you're moving selected
+    currentFrame++;
+
+    // alert the view of these changes
+    emit imageUpdated(animationFrames.at(currentFrame).imageData);
+    emit sendPreviewFrames(getPreviewFrames());
+}
+
+void Model::pullSelectedFrame()
+{
+    if(currentFrame==0)
+        return;
+
+    std::swap(animationFrames.at(currentFrame), animationFrames.at(currentFrame-1));
+    currentFrame--;
+
+    // alert the view of these changes
+    emit imageUpdated(animationFrames.at(currentFrame).imageData);
+    emit sendPreviewFrames(getPreviewFrames());
+}
 
 
 

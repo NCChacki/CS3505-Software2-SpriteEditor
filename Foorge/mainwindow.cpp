@@ -173,6 +173,16 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &QAbstractButton::clicked,
             &model,
             &Model::updateOnion);
+
+    connect(ui->pushFrameButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::pushSelectedFrame);
+
+    connect(ui->pullFrameButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::pullSelectedFrame);
     // connect(&model,
     //         &Model::addFrameToPreview,
     //         this,

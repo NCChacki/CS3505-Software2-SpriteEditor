@@ -51,11 +51,16 @@ public:
     QLabel *frameLabel5;
     QSlider *frameRateSlider;
     QPushButton *deleteFrameButton;
-    QPushButton *onionButton;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *colorPickerLayout;
+    QPushButton *pushFrameButton;
+    QPushButton *pullFrameButton;
+    QWidget *verticalLayoutWidget_2;
+    QVBoxLayout *verticalLayout;
     QPushButton *eraseButton;
     QPushButton *eraseScreen;
+    QPushButton *onionButton;
+    QLabel *label;
     QComboBox *brushSizeBox;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -64,12 +69,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(1036, 710);
         mainWidget = new QWidget(MainWindow);
         mainWidget->setObjectName("mainWidget");
         canvasWidget = new CanvasWidget(mainWidget);
         canvasWidget->setObjectName("canvasWidget");
-        canvasWidget->setGeometry(QRect(300, 0, 400, 400));
+        canvasWidget->setGeometry(QRect(300, 0, 500, 500));
         QPalette palette;
         QBrush brush(QColor(253, 253, 253, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -91,17 +96,16 @@ public:
         canvasWidget->setAutoFillBackground(false);
         canvasLabel = new QLabel(canvasWidget);
         canvasLabel->setObjectName("canvasLabel");
-        canvasLabel->setGeometry(QRect(0, 0, 400, 400));
-        canvasLabel->setMinimumSize(QSize(400, 400));
-        canvasLabel->setMaximumSize(QSize(400, 400));
+        canvasLabel->setGeometry(QRect(0, 0, 500, 500));
+        canvasLabel->setMinimumSize(QSize(0, 0));
         canvasLabel->setAutoFillBackground(false);
         canvasLabel->setScaledContents(true);
         transparentLabel = new QLabel(canvasWidget);
         transparentLabel->setObjectName("transparentLabel");
-        transparentLabel->setGeometry(QRect(0, 0, 400, 400));
+        transparentLabel->setGeometry(QRect(0, 0, 500, 500));
         onionLabel = new QLabel(canvasWidget);
         onionLabel->setObjectName("onionLabel");
-        onionLabel->setGeometry(QRect(0, 0, 400, 400));
+        onionLabel->setGeometry(QRect(0, 0, 500, 500));
         QPalette palette1;
         QBrush brush3(QColor(117, 117, 117, 0));
         brush3.setStyle(Qt::SolidPattern);
@@ -111,6 +115,7 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::Window, brush3);
         onionLabel->setPalette(palette1);
         onionLabel->setAutoFillBackground(false);
+        onionLabel->setScaledContents(true);
         saveProjectButton = new QPushButton(mainWidget);
         saveProjectButton->setObjectName("saveProjectButton");
         saveProjectButton->setGeometry(QRect(10, 30, 100, 32));
@@ -122,19 +127,19 @@ public:
         createProjectButton->setGeometry(QRect(10, 90, 100, 32));
         previewLabel = new QLabel(mainWidget);
         previewLabel->setObjectName("previewLabel");
-        previewLabel->setGeometry(QRect(700, 10, 100, 100));
+        previewLabel->setGeometry(QRect(820, 20, 100, 100));
         newFrameButton = new QPushButton(mainWidget);
         newFrameButton->setObjectName("newFrameButton");
-        newFrameButton->setGeometry(QRect(40, 430, 101, 32));
+        newFrameButton->setGeometry(QRect(20, 530, 101, 32));
         nextFrameButton = new QPushButton(mainWidget);
         nextFrameButton->setObjectName("nextFrameButton");
-        nextFrameButton->setGeometry(QRect(40, 490, 101, 32));
+        nextFrameButton->setGeometry(QRect(130, 560, 101, 32));
         previousFrameButton = new QPushButton(mainWidget);
         previousFrameButton->setObjectName("previousFrameButton");
-        previousFrameButton->setGeometry(QRect(40, 520, 101, 32));
+        previousFrameButton->setGeometry(QRect(20, 560, 101, 32));
         horizontalLayoutWidget = new QWidget(mainWidget);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(220, 410, 591, 102));
+        horizontalLayoutWidget->setGeometry(QRect(250, 520, 591, 102));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName("horizontalLayout");
@@ -186,7 +191,7 @@ public:
 
         frameRateSlider = new QSlider(mainWidget);
         frameRateSlider->setObjectName("frameRateSlider");
-        frameRateSlider->setGeometry(QRect(700, 120, 101, 31));
+        frameRateSlider->setGeometry(QRect(820, 120, 101, 31));
         frameRateSlider->setMinimum(1);
         frameRateSlider->setMaximum(12);
         frameRateSlider->setSingleStep(2);
@@ -195,29 +200,56 @@ public:
         frameRateSlider->setOrientation(Qt::Horizontal);
         deleteFrameButton = new QPushButton(mainWidget);
         deleteFrameButton->setObjectName("deleteFrameButton");
-        deleteFrameButton->setGeometry(QRect(40, 460, 100, 32));
-        onionButton = new QPushButton(mainWidget);
-        onionButton->setObjectName("onionButton");
-        onionButton->setGeometry(QRect(40, 150, 100, 41));
+        deleteFrameButton->setGeometry(QRect(130, 530, 100, 32));
         verticalLayoutWidget = new QWidget(mainWidget);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(50, 250, 160, 80));
+        verticalLayoutWidget->setGeometry(QRect(20, 350, 160, 80));
         colorPickerLayout = new QVBoxLayout(verticalLayoutWidget);
         colorPickerLayout->setObjectName("colorPickerLayout");
         colorPickerLayout->setContentsMargins(0, 0, 0, 0);
-        eraseButton = new QPushButton(mainWidget);
+        pushFrameButton = new QPushButton(mainWidget);
+        pushFrameButton->setObjectName("pushFrameButton");
+        pushFrameButton->setGeometry(QRect(130, 590, 100, 32));
+        pullFrameButton = new QPushButton(mainWidget);
+        pullFrameButton->setObjectName("pullFrameButton");
+        pullFrameButton->setGeometry(QRect(20, 590, 100, 32));
+        verticalLayoutWidget_2 = new QWidget(mainWidget);
+        verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
+        verticalLayoutWidget_2->setGeometry(QRect(20, 140, 160, 160));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        eraseButton = new QPushButton(verticalLayoutWidget_2);
         eraseButton->setObjectName("eraseButton");
-        eraseButton->setGeometry(QRect(20, 200, 100, 32));
-        eraseScreen = new QPushButton(mainWidget);
+
+        verticalLayout->addWidget(eraseButton);
+
+        eraseScreen = new QPushButton(verticalLayoutWidget_2);
         eraseScreen->setObjectName("eraseScreen");
-        eraseScreen->setGeometry(QRect(150, 190, 100, 32));
-        brushSizeBox = new QComboBox(mainWidget);
+
+        verticalLayout->addWidget(eraseScreen);
+
+        onionButton = new QPushButton(verticalLayoutWidget_2);
+        onionButton->setObjectName("onionButton");
+
+        verticalLayout->addWidget(onionButton);
+
+        label = new QLabel(verticalLayoutWidget_2);
+        label->setObjectName("label");
+        label->setEnabled(true);
+        label->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label);
+
+        brushSizeBox = new QComboBox(verticalLayoutWidget_2);
         brushSizeBox->setObjectName("brushSizeBox");
-        brushSizeBox->setGeometry(QRect(70, 370, 103, 32));
+
+        verticalLayout->addWidget(brushSizeBox);
+
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 1036, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -242,17 +274,20 @@ public:
         createProjectButton->setText(QCoreApplication::translate("MainWindow", "Create Project", nullptr));
         previewLabel->setText(QString());
         newFrameButton->setText(QCoreApplication::translate("MainWindow", "New Frame", nullptr));
-        nextFrameButton->setText(QCoreApplication::translate("MainWindow", "Next Frame", nullptr));
-        previousFrameButton->setText(QCoreApplication::translate("MainWindow", "Previous Frame", nullptr));
+        nextFrameButton->setText(QCoreApplication::translate("MainWindow", "Next Frame >", nullptr));
+        previousFrameButton->setText(QCoreApplication::translate("MainWindow", "<Prev Frame", nullptr));
         frameLabel1->setText(QString());
         frameLabel2->setText(QString());
         frameLabel3->setText(QString());
         frameLabel4->setText(QString());
         frameLabel5->setText(QString());
         deleteFrameButton->setText(QCoreApplication::translate("MainWindow", "Delete Frame", nullptr));
-        onionButton->setText(QCoreApplication::translate("MainWindow", "Onion Button", nullptr));
+        pushFrameButton->setText(QCoreApplication::translate("MainWindow", "Push Frame >", nullptr));
+        pullFrameButton->setText(QCoreApplication::translate("MainWindow", "<Pull Frame", nullptr));
         eraseButton->setText(QCoreApplication::translate("MainWindow", "Erase", nullptr));
         eraseScreen->setText(QCoreApplication::translate("MainWindow", "EraseScreen", nullptr));
+        onionButton->setText(QCoreApplication::translate("MainWindow", "Onion Button", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Pen Size", nullptr));
     } // retranslateUi
 
 };

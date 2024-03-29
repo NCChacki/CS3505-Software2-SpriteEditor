@@ -58,16 +58,19 @@ constexpr auto qt_meta_stringdata_CLASSModelENDCLASS = QtMocHelpers::stringData(
     "newFrameRate",
     "deleteFrame",
     "toggleOnion",
+    "updateOnion",
     "colorChanged",
     "newColor",
     "eraseClicked",
     "eraseScreen",
     "brushSizeChanged",
-    "newSize"
+    "newSize",
+    "pushSelectedFrame",
+    "pullSelectedFrame"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSModelENDCLASS_t {
-    uint offsetsAndSizes[52];
+    uint offsetsAndSizes[58];
     char stringdata0[6];
     char stringdata1[13];
     char stringdata2[1];
@@ -88,12 +91,15 @@ struct qt_meta_stringdata_CLASSModelENDCLASS_t {
     char stringdata17[13];
     char stringdata18[12];
     char stringdata19[12];
-    char stringdata20[13];
-    char stringdata21[9];
-    char stringdata22[13];
-    char stringdata23[12];
-    char stringdata24[17];
-    char stringdata25[8];
+    char stringdata20[12];
+    char stringdata21[13];
+    char stringdata22[9];
+    char stringdata23[13];
+    char stringdata24[12];
+    char stringdata25[17];
+    char stringdata26[8];
+    char stringdata27[18];
+    char stringdata28[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSModelENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -119,12 +125,15 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(208, 12),  // "newFrameRate"
         QT_MOC_LITERAL(221, 11),  // "deleteFrame"
         QT_MOC_LITERAL(233, 11),  // "toggleOnion"
-        QT_MOC_LITERAL(245, 12),  // "colorChanged"
-        QT_MOC_LITERAL(258, 8),  // "newColor"
-        QT_MOC_LITERAL(267, 12),  // "eraseClicked"
-        QT_MOC_LITERAL(280, 11),  // "eraseScreen"
-        QT_MOC_LITERAL(292, 16),  // "brushSizeChanged"
-        QT_MOC_LITERAL(309, 7)   // "newSize"
+        QT_MOC_LITERAL(245, 11),  // "updateOnion"
+        QT_MOC_LITERAL(257, 12),  // "colorChanged"
+        QT_MOC_LITERAL(270, 8),  // "newColor"
+        QT_MOC_LITERAL(279, 12),  // "eraseClicked"
+        QT_MOC_LITERAL(292, 11),  // "eraseScreen"
+        QT_MOC_LITERAL(304, 16),  // "brushSizeChanged"
+        QT_MOC_LITERAL(321, 7),  // "newSize"
+        QT_MOC_LITERAL(329, 17),  // "pushSelectedFrame"
+        QT_MOC_LITERAL(347, 17)   // "pullSelectedFrame"
     },
     "Model",
     "imageUpdated",
@@ -146,12 +155,15 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
     "newFrameRate",
     "deleteFrame",
     "toggleOnion",
+    "updateOnion",
     "colorChanged",
     "newColor",
     "eraseClicked",
     "eraseScreen",
     "brushSizeChanged",
-    "newSize"
+    "newSize",
+    "pushSelectedFrame",
+    "pullSelectedFrame"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -163,7 +175,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      17,   14, // methods
+      20,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -171,25 +183,28 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  116,    2, 0x06,    1 /* Public */,
-       4,    1,  119,    2, 0x06,    3 /* Public */,
-       5,    1,  122,    2, 0x06,    5 /* Public */,
-       8,    1,  125,    2, 0x06,    7 /* Public */,
-       9,    1,  128,    2, 0x06,    9 /* Public */,
+       1,    1,  134,    2, 0x06,    1 /* Public */,
+       4,    1,  137,    2, 0x06,    3 /* Public */,
+       5,    1,  140,    2, 0x06,    5 /* Public */,
+       8,    1,  143,    2, 0x06,    7 /* Public */,
+       9,    1,  146,    2, 0x06,    9 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      10,    1,  131,    2, 0x0a,   11 /* Public */,
-      12,    0,  134,    2, 0x0a,   13 /* Public */,
-      13,    0,  135,    2, 0x0a,   14 /* Public */,
-      14,    0,  136,    2, 0x0a,   15 /* Public */,
-      15,    0,  137,    2, 0x0a,   16 /* Public */,
-      16,    1,  138,    2, 0x0a,   17 /* Public */,
-      18,    0,  141,    2, 0x0a,   19 /* Public */,
-      19,    0,  142,    2, 0x0a,   20 /* Public */,
-      20,    1,  143,    2, 0x0a,   21 /* Public */,
-      22,    0,  146,    2, 0x0a,   23 /* Public */,
-      23,    0,  147,    2, 0x0a,   24 /* Public */,
-      24,    1,  148,    2, 0x0a,   25 /* Public */,
+      10,    1,  149,    2, 0x0a,   11 /* Public */,
+      12,    0,  152,    2, 0x0a,   13 /* Public */,
+      13,    0,  153,    2, 0x0a,   14 /* Public */,
+      14,    0,  154,    2, 0x0a,   15 /* Public */,
+      15,    0,  155,    2, 0x0a,   16 /* Public */,
+      16,    1,  156,    2, 0x0a,   17 /* Public */,
+      18,    0,  159,    2, 0x0a,   19 /* Public */,
+      19,    0,  160,    2, 0x0a,   20 /* Public */,
+      20,    0,  161,    2, 0x0a,   21 /* Public */,
+      21,    1,  162,    2, 0x0a,   22 /* Public */,
+      23,    0,  165,    2, 0x0a,   24 /* Public */,
+      24,    0,  166,    2, 0x0a,   25 /* Public */,
+      25,    1,  167,    2, 0x0a,   26 /* Public */,
+      27,    0,  170,    2, 0x0a,   28 /* Public */,
+      28,    0,  171,    2, 0x0a,   29 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QImage,    3,
@@ -207,10 +222,13 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
     QMetaType::Void, QMetaType::Int,   17,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QColor,   21,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QColor,   22,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   25,
+    QMetaType::Void, QMetaType::QString,   26,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -257,6 +275,8 @@ Q_CONSTINIT const QMetaObject Model::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'toggleOnion'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'updateOnion'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'colorChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QColor, std::false_type>,
@@ -266,7 +286,11 @@ Q_CONSTINIT const QMetaObject Model::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'brushSizeChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'pushSelectedFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'pullSelectedFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -290,10 +314,13 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 10: _t->frameRateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 11: _t->deleteFrame(); break;
         case 12: _t->toggleOnion(); break;
-        case 13: _t->colorChanged((*reinterpret_cast< std::add_pointer_t<QColor>>(_a[1]))); break;
-        case 14: _t->eraseClicked(); break;
-        case 15: _t->eraseScreen(); break;
-        case 16: _t->brushSizeChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 13: _t->updateOnion(); break;
+        case 14: _t->colorChanged((*reinterpret_cast< std::add_pointer_t<QColor>>(_a[1]))); break;
+        case 15: _t->eraseClicked(); break;
+        case 16: _t->eraseScreen(); break;
+        case 17: _t->brushSizeChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 18: _t->pushSelectedFrame(); break;
+        case 19: _t->pullSelectedFrame(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -355,13 +382,13 @@ int Model::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 17)
+        if (_id < 20)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 17;
+        _id -= 20;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 17)
+        if (_id < 20)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 17;
+        _id -= 20;
     }
     return _id;
 }

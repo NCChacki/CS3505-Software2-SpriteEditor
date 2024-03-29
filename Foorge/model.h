@@ -88,6 +88,9 @@ public slots:
     void eraseScreen();
     void brushSizeChanged(QString newSize);
 
+    void pushSelectedFrame();
+    void pullSelectedFrame();
+
 signals:
     void imageUpdated(QImage image);
     void previewUpdated(QImage image);
