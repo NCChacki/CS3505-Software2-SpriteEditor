@@ -27,7 +27,7 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
 
     //set up brush size box
     QList<QString> brushSizes;
-    brushSizes.append({"10", "15", "20"});
+    brushSizes.append({"1", "2", "3","4","5"});
     ui->brushSizeBox->addItems(brushSizes);
 
 
@@ -122,6 +122,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &QAbstractButton::clicked,
             &model,
             &Model::deleteFrame);
+
+    connect(ui->brushSizeBox,
+            &QComboBox::currentTextChanged,
+            &model,
+            &Model::brushSizeChanged);
 
     /// jai's onion skin business
     QImage transparent(500,500,QImage::Format_ARGB32);

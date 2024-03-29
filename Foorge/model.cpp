@@ -295,9 +295,9 @@ void Model::eraseScreen()
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
 }
 
-void Model::brushSizeChanged(int newSize)
+void Model::brushSizeChanged(QString newSize)
 {
-
+    pen.setWidth(newSize.toInt());
 }
 
 

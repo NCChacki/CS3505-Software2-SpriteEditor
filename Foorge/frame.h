@@ -2,6 +2,7 @@
 #define FRAME_H
 
 #include <QImage>
+#include <QPainter>
 class Frame
 {
 public:

@@ -216,7 +216,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
     QMetaType::Void, QMetaType::QColor,   22,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   26,
+    QMetaType::Void, QMetaType::QString,   26,
 
        0        // eod
 };
@@ -274,7 +274,7 @@ Q_CONSTINIT const QMetaObject Model::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'brushSizeChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>
     >,
     nullptr
 } };
@@ -302,7 +302,7 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 14: _t->colorChanged((*reinterpret_cast< std::add_pointer_t<QColor>>(_a[1]))); break;
         case 15: _t->eraseClicked(); break;
         case 16: _t->eraseScreen(); break;
-        case 17: _t->brushSizeChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 17: _t->brushSizeChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

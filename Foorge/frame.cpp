@@ -1,6 +1,6 @@
 #include "frame.h"
 #include <QPen>
-#include <ostream>
+#include <iostream>
 
 Frame::Frame() {}
 
@@ -18,8 +18,10 @@ Frame::~Frame()
 
 void Frame::setPixel(QPointF point, QPen pen)
 {
-    //int pixelArrayIndex = (frameY * size + frameX) * 4;
+    QPainter painter(&imageData);
+    painter.setPen(pen);
+    std::cout<< painter.pen().color().alpha()<<std::endl;
+    painter.drawPoint(point);
 
-    imageData.setPixelColor(point.toPoint(), pen.color());
 
 }

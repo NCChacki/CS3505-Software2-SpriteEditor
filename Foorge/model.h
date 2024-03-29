@@ -84,7 +84,7 @@ public slots:
     void colorChanged(QColor newColor);
     void eraseClicked();
     void eraseScreen();
-    void brushSizeChanged(int newSize);
+    void brushSizeChanged(QString newSize);
 
 signals:
     void imageUpdated(QImage image);
