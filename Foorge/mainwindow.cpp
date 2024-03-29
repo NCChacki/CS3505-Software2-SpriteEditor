@@ -151,6 +151,23 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &QAbstractButton::clicked,
             &model,
             &Model::toggleOnion);
+    connect(ui->nextFrameButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::updateOnion);
+
+    connect(ui->newFrameButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::updateOnion);
+    connect(ui->previousFrameButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::updateOnion);
+    connect(ui->deleteFrameButton,
+            &QAbstractButton::clicked,
+            &model,
+            &Model::updateOnion);
     // connect(&model,
     //         &Model::addFrameToPreview,
     //         this,

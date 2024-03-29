@@ -37,7 +37,8 @@ Model::Model(QObject *parent) : QObject(parent)
 
     // jai onion stuff
     onionState=false;
-
+    QImage blank(frameSize,frameSize,QImage::Format_ARGB32);
+    blank.fill(QColor(0,0,0,0));
     // alert the view of initialized framepreview
     // emit sendPreviewFrames(getPreviewFrames());
 }
@@ -236,9 +237,6 @@ void Model::toggleOnion()
     if (onionState==true)
     {
         onionState=false;
-        QColor transparent(0,0,0,0);
-        QImage blank(frameSize,frameSize,QImage::Format_ARGB32);
-        blank.fill(transparent);
         emit disableOnion(blank);
     }
     else
@@ -246,9 +244,36 @@ void Model::toggleOnion()
         onionState=true;
         if (currentFrame!=0)
         {
-            emit enableOnion(animationFrames[currentFrame-1].imageData);
+            QImage onioned(animationFrames[currentFrame-1].imageData);
+            for (int x=0;x<onioned.width();x++)
+                for (int y=0;y<onioned.height();y++)
+                {
+                    QColor onionedPixel(onioned.pixelColor(x,y));
+                    onionedPixel.setAlpha(onionedPixel.alpha()/2);
+                    onioned.setPixelColor(x,y,onionedPixel);
+                }
+            emit enableOnion(onioned);
+            //emit enableOnion(animationFrames[currentFrame-1].imageData);
         }
+        else emit enableOnion(blank);
     }
+}
+
+void Model::updateOnion()
+{
+    if (onionState && currentFrame!=0)
+    {
+        QImage onioned(animationFrames[currentFrame-1].imageData);
+        for (int x=0;x<onioned.width();x++)
+        for (int y=0;y<onioned.height();y++)
+        {
+            QColor onionedPixel(onioned.pixelColor(x,y));
+            onionedPixel.setAlpha(onionedPixel.alpha()/2);
+            onioned.setPixelColor(x,y,onionedPixel);
+        }
+        emit enableOnion(onioned);
+    }
+    else emit enableOnion(blank);
 }
 
 void Model::colorChanged(QColor newColor)

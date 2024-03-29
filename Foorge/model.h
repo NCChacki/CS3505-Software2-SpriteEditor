@@ -51,6 +51,7 @@ private:
     int currentPreviewFrame = 0;
     QTimer* previewTimer;
     int timerFrameRate;
+    QImage blank;
 
     ///
     /// \brief helper method for deterimining what 5 frames should be sent to view
@@ -78,6 +79,7 @@ public slots:
     void frameRateChanged(int newFrameRate);
     void deleteFrame();
     void toggleOnion();
+    void updateOnion();
 
     void colorChanged(QColor newColor);
     void eraseClicked();
