@@ -29,6 +29,8 @@ public:
 
 signals:
     void fileLoadedSignal(QImage image);
+    void undoClickedSignal();
+    void redoClickedSignal();
 
 public slots:
     ///
@@ -43,8 +45,12 @@ public slots:
 
     void onSaveClicked();
     void onLoadClicked();
-    // void onCreateClicked();
+    void onCreateClicked();
 
+    void onUndoClicked();
+    void onRedoClicked();
+
+    void enableUndoRedo();
 
     ///
     /// \brief updates image in label
@@ -66,8 +72,10 @@ public slots:
 
 
     //void frameSelectorUpdated(QImage image);
+
 protected:
     void closeEvent(QCloseEvent *event);
+
 private:
     Ui::MainWindow *ui;
 

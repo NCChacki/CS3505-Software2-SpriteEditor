@@ -12,7 +12,7 @@ void CanvasWidget::mouseMoveEvent(QMouseEvent * event)
     // std::cout << pos.rx() << ", " << pos.ry() << std::endl;
     // std::cout << "emitting this position ^ " << std::endl;
 
-    emit canvasClicked(pos);
+    emit canvasClicked(pos, false);
 
 }
 
@@ -23,5 +23,5 @@ void CanvasWidget::mousePressEvent(QMouseEvent * event)
     // std::cout << pos.rx() << ", " << pos.ry() << std::endl;
     // std::cout << "emitting this position ^ " << std::endl;
 
-    emit canvasClicked(pos);
+    emit canvasClicked(pos, true);
 }

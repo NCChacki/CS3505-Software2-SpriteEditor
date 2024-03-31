@@ -1,6 +1,8 @@
 #include "frame.h"
 #include <QPen>
 #include <iostream>
+#include <ostream>
+#include <QDebug>
 
 Frame::Frame() {}
 
@@ -13,11 +15,16 @@ Frame::Frame(int size) : size(size)
 
 Frame::~Frame()
 {
+
 }
 
-
-void Frame::setPixel(QPointF point, QPen pen, bool paintCall)
+void Frame::setPixel(QPointF point, QPen pen, bool mousePressed, bool paintCall)
 {
+    if(mousePressed) //version 2 -> mouse drags instead of single pixel color
+    {
+        pastFrameHistory.push_back(imageData.copy());
+        futureFrameHistory.clear();
+    }
 
     QPainter painter(&imageData);
     painter.setPen(pen);
@@ -50,6 +57,25 @@ void Frame::setPixel(QPointF point, QPen pen, bool paintCall)
         // painter.eraseRect(pointRectForm);
         // painter.drawRect(pointRectForm);
     }
-
-
 }
+
+void Frame::undo()
+{
+    if(pastFrameHistory.size() > 0)
+    {
+        futureFrameHistory.push_back(imageData.copy());
+        imageData = pastFrameHistory.back().copy();
+        pastFrameHistory.pop_back();
+    }
+}
+
+void Frame::redo()
+{
+    if(futureFrameHistory.size() > 0)
+    {
+        pastFrameHistory.push_back(imageData.copy());
+        imageData = futureFrameHistory.back().copy();
+        futureFrameHistory.pop_back();
+    }
+}
+

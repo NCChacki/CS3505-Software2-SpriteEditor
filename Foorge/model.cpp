@@ -7,15 +7,16 @@ Model::~Model()
     delete previewTimer;
 }
 
-Model::Model(QObject *parent) : QObject(parent)
+Model::Model(QObject *parent, int size) : QObject(parent)
 {
 
     //setup first frame
-    frameSize = 32;
+    frameSize = size;
     Frame firstFrame(frameSize);
     animationFrames.push_back(firstFrame);
     currentFrame=0;
     paintEnabled=true;
+
 
     //prepare pen
     QColor color(255,0,0,255);
@@ -53,13 +54,14 @@ void Model::frameRateChanged(int newFrameRate)
     //std::cout << "calling frameRateChanged with framerate: ##################3" << newFrameRate << std::endl;
 }
 
-void Model::imageChanged(QPointF point)
+void Model::imageChanged(QPointF point, bool mousePressed)
 {
     QWidget* canvasWidget = qobject_cast<QWidget*>(sender());
 
     QPointF transformedPoint(point.rx()/(canvasWidget->height()/frameSize), point.ry()/(canvasWidget->height()/frameSize));
 
-    animationFrames.at(currentFrame).setPixel(transformedPoint,pen, paintEnabled);
+
+    animationFrames.at(currentFrame).setPixel(transformedPoint,pen, mousePressed, paintEnabled);
 
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
 
@@ -69,10 +71,16 @@ void Model::imageChanged(QPointF point)
 
 }
 
-void Model::resetModel()
+void Model::resetModel(int size)
 {
+    currentFrame=0;
     animationFrames.clear();
-    currentFrame = 0;
+    frameSize = size;
+    Frame firstFrame(frameSize);
+    animationFrames.push_back(firstFrame);
+
+    emit imageUpdated(animationFrames.at(currentFrame).imageData);
+    emit sendPreviewFrames(getPreviewFrames());
 }
 
 void Model::timeToUpdatePreview()
@@ -125,8 +133,6 @@ void Model::previousFrame()
 
     // alert the view that the frame preview window needs to be updated
     emit sendPreviewFrames(getPreviewFrames());
-
-
 }
 
 std::vector<QImage> Model::getPreviewFrames()
@@ -204,10 +210,11 @@ std::vector<QImage> Model::getPreviewFrames()
     return previewFrames;
 }
 
-void Model::initializeSelector()
-{
-    emit sendPreviewFrames(getPreviewFrames());
-}
+// <<<<<<< Updated upstream
+// void Model::initializeSelector()
+// {
+//     emit sendPreviewFrames(getPreviewFrames());
+// }
 
 void Model::deleteFrame()
 {
@@ -291,7 +298,6 @@ void Model::eraseClicked()
 
 }
 
-
 void Model::eraseScreen()
 {
     QColor erase(0,0,0,0);
@@ -334,6 +340,21 @@ void Model::pullSelectedFrame()
     emit sendPreviewFrames(getPreviewFrames());
 }
 
+void Model::undoFrame()
+{
+    animationFrames[currentFrame].undo();
+    emit imageUpdated(animationFrames[currentFrame].imageData);
+}
 
+void Model::redoFrame()
+{
+    animationFrames[currentFrame].redo();
+    emit imageUpdated(animationFrames[currentFrame].imageData);
+}
 
+void Model::bringBackFramesAfterLoad()
+{
+    emit imageUpdated(animationFrames[currentFrame].imageData);
+    emit sendPreviewFrames(getPreviewFrames());
+}
 

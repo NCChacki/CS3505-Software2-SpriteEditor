@@ -20,23 +20,28 @@ public:
     ///
     /// \brief resetModel - clears the Model object but doesn't destroy it
     ///
-    void resetModel();
+    void resetModel(int size = 32);
 
-    explicit Model(QObject *parent = nullptr);
+    explicit Model(QObject *parent = nullptr, int size = 32);
+
+    void bringBackFramesAfterLoad();
     std::vector<Frame> animationFrames;
     int currentFrame;
+// <<<<<<< Updated upstream
 
-    ///
-    /// \brief Method for updating frame selector after loading file.
-    ///
-    void initializeSelector();
+//     ///
+//     /// \brief Method for updating frame selector after loading file.
+//     ///
+//     void initializeSelector();
 
+// =======
+    int frameSize;
+// >>>>>>> Stashed changes
 
 
 private:
     // int* currentColor;
     // int brushSize;
-    int frameSize;
     //std::vector<Frame> animationFrames;
 
     // current color and brush size
@@ -62,22 +67,17 @@ private:
     ///
     std::vector<QImage> getPreviewFrames();
 
+
     bool onionState;
 
 
-
-
-
-
-
-
-
 public slots:
-    void imageChanged(QPointF point);
+    void imageChanged(QPointF point, bool mousePressed);
     void timeToUpdatePreview();
     void addNewFrame();
     void nextFrame();
     void previousFrame();
+
     void frameRateChanged(int newFrameRate);
     void deleteFrame();
     void toggleOnion();
@@ -90,6 +90,10 @@ public slots:
 
     void pushSelectedFrame();
     void pullSelectedFrame();
+
+    void undoFrame();
+    void redoFrame();
+
 
 signals:
     void imageUpdated(QImage image);
@@ -104,8 +108,6 @@ signals:
     //void addFrameToPreview(QImage image);
     void enableOnion(QImage image);
     void disableOnion(QImage image);
-
-
 
 
 };

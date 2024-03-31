@@ -18,7 +18,7 @@ public:
      void mousePressEvent(QMouseEvent * event);
 
 signals:
-     void canvasClicked(QPointF point);
+     void canvasClicked(QPointF point, bool mousePressed);
 
 };
 

@@ -31,14 +31,18 @@ public:
     /// \param frameY Y coordinate within frame.
     /// \param frameX X coordinate within frame. coordinate is O, O in top left corner
     /// \param rgba
+    /// \param condition to see if mouse has been pressed
     ///
-    void setPixel(QPointF point,  QPen pen, bool paintCall = true);
+    void setPixel(QPointF point,  QPen pen, bool mousePressed, bool paintCall = true);
 
+
+    void undo();
+    void redo();
 
     int size;
-
     QImage imageData;
-
+    std::vector<QImage>pastFrameHistory;
+    std::vector<QImage>futureFrameHistory;
 
 
 

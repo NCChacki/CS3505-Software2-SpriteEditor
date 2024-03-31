@@ -23,6 +23,9 @@ void JSON::load(Model& model, QString fileName){
     QJsonObject jsonObj = jsonDoc.object();
     QJsonArray framesArr = jsonObj["Frames"].toArray(); //look for "Frames" key
 
+    model.resetModel(jsonObj["Model_Frame_Size"].toInt());
+    model.animationFrames.clear();
+
     //iterate through framesArr to get each frame's pixel info
     for(int i = 0; i < framesArr.size(); i++)
     {
@@ -45,7 +48,10 @@ void JSON::load(Model& model, QString fileName){
         model.animationFrames.push_back(f);
     }
 
-    model.initializeSelector();
+// <<<<<<< Updated upstream
+//     model.initializeSelector();
+// =======
+    model.bringBackFramesAfterLoad();
 }
 
 void JSON::save(Model& model, QString fileName){
@@ -65,6 +71,7 @@ void JSON::save(Model& model, QString fileName){
         jsonFrameArr.append(frameObj);
     }
 
+    jsonObj.insert("Model_Frame_Size", model.frameSize);
     jsonObj.insert("Frames", jsonFrameArr);
     jsonDoc.setObject(jsonObj);
 

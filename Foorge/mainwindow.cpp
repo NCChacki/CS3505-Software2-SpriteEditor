@@ -5,8 +5,7 @@
 #include <QDebug>
 #include <QCloseEvent>
 #include <QFileDialog>
-
-
+#include <QInputDialog>
 
 
 MainWindow::MainWindow(Model& model, QWidget *parent)
@@ -47,7 +46,7 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &model,
             &Model::eraseScreen);
 
-    //conections fo rcolor picker
+    //conections for rcolor picker
     connect( colorPicker,
             &QColorDialog::currentColorChanged,
             &model,
@@ -59,7 +58,6 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &CanvasWidget::canvasClicked,
             this,
             &MainWindow::pixelChanged);
-
 
     connect(ui->newFrameButton,
             &QPushButton::clicked,
@@ -92,7 +90,7 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             this,
             &MainWindow::updatePreviewImage);
 
-    //connections for Save/create/load
+    //save/load/create connections
     connect(ui->saveProjectButton,
             &QPushButton::clicked,
             this,
@@ -107,6 +105,37 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &MainWindow::fileLoadedSignal,
             this,
             &MainWindow::updateLabelImage);
+
+    connect(ui->createProjectButton,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::onCreateClicked);
+
+    //undo/redo connections
+    connect(ui->undoButton,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::onUndoClicked);
+
+    connect(ui->redoButton,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::onRedoClicked);
+
+    connect(this,
+            &MainWindow::undoClickedSignal,
+            &model,
+            &Model::undoFrame);
+
+    connect(this,
+            &MainWindow::redoClickedSignal,
+            &model,
+            &Model::redoFrame);
+
+    connect(&model,
+            &Model::imageUpdated,
+            this,
+            &MainWindow::enableUndoRedo);
 
     connect(&model,
             &Model::sendPreviewFrames,
@@ -188,11 +217,6 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
     //         this,
     //         &MainWindow::frameSelectorUpdated);
 
-    // connect(ui->createProjectButton,
-    //         &QPushButton::clicked,
-    //         this,
-    //         &MainWindow::onCreateClicked);
-
 }
 
 
@@ -203,10 +227,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::pixelChanged(QPointF point)
 {
-   // std::cout<< point.rx() << " , " << point.ry() << std::endl;
-   // std::cout << "receiving coords in mainwindow ^" << std::endl;
+    // std::cout<< point.rx() << " , " << point.ry() << std::endl;
+    // std::cout << "receiving coords in mainwindow ^" << std::endl;
     // How will we alert the model of this change?
     canvasChanged = true;
+    ui->undoButton->setEnabled(true);
     return; // stub
 }
 
@@ -261,11 +286,39 @@ void MainWindow::onLoadClicked()
         QMessageBox::warning(this, tr("Warning"), tr("File name not given, please provide a file name to open"), QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
-    model.resetModel();
+
     JSON::load(model, selectedFileName);
     emit fileLoadedSignal(model.animationFrames[0].imageData);
+    canvasChanged = false;
+}
 
+void MainWindow::onCreateClicked()
+{
+    if(canvasChanged)
+    {
+        int ret = msgBox.exec();
 
+        switch (ret) {
+        case QMessageBox::Save:
+            // Save was clicked
+            onSaveClicked();
+            break;
+        case QMessageBox::Discard:
+            // Don't Save was clicked
+            break;
+        case QMessageBox::Cancel:
+            // Cancel was clicked
+            return;
+        default:
+            // should never be reached
+            break;
+        }
+    }
+
+    //we can change the max val to something else
+    int input = QInputDialog::getInt(this, tr("QInputDialog::getInt()"), tr("Please enter canvas size: "), 32, 32, 128, 1);
+    model.resetModel(input);
+    canvasChanged = false;
 }
 
 
@@ -291,10 +344,23 @@ void MainWindow::onLoadClicked()
 //     //delete frameLabel;
 // }
 
-// MainWindow::onCreateClicked()
-// {
 
-// }
+void MainWindow::onUndoClicked()
+{
+    emit undoClickedSignal();
+}
+
+void MainWindow::onRedoClicked()
+{
+    emit redoClickedSignal();
+}
+
+void MainWindow::enableUndoRedo()
+{
+    //checks the pastFrame and futureFrame sizes to enable redo/undo
+    ui->undoButton->setEnabled(model.animationFrames[model.currentFrame].pastFrameHistory.size() > 0);
+    ui->redoButton->setEnabled(model.animationFrames[model.currentFrame].futureFrameHistory.size() > 0);
+}
 
 void MainWindow::closeEvent(QCloseEvent* closeEvent)
 {
@@ -350,5 +416,7 @@ void MainWindow::disableOnionFrame(QImage onionImage)
 
     ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
 }
+
+
 
 

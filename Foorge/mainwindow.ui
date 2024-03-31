@@ -554,11 +554,31 @@
      <rect>
       <x>20</x>
       <y>140</y>
-      <width>160</width>
-      <height>160</height>
+      <width>161</width>
+      <height>228</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="undoButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Undo</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="redoButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Redo</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QPushButton" name="eraseButton">
        <property name="text">
@@ -605,7 +625,7 @@
      <x>0</x>
      <y>0</y>
      <width>1036</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
