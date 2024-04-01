@@ -335,6 +335,7 @@ void Model::pushSelectedFrame()
     // alert the view of these changes
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
     emit sendPreviewFrames(getPreviewFrames());
+    updateOnion();
 }
 
 void Model::pullSelectedFrame()
@@ -348,6 +349,7 @@ void Model::pullSelectedFrame()
     // alert the view of these changes
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
     emit sendPreviewFrames(getPreviewFrames());
+    updateOnion();
 }
 
 void Model::undoFrame()

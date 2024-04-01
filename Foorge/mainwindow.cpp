@@ -214,7 +214,6 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &QAbstractButton::clicked,
             &model,
             &Model::updateOnion);
-
     connect(ui->pushFrameButton,
             &QAbstractButton::clicked,
             &model,
