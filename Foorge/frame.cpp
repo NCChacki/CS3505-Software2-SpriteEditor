@@ -31,7 +31,6 @@ void Frame::setPixel(QPointF point, QPen pen, bool mousePressed, bool paintCall)
 
     if(paintCall)
     {
-
         std::cout<< painter.pen().color().alpha()<<std::endl;
         painter.drawPoint(point);
     }
@@ -47,7 +46,7 @@ void Frame::setPixel(QPointF point, QPen pen, bool mousePressed, bool paintCall)
         for(int i= point.toPoint().rx(); i<pen.width()+point.toPoint().rx();i++ )
             for(int j = point.toPoint().ry(); j<point.toPoint().ry()+pen.width();j++)
             {
-                QPoint pix(i,j);
+                QPoint pix((int)i,(int)j);
                 // imageData.setPixel(pix,erase);
                 imageData.setPixelColor(pix,e);
 

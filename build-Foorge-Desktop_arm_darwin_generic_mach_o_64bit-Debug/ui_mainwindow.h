@@ -57,6 +57,8 @@ public:
     QPushButton *pullFrameButton;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout;
+    QPushButton *undoButton;
+    QPushButton *redoButton;
     QPushButton *eraseButton;
     QPushButton *eraseScreen;
     QPushButton *onionButton;
@@ -203,7 +205,7 @@ public:
         deleteFrameButton->setGeometry(QRect(130, 530, 100, 32));
         verticalLayoutWidget = new QWidget(mainWidget);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(20, 350, 160, 80));
+        verticalLayoutWidget->setGeometry(QRect(20, 400, 160, 80));
         colorPickerLayout = new QVBoxLayout(verticalLayoutWidget);
         colorPickerLayout->setObjectName("colorPickerLayout");
         colorPickerLayout->setContentsMargins(0, 0, 0, 0);
@@ -215,10 +217,22 @@ public:
         pullFrameButton->setGeometry(QRect(20, 590, 100, 32));
         verticalLayoutWidget_2 = new QWidget(mainWidget);
         verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
-        verticalLayoutWidget_2->setGeometry(QRect(20, 140, 160, 160));
+        verticalLayoutWidget_2->setGeometry(QRect(20, 140, 161, 228));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
+        undoButton = new QPushButton(verticalLayoutWidget_2);
+        undoButton->setObjectName("undoButton");
+        undoButton->setEnabled(false);
+
+        verticalLayout->addWidget(undoButton);
+
+        redoButton = new QPushButton(verticalLayoutWidget_2);
+        redoButton->setObjectName("redoButton");
+        redoButton->setEnabled(false);
+
+        verticalLayout->addWidget(redoButton);
+
         eraseButton = new QPushButton(verticalLayoutWidget_2);
         eraseButton->setObjectName("eraseButton");
 
@@ -284,6 +298,8 @@ public:
         deleteFrameButton->setText(QCoreApplication::translate("MainWindow", "Delete Frame", nullptr));
         pushFrameButton->setText(QCoreApplication::translate("MainWindow", "Push Frame >", nullptr));
         pullFrameButton->setText(QCoreApplication::translate("MainWindow", "<Pull Frame", nullptr));
+        undoButton->setText(QCoreApplication::translate("MainWindow", "Undo", nullptr));
+        redoButton->setText(QCoreApplication::translate("MainWindow", "Redo", nullptr));
         eraseButton->setText(QCoreApplication::translate("MainWindow", "Erase", nullptr));
         eraseScreen->setText(QCoreApplication::translate("MainWindow", "EraseScreen", nullptr));
         onionButton->setText(QCoreApplication::translate("MainWindow", "Onion Button", nullptr));
