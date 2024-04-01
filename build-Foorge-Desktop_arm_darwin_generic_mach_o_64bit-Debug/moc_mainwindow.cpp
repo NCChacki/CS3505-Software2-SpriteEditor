@@ -54,16 +54,18 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "enableUndoRedo",
     "updateLabelImage",
     "updatePreviewImage",
-    "updateFramePreview",
+    "updateFrameSelector",
     "std::vector<QImage>",
     "previewImages",
     "receiveOnionFrame",
     "onionImage",
-    "disableOnionFrame"
+    "disableOnionFrame",
+    "toggleActualPreview",
+    "checked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[44];
+    uint offsetsAndSizes[48];
     char stringdata0[11];
     char stringdata1[17];
     char stringdata2[1];
@@ -80,12 +82,14 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata13[15];
     char stringdata14[17];
     char stringdata15[19];
-    char stringdata16[19];
+    char stringdata16[20];
     char stringdata17[20];
     char stringdata18[14];
     char stringdata19[18];
     char stringdata20[11];
     char stringdata21[18];
+    char stringdata22[20];
+    char stringdata23[8];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -107,12 +111,14 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(162, 14),  // "enableUndoRedo"
         QT_MOC_LITERAL(177, 16),  // "updateLabelImage"
         QT_MOC_LITERAL(194, 18),  // "updatePreviewImage"
-        QT_MOC_LITERAL(213, 18),  // "updateFramePreview"
-        QT_MOC_LITERAL(232, 19),  // "std::vector<QImage>"
-        QT_MOC_LITERAL(252, 13),  // "previewImages"
-        QT_MOC_LITERAL(266, 17),  // "receiveOnionFrame"
-        QT_MOC_LITERAL(284, 10),  // "onionImage"
-        QT_MOC_LITERAL(295, 17)   // "disableOnionFrame"
+        QT_MOC_LITERAL(213, 19),  // "updateFrameSelector"
+        QT_MOC_LITERAL(233, 19),  // "std::vector<QImage>"
+        QT_MOC_LITERAL(253, 13),  // "previewImages"
+        QT_MOC_LITERAL(267, 17),  // "receiveOnionFrame"
+        QT_MOC_LITERAL(285, 10),  // "onionImage"
+        QT_MOC_LITERAL(296, 17),  // "disableOnionFrame"
+        QT_MOC_LITERAL(314, 19),  // "toggleActualPreview"
+        QT_MOC_LITERAL(334, 7)   // "checked"
     },
     "MainWindow",
     "fileLoadedSignal",
@@ -130,12 +136,14 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "enableUndoRedo",
     "updateLabelImage",
     "updatePreviewImage",
-    "updateFramePreview",
+    "updateFrameSelector",
     "std::vector<QImage>",
     "previewImages",
     "receiveOnionFrame",
     "onionImage",
-    "disableOnionFrame"
+    "disableOnionFrame",
+    "toggleActualPreview",
+    "checked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -147,7 +155,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -155,23 +163,24 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  104,    2, 0x06,    1 /* Public */,
-       4,    0,  107,    2, 0x06,    3 /* Public */,
-       5,    0,  108,    2, 0x06,    4 /* Public */,
+       1,    1,  110,    2, 0x06,    1 /* Public */,
+       4,    0,  113,    2, 0x06,    3 /* Public */,
+       5,    0,  114,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    1,  109,    2, 0x0a,    5 /* Public */,
-       8,    0,  112,    2, 0x0a,    7 /* Public */,
-       9,    0,  113,    2, 0x0a,    8 /* Public */,
-      10,    0,  114,    2, 0x0a,    9 /* Public */,
-      11,    0,  115,    2, 0x0a,   10 /* Public */,
-      12,    0,  116,    2, 0x0a,   11 /* Public */,
-      13,    0,  117,    2, 0x0a,   12 /* Public */,
-      14,    1,  118,    2, 0x0a,   13 /* Public */,
-      15,    1,  121,    2, 0x0a,   15 /* Public */,
-      16,    1,  124,    2, 0x0a,   17 /* Public */,
-      19,    1,  127,    2, 0x0a,   19 /* Public */,
-      21,    1,  130,    2, 0x0a,   21 /* Public */,
+       6,    1,  115,    2, 0x0a,    5 /* Public */,
+       8,    0,  118,    2, 0x0a,    7 /* Public */,
+       9,    0,  119,    2, 0x0a,    8 /* Public */,
+      10,    0,  120,    2, 0x0a,    9 /* Public */,
+      11,    0,  121,    2, 0x0a,   10 /* Public */,
+      12,    0,  122,    2, 0x0a,   11 /* Public */,
+      13,    0,  123,    2, 0x0a,   12 /* Public */,
+      14,    1,  124,    2, 0x0a,   13 /* Public */,
+      15,    1,  127,    2, 0x0a,   15 /* Public */,
+      16,    1,  130,    2, 0x0a,   17 /* Public */,
+      19,    1,  133,    2, 0x0a,   19 /* Public */,
+      21,    1,  136,    2, 0x0a,   21 /* Public */,
+      22,    1,  139,    2, 0x0a,   23 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QImage,    3,
@@ -191,6 +200,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void, 0x80000000 | 17,   18,
     QMetaType::Void, QMetaType::QImage,   20,
     QMetaType::Void, QMetaType::QImage,   20,
+    QMetaType::Void, QMetaType::Bool,   23,
 
        0        // eod
 };
@@ -232,7 +242,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'updatePreviewImage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
-        // method 'updateFramePreview'
+        // method 'updateFrameSelector'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>,
         // method 'receiveOnionFrame'
@@ -240,7 +250,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
         // method 'disableOnionFrame'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QImage, std::false_type>
+        QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
+        // method 'toggleActualPreview'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>
     >,
     nullptr
 } };
@@ -263,9 +276,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->enableUndoRedo(); break;
         case 10: _t->updateLabelImage((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
         case 11: _t->updatePreviewImage((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
-        case 12: _t->updateFramePreview((*reinterpret_cast< std::add_pointer_t<std::vector<QImage>>>(_a[1]))); break;
+        case 12: _t->updateFrameSelector((*reinterpret_cast< std::add_pointer_t<std::vector<QImage>>>(_a[1]))); break;
         case 13: _t->receiveOnionFrame((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
         case 14: _t->disableOnionFrame((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
+        case 15: _t->toggleActualPreview((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -313,13 +327,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 16)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 15;
+        _id -= 16;
     }
     return _id;
 }

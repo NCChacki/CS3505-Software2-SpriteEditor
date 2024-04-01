@@ -23,6 +23,7 @@ void JSON::load(Model& model, QString fileName){
     QJsonObject jsonObj = jsonDoc.object();
     QJsonArray framesArr = jsonObj["Frames"].toArray(); //look for "Frames" key
 
+    std::cout << "loaded Frame size: " << jsonObj["Model_Frame_Size"].toInt() << std::endl;
     model.resetModel(jsonObj["Model_Frame_Size"].toInt());
     model.animationFrames.clear();
 
@@ -66,12 +67,14 @@ void JSON::save(Model& model, QString fileName){
 
         QJsonObject frameObj;
         frameObj.insert("Size", frame.size);
+        std::cout << "saving frame size : " << frame.size << std::endl;
         // QString pixelDataString = QString::fromStdString(byteArr.toStdString());
         frameObj.insert("Pixels", QLatin1String(byteArr.toBase64()));
         jsonFrameArr.append(frameObj);
     }
 
     jsonObj.insert("Model_Frame_Size", model.frameSize);
+    std::cout << "saving with model frame size " << model.frameSize << std::endl;
     jsonObj.insert("Frames", jsonFrameArr);
     jsonDoc.setObject(jsonObj);
 

@@ -60,6 +60,17 @@ void Model::imageChanged(QPointF point, bool mousePressed)
 
     QPointF transformedPoint((point.rx()/canvasWidget->height())*frameSize, (point.ry()/canvasWidget->height())*frameSize);
 
+
+    std::cout <<"Canvas:" << std::endl;
+    std::cout << " x: " << point.rx() << " y: " << point.ry() << std::endl;
+
+    std::cout << "Frame" << std::endl;
+
+    std::cout << "FrameSize = " << frameSize << std::endl;
+    std::cout << "CanvasWidget Size = " << canvasWidget->height() << std::endl;
+    std::cout << " x: " << (point.rx()/canvasWidget->height())*frameSize << " y: " << (point.ry()/canvasWidget->height())*frameSize << std::endl;
+
+
     animationFrames.at(currentFrame).setPixel(transformedPoint, pen, mousePressed, paintEnabled);
 
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
@@ -151,14 +162,14 @@ std::vector<QImage> Model::getPreviewFrames()
         if(currentFrame == 1)
         {
             // push back a blank Qimage, then the image at 0, then the preview frame
-            std::cout << "finding 1 frame to the left " <<std::endl;
+            //std::cout << "finding 1 frame to the left " <<std::endl;
             previewFrames.push_back(blankImage);
             previewFrames.push_back(animationFrames.at(currentFrame-1).imageData);
             previewFrames.push_back(animationFrames.at(currentFrame).imageData);
         }
         if(currentFrame == 0)
         {
-            std::cout <<"finding no frames to the left" << std::endl;
+            //std::cout <<"finding no frames to the left" << std::endl;
             // push back 2 blank Qimages, then the selected frame
             previewFrames.push_back(blankImage);
             previewFrames.push_back(blankImage);
@@ -169,7 +180,7 @@ std::vector<QImage> Model::getPreviewFrames()
     else
     {
         // push the 2 frames before and the current frame
-        std::cout << "finding 2 frames to the left" <<std::endl;
+       // std::cout << "finding 2 frames to the left" <<std::endl;
         previewFrames.push_back(animationFrames.at(currentFrame-2).imageData);
         previewFrames.push_back(animationFrames.at(currentFrame-1).imageData);
         previewFrames.push_back(animationFrames.at(currentFrame).imageData);
@@ -183,7 +194,7 @@ std::vector<QImage> Model::getPreviewFrames()
         if(animationFrames.size()-currentFrame == 2)
         {
             // push back the next frame then 1 empty frame
-            std::cout <<"finding 1 frame to right" << std::endl;
+           // std::cout <<"finding 1 frame to right" << std::endl;
             previewFrames.push_back(animationFrames.at(currentFrame+1).imageData);
             previewFrames.push_back(blankImage);
         }
@@ -192,7 +203,7 @@ std::vector<QImage> Model::getPreviewFrames()
         if(currentFrame == animationFrames.size()-1)
         {
             // push back two empty frames
-            std::cout <<"No frames to the right" << std::endl;
+            //std::cout <<"No frames to the right" << std::endl;
             previewFrames.push_back(blankImage);
             previewFrames.push_back(blankImage);
         }
@@ -200,7 +211,7 @@ std::vector<QImage> Model::getPreviewFrames()
     // if there are at least two frames to the right
     else
     {
-        std::cout << "finding at least two frames to the right" << std::endl;
+        //std::cout << "finding at least two frames to the right" << std::endl;
         //push back the two frames to the right
         previewFrames.push_back(animationFrames.at(currentFrame+1).imageData);
         previewFrames.push_back(animationFrames.at(currentFrame+2).imageData);

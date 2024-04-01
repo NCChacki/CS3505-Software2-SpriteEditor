@@ -129,10 +129,10 @@ public slots:
     void updatePreviewImage(QImage image);
 
     /**
-     * @brief updateFramePreview - slot for updating the frame preview window
+     * @brief updateFrameSelector - slot for updating the frame preview window
      * @param previewImages - vector of preview images, selected image is at index 3
      */
-    void updateFramePreview(std::vector<QImage> previewImages);
+    void updateFrameSelector(std::vector<QImage> previewImages);
 
     /**
      * @brief receiveOnionFrame
@@ -145,6 +145,11 @@ public slots:
      * @param onionImage
      */
     void disableOnionFrame(QImage onionImage);
+
+    /**
+     * @brief toggleActualPreview
+     */
+    void toggleActualPreview(bool checked);
 
 
     //void frameSelectorUpdated(QImage image);
