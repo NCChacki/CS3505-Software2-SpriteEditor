@@ -152,6 +152,12 @@ public slots:
     void toggleActualPreview(bool checked);
 
 
+    void colorButtonClicked();
+
+    void colorButtonClosed();
+
+
+
     //void frameSelectorUpdated(QImage image);
 
 protected:
