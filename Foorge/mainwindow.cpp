@@ -17,7 +17,8 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
 
     //set up the color dialog box, for chosing colors
     colorPicker= new QColorDialog(parent);
-    ui->colorPickerLayout->addWidget(colorPicker);
+
+
 
     //set up warning msg box
     msgBox.setInformativeText("Do you want to save your changes?");
@@ -40,6 +41,16 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &QPushButton::clicked,
             &model,
             &Model::eraseClicked);
+
+    connect(ui->colorButton,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::colorButtonClicked);
+
+    connect(colorPicker,
+            &QDialog::finished,
+            this,
+            &MainWindow::colorButtonClosed);
 
     connect(ui->eraseScreen,
             &QPushButton::clicked,
@@ -415,6 +426,17 @@ void MainWindow::disableOnionFrame(QImage onionImage)
     ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(500,Qt::FastTransformation));
 
     ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
+}
+
+void MainWindow::colorButtonClicked()
+{
+    colorPicker->open();
+    ui->colorButton->setEnabled(false);
+}
+
+void MainWindow::colorButtonClosed()
+{
+    ui->colorButton->setEnabled(true);
 }
 
 

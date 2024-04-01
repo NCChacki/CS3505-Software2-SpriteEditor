@@ -147,6 +147,12 @@ public slots:
     void disableOnionFrame(QImage onionImage);
 
 
+    void colorButtonClicked();
+
+    void colorButtonClosed();
+
+
+
     //void frameSelectorUpdated(QImage image);
 
 protected:

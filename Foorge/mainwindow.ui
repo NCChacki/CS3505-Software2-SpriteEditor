@@ -521,7 +521,15 @@
       <height>80</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="colorPickerLayout"/>
+    <layout class="QVBoxLayout" name="colorPickerLayout">
+     <item>
+      <widget class="QPushButton" name="colorButton">
+       <property name="text">
+        <string>Open Color Picker</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
    <widget class="QPushButton" name="pushFrameButton">
     <property name="geometry">
@@ -625,7 +633,7 @@
      <x>0</x>
      <y>0</y>
      <width>1036</width>
-     <height>24</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>
