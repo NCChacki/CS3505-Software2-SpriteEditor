@@ -236,7 +236,7 @@
    <widget class="QPushButton" name="saveProjectButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>50</x>
       <y>30</y>
       <width>100</width>
       <height>32</height>
@@ -249,7 +249,7 @@
    <widget class="QPushButton" name="loadProjectButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>50</x>
       <y>60</y>
       <width>100</width>
       <height>32</height>
@@ -262,7 +262,7 @@
    <widget class="QPushButton" name="createProjectButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>50</x>
       <y>90</y>
       <width>100</width>
       <height>32</height>
@@ -414,9 +414,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
+      <y>137</y>
       <width>161</width>
-      <height>228</height>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -445,6 +445,9 @@
        <property name="text">
         <string>Erase</string>
        </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -458,6 +461,9 @@
       <widget class="QPushButton" name="onionButton">
        <property name="text">
         <string>Onion Button</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

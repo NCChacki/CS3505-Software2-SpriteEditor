@@ -127,13 +127,13 @@ public:
         onionLabel->setScaledContents(true);
         saveProjectButton = new QPushButton(mainWidget);
         saveProjectButton->setObjectName("saveProjectButton");
-        saveProjectButton->setGeometry(QRect(10, 30, 100, 32));
+        saveProjectButton->setGeometry(QRect(50, 30, 100, 32));
         loadProjectButton = new QPushButton(mainWidget);
         loadProjectButton->setObjectName("loadProjectButton");
-        loadProjectButton->setGeometry(QRect(10, 60, 100, 32));
+        loadProjectButton->setGeometry(QRect(50, 60, 100, 32));
         createProjectButton = new QPushButton(mainWidget);
         createProjectButton->setObjectName("createProjectButton");
-        createProjectButton->setGeometry(QRect(10, 90, 100, 32));
+        createProjectButton->setGeometry(QRect(50, 90, 100, 32));
         previewLabel = new QLabel(mainWidget);
         previewLabel->setObjectName("previewLabel");
         previewLabel->setGeometry(QRect(830, 30, 100, 100));
@@ -177,7 +177,7 @@ public:
         pullFrameButton->setGeometry(QRect(20, 590, 100, 32));
         verticalLayoutWidget_2 = new QWidget(mainWidget);
         verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
-        verticalLayoutWidget_2->setGeometry(QRect(20, 140, 161, 228));
+        verticalLayoutWidget_2->setGeometry(QRect(20, 137, 161, 241));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -195,6 +195,7 @@ public:
 
         eraseButton = new QPushButton(verticalLayoutWidget_2);
         eraseButton->setObjectName("eraseButton");
+        eraseButton->setCheckable(true);
 
         verticalLayout->addWidget(eraseButton);
 
@@ -205,6 +206,7 @@ public:
 
         onionButton = new QPushButton(verticalLayoutWidget_2);
         onionButton->setObjectName("onionButton");
+        onionButton->setCheckable(true);
 
         verticalLayout->addWidget(onionButton);
 

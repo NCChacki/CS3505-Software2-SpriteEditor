@@ -427,7 +427,7 @@ void MainWindow::receiveOnionFrame(QImage onionImage)
     ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(onionSkinSize,Qt::FastTransformation));
 
 
-    ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,100,100);}"));
+    //ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,100,100);}"));
 }
 
 void MainWindow::disableOnionFrame(QImage onionImage)
@@ -436,7 +436,7 @@ void MainWindow::disableOnionFrame(QImage onionImage)
     int onionSkinSize = ui->onionLabel->geometry().height();
     ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(onionSkinSize,Qt::FastTransformation));
 
-    ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
+    //ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
 }
 
 void MainWindow::toggleActualPreview(bool checked)
