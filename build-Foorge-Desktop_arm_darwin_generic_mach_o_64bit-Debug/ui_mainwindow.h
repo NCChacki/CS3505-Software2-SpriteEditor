@@ -48,6 +48,7 @@ public:
     QPushButton *deleteFrameButton;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *colorPickerLayout;
+    QPushButton *colorButton;
     QPushButton *pushFrameButton;
     QPushButton *pullFrameButton;
     QWidget *verticalLayoutWidget_2;
@@ -163,6 +164,11 @@ public:
         colorPickerLayout = new QVBoxLayout(verticalLayoutWidget);
         colorPickerLayout->setObjectName("colorPickerLayout");
         colorPickerLayout->setContentsMargins(0, 0, 0, 0);
+        colorButton = new QPushButton(verticalLayoutWidget);
+        colorButton->setObjectName("colorButton");
+
+        colorPickerLayout->addWidget(colorButton);
+
         pushFrameButton = new QPushButton(mainWidget);
         pushFrameButton->setObjectName("pushFrameButton");
         pushFrameButton->setGeometry(QRect(130, 590, 100, 32));
@@ -274,7 +280,7 @@ public:
 
         actualSizePreview = new QCheckBox(mainWidget);
         actualSizePreview->setObjectName("actualSizePreview");
-        actualSizePreview->setGeometry(QRect(840, 0, 91, 20));
+        actualSizePreview->setGeometry(QRect(840, 10, 91, 20));
         MainWindow->setCentralWidget(mainWidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -310,6 +316,7 @@ public:
         nextFrameButton->setText(QCoreApplication::translate("MainWindow", "Next Frame >", nullptr));
         previousFrameButton->setText(QCoreApplication::translate("MainWindow", "< Prev Frame", nullptr));
         deleteFrameButton->setText(QCoreApplication::translate("MainWindow", "Delete Frame", nullptr));
+        colorButton->setText(QCoreApplication::translate("MainWindow", "Open Color Picker", nullptr));
         pushFrameButton->setText(QCoreApplication::translate("MainWindow", "Push Frame >", nullptr));
         pullFrameButton->setText(QCoreApplication::translate("MainWindow", "< Pull Frame", nullptr));
         undoButton->setText(QCoreApplication::translate("MainWindow", "Undo", nullptr));

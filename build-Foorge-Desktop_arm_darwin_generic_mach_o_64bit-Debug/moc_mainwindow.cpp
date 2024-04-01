@@ -61,11 +61,13 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "onionImage",
     "disableOnionFrame",
     "toggleActualPreview",
-    "checked"
+    "checked",
+    "colorButtonClicked",
+    "colorButtonClosed"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[48];
+    uint offsetsAndSizes[52];
     char stringdata0[11];
     char stringdata1[17];
     char stringdata2[1];
@@ -90,6 +92,8 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata21[18];
     char stringdata22[20];
     char stringdata23[8];
+    char stringdata24[19];
+    char stringdata25[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -118,7 +122,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(285, 10),  // "onionImage"
         QT_MOC_LITERAL(296, 17),  // "disableOnionFrame"
         QT_MOC_LITERAL(314, 19),  // "toggleActualPreview"
-        QT_MOC_LITERAL(334, 7)   // "checked"
+        QT_MOC_LITERAL(334, 7),  // "checked"
+        QT_MOC_LITERAL(342, 18),  // "colorButtonClicked"
+        QT_MOC_LITERAL(361, 17)   // "colorButtonClosed"
     },
     "MainWindow",
     "fileLoadedSignal",
@@ -143,7 +149,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "onionImage",
     "disableOnionFrame",
     "toggleActualPreview",
-    "checked"
+    "checked",
+    "colorButtonClicked",
+    "colorButtonClosed"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -155,7 +163,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -163,24 +171,26 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  110,    2, 0x06,    1 /* Public */,
-       4,    0,  113,    2, 0x06,    3 /* Public */,
-       5,    0,  114,    2, 0x06,    4 /* Public */,
+       1,    1,  122,    2, 0x06,    1 /* Public */,
+       4,    0,  125,    2, 0x06,    3 /* Public */,
+       5,    0,  126,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    1,  115,    2, 0x0a,    5 /* Public */,
-       8,    0,  118,    2, 0x0a,    7 /* Public */,
-       9,    0,  119,    2, 0x0a,    8 /* Public */,
-      10,    0,  120,    2, 0x0a,    9 /* Public */,
-      11,    0,  121,    2, 0x0a,   10 /* Public */,
-      12,    0,  122,    2, 0x0a,   11 /* Public */,
-      13,    0,  123,    2, 0x0a,   12 /* Public */,
-      14,    1,  124,    2, 0x0a,   13 /* Public */,
-      15,    1,  127,    2, 0x0a,   15 /* Public */,
-      16,    1,  130,    2, 0x0a,   17 /* Public */,
-      19,    1,  133,    2, 0x0a,   19 /* Public */,
-      21,    1,  136,    2, 0x0a,   21 /* Public */,
-      22,    1,  139,    2, 0x0a,   23 /* Public */,
+       6,    1,  127,    2, 0x0a,    5 /* Public */,
+       8,    0,  130,    2, 0x0a,    7 /* Public */,
+       9,    0,  131,    2, 0x0a,    8 /* Public */,
+      10,    0,  132,    2, 0x0a,    9 /* Public */,
+      11,    0,  133,    2, 0x0a,   10 /* Public */,
+      12,    0,  134,    2, 0x0a,   11 /* Public */,
+      13,    0,  135,    2, 0x0a,   12 /* Public */,
+      14,    1,  136,    2, 0x0a,   13 /* Public */,
+      15,    1,  139,    2, 0x0a,   15 /* Public */,
+      16,    1,  142,    2, 0x0a,   17 /* Public */,
+      19,    1,  145,    2, 0x0a,   19 /* Public */,
+      21,    1,  148,    2, 0x0a,   21 /* Public */,
+      22,    1,  151,    2, 0x0a,   23 /* Public */,
+      24,    0,  154,    2, 0x0a,   25 /* Public */,
+      25,    0,  155,    2, 0x0a,   26 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QImage,    3,
@@ -201,6 +211,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void, QMetaType::QImage,   20,
     QMetaType::Void, QMetaType::QImage,   20,
     QMetaType::Void, QMetaType::Bool,   23,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -253,7 +265,11 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
         // method 'toggleActualPreview'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'colorButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'colorButtonClosed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -280,6 +296,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 13: _t->receiveOnionFrame((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
         case 14: _t->disableOnionFrame((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
         case 15: _t->toggleActualPreview((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 16: _t->colorButtonClicked(); break;
+        case 17: _t->colorButtonClosed(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -327,13 +345,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 18)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 16;
+        _id -= 18;
     }
     return _id;
 }

@@ -170,20 +170,22 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &model,
             &Model::brushSizeChanged);
 
-    /// jai's onion skin business
-    QImage transparent(500,500,QImage::Format_ARGB32);
-    for(int x=0; x<500;x++)
+    /// creating a checkerboard background
+    int transparentLabelSize = ui->transparentLabel->geometry().height();
+
+    QImage transparent(model.frameSize,model.frameSize,QImage::Format_ARGB32);
+    for(int x=0; x<model.frameSize;x++)
     {
-        for (int y=0; y<500;y++)
+        for (int y=0; y<model.frameSize;y++)
         {
-            if (((x/10)+(y/10))%2 ==0)
-                transparent.setPixelColor(x,y,QColorConstants::Gray);
-            else transparent.setPixelColor(x,y,QColorConstants::White);
+            if (((x)+(y))%2 ==0)
+                transparent.setPixelColor(x,y,QColorConstants::DarkGray);
+            else transparent.setPixelColor(x,y,QColorConstants::Gray);
         }
     }
 
     QPixmap tPixmap = QPixmap::fromImage(transparent);
-    ui->transparentLabel->setPixmap(tPixmap);
+    ui->transparentLabel->setPixmap(tPixmap.scaledToHeight(transparentLabelSize,Qt::FastTransformation));
     ui->canvasLabel->raise();
 
     connect(&model,
@@ -271,9 +273,10 @@ void MainWindow::updateLabelImage(QImage image)
 {
     QPixmap pixmap = QPixmap::fromImage(image);
 
-
-    ui->canvasLabel->setPixmap(pixmap.scaledToHeight(500,Qt::FastTransformation));
-    ui->frameLabel3->setPixmap(pixmap.scaledToHeight(100,Qt::FastTransformation));
+    int canvasSize = ui->canvasLabel->geometry().height();
+    int framePreviewSize = ui->frameLabel1->geometry().height();
+    ui->canvasLabel->setPixmap(pixmap.scaledToHeight(canvasSize,Qt::FastTransformation));
+    ui->frameLabel3->setPixmap(pixmap.scaledToHeight(framePreviewSize,Qt::FastTransformation));
 }
 
 void MainWindow::updatePreviewImage(QImage image)
@@ -410,18 +413,20 @@ void MainWindow::closeEvent(QCloseEvent* closeEvent)
 void MainWindow::updateFrameSelector(std::vector<QImage> previewImages)
 {
     //std::cout << "calling mainwindow update frame preview" << std::endl;
-    ui->frameLabel1->setPixmap(QPixmap::fromImage(previewImages.at(0)).scaledToHeight(100,Qt::FastTransformation));
-    ui->frameLabel2->setPixmap(QPixmap::fromImage(previewImages.at(1)).scaledToHeight(100,Qt::FastTransformation));
-    ui->frameLabel3->setPixmap(QPixmap::fromImage(previewImages.at(2)).scaledToHeight(100,Qt::FastTransformation));
-    ui->frameLabel4->setPixmap(QPixmap::fromImage(previewImages.at(3)).scaledToHeight(100,Qt::FastTransformation));
-    ui->frameLabel5->setPixmap(QPixmap::fromImage(previewImages.at(4)).scaledToHeight(100,Qt::FastTransformation));
+    int selectorFrameSize = ui->frameLabel1->geometry().height();
+    ui->frameLabel1->setPixmap(QPixmap::fromImage(previewImages.at(0)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+    ui->frameLabel2->setPixmap(QPixmap::fromImage(previewImages.at(1)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+    ui->frameLabel3->setPixmap(QPixmap::fromImage(previewImages.at(2)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+    ui->frameLabel4->setPixmap(QPixmap::fromImage(previewImages.at(3)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+    ui->frameLabel5->setPixmap(QPixmap::fromImage(previewImages.at(4)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
 }
 
 // Jai's onion stuff
 void MainWindow::receiveOnionFrame(QImage onionImage)
 {
     QPixmap onionPixmap = QPixmap::fromImage(onionImage);
-    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(500,Qt::FastTransformation));
+    int onionSkinSize = ui->onionLabel->geometry().height();
+    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(onionSkinSize,Qt::FastTransformation));
 
 
     ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,100,100);}"));
@@ -430,7 +435,8 @@ void MainWindow::receiveOnionFrame(QImage onionImage)
 void MainWindow::disableOnionFrame(QImage onionImage)
 {
     QPixmap onionPixmap = QPixmap::fromImage(onionImage);
-    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(500,Qt::FastTransformation));
+    int onionSkinSize = ui->onionLabel->geometry().height();
+    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(onionSkinSize,Qt::FastTransformation));
 
     ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
 }
