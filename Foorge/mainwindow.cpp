@@ -29,7 +29,6 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
     brushSizes.append({"1", "2", "3","4","5"});
     ui->brushSizeBox->addItems(brushSizes);
 
-
     // connect(ui->brushSizeBox,
     //         &QComboBox,
     //         &model,

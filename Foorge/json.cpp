@@ -47,10 +47,6 @@ void JSON::load(Model& model, QString fileName){
         //add to model's animationFrame
         model.animationFrames.push_back(f);
     }
-
-// <<<<<<< Updated upstream
-//     model.initializeSelector();
-// =======
     model.bringBackFramesAfterLoad();
 }
 

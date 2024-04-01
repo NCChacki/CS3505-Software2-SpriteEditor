@@ -50,9 +50,7 @@ void Frame::setPixel(QPointF point, QPen pen, bool mousePressed, bool paintCall)
                 QPoint pix(i,j);
                 // imageData.setPixel(pix,erase);
                 imageData.setPixelColor(pix,e);
-
             }
-
 
         // painter.eraseRect(pointRectForm);
         // painter.drawRect(pointRectForm);
