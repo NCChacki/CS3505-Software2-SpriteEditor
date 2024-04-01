@@ -220,12 +220,64 @@ void MainWindow::closeEvent(QCloseEvent* closeEvent)
 
 void MainWindow::updateFramePreview(std::vector<QImage> previewImages)
 {
-    std::cout << "calling mainwindow update frame preview" << std::endl;
-    ui->frameLabel1->setPixmap(QPixmap::fromImage(previewImages.at(0)).scaledToHeight(100,Qt::FastTransformation));
-    ui->frameLabel2->setPixmap(QPixmap::fromImage(previewImages.at(1)).scaledToHeight(100,Qt::FastTransformation));
-    ui->frameLabel3->setPixmap(QPixmap::fromImage(previewImages.at(2)).scaledToHeight(100,Qt::FastTransformation));
-    ui->frameLabel4->setPixmap(QPixmap::fromImage(previewImages.at(3)).scaledToHeight(100,Qt::FastTransformation));
-    ui->frameLabel5->setPixmap(QPixmap::fromImage(previewImages.at(4)).scaledToHeight(100,Qt::FastTransformation));
+    //std::cout << "calling mainwindow update frame preview" << std::endl;
+    int selectorFrameSize = ui->frameLabel1->geometry().height();
+    ui->frameLabel1->setPixmap(QPixmap::fromImage(previewImages.at(0)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+    ui->frameLabel2->setPixmap(QPixmap::fromImage(previewImages.at(1)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+    ui->frameLabel3->setPixmap(QPixmap::fromImage(previewImages.at(2)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+    ui->frameLabel4->setPixmap(QPixmap::fromImage(previewImages.at(3)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+    ui->frameLabel5->setPixmap(QPixmap::fromImage(previewImages.at(4)).scaledToHeight(selectorFrameSize,Qt::FastTransformation));
+}
+
+// Jai's onion stuff
+void MainWindow::receiveOnionFrame(QImage onionImage)
+{
+    QPixmap onionPixmap = QPixmap::fromImage(onionImage);
+    int onionSkinSize = ui->onionLabel->geometry().height();
+    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(onionSkinSize,Qt::FastTransformation));
+
+
+    ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(100,100,100);}"));
+}
+
+void MainWindow::disableOnionFrame(QImage onionImage)
+{
+    QPixmap onionPixmap = QPixmap::fromImage(onionImage);
+    int onionSkinSize = ui->onionLabel->geometry().height();
+    ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(onionSkinSize,Qt::FastTransformation));
+
+    ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
+}
+
+void MainWindow::toggleActualPreview(bool checked)
+{
+
+    QRect currentGeometry = ui->previewLabel->geometry();
+
+    if(checked)
+    {
+        currentGeometry.setHeight(model.frameSize);
+        currentGeometry.setWidth(model.frameSize);
+
+
+    }
+    else
+    {
+        currentGeometry.setHeight(100);
+        currentGeometry.setWidth(100);
+    }
+
+    ui->previewLabel->setGeometry(currentGeometry);
+}
+void MainWindow::colorButtonClicked()
+{
+    colorPicker->open();
+    ui->colorButton->setEnabled(false);
+}
+
+void MainWindow::colorButtonClosed()
+{
+    ui->colorButton->setEnabled(true);
 }
 
 

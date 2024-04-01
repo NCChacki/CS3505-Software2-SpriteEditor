@@ -106,8 +106,88 @@ public:
         nextFrameButton->setGeometry(QRect(40, 480, 101, 32));
         previousFrameButton = new QPushButton(mainWidget);
         previousFrameButton->setObjectName("previousFrameButton");
-        previousFrameButton->setGeometry(QRect(40, 510, 101, 32));
-        horizontalLayoutWidget = new QWidget(mainWidget);
+        previousFrameButton->setGeometry(QRect(20, 560, 101, 32));
+        frameRateSlider = new QSlider(mainWidget);
+        frameRateSlider->setObjectName("frameRateSlider");
+        frameRateSlider->setGeometry(QRect(830, 140, 101, 31));
+        frameRateSlider->setMinimum(1);
+        frameRateSlider->setMaximum(12);
+        frameRateSlider->setSingleStep(2);
+        frameRateSlider->setValue(1);
+        frameRateSlider->setSliderPosition(1);
+        frameRateSlider->setOrientation(Qt::Horizontal);
+        deleteFrameButton = new QPushButton(mainWidget);
+        deleteFrameButton->setObjectName("deleteFrameButton");
+        deleteFrameButton->setGeometry(QRect(130, 530, 100, 32));
+        verticalLayoutWidget = new QWidget(mainWidget);
+        verticalLayoutWidget->setObjectName("verticalLayoutWidget");
+        verticalLayoutWidget->setGeometry(QRect(20, 400, 160, 80));
+        colorPickerLayout = new QVBoxLayout(verticalLayoutWidget);
+        colorPickerLayout->setObjectName("colorPickerLayout");
+        colorPickerLayout->setContentsMargins(0, 0, 0, 0);
+        colorButton = new QPushButton(verticalLayoutWidget);
+        colorButton->setObjectName("colorButton");
+
+        colorPickerLayout->addWidget(colorButton);
+
+        pushFrameButton = new QPushButton(mainWidget);
+        pushFrameButton->setObjectName("pushFrameButton");
+        pushFrameButton->setGeometry(QRect(130, 590, 100, 32));
+        pullFrameButton = new QPushButton(mainWidget);
+        pullFrameButton->setObjectName("pullFrameButton");
+        pullFrameButton->setGeometry(QRect(20, 590, 100, 32));
+        verticalLayoutWidget_2 = new QWidget(mainWidget);
+        verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
+        verticalLayoutWidget_2->setGeometry(QRect(20, 140, 161, 228));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        undoButton = new QPushButton(verticalLayoutWidget_2);
+        undoButton->setObjectName("undoButton");
+        undoButton->setEnabled(false);
+
+        verticalLayout->addWidget(undoButton);
+
+        redoButton = new QPushButton(verticalLayoutWidget_2);
+        redoButton->setObjectName("redoButton");
+        redoButton->setEnabled(false);
+
+        verticalLayout->addWidget(redoButton);
+
+        eraseButton = new QPushButton(verticalLayoutWidget_2);
+        eraseButton->setObjectName("eraseButton");
+
+        verticalLayout->addWidget(eraseButton);
+
+        eraseScreen = new QPushButton(verticalLayoutWidget_2);
+        eraseScreen->setObjectName("eraseScreen");
+
+        verticalLayout->addWidget(eraseScreen);
+
+        onionButton = new QPushButton(verticalLayoutWidget_2);
+        onionButton->setObjectName("onionButton");
+
+        verticalLayout->addWidget(onionButton);
+
+        label = new QLabel(verticalLayoutWidget_2);
+        label->setObjectName("label");
+        label->setEnabled(true);
+        label->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label);
+
+        brushSizeBox = new QComboBox(verticalLayoutWidget_2);
+        brushSizeBox->setObjectName("brushSizeBox");
+
+        verticalLayout->addWidget(brushSizeBox);
+
+        selectorFrame = new QFrame(mainWidget);
+        selectorFrame->setObjectName("selectorFrame");
+        selectorFrame->setGeometry(QRect(250, 520, 591, 100));
+        selectorFrame->setFrameShape(QFrame::StyledPanel);
+        selectorFrame->setFrameShadow(QFrame::Raised);
+        selectorFrame->setLineWidth(1);
+        horizontalLayoutWidget = new QWidget(selectorFrame);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
         horizontalLayoutWidget->setGeometry(QRect(150, 440, 591, 102));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
