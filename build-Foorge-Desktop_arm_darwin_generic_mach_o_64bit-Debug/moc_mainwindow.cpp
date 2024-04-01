@@ -42,32 +42,58 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "fileLoadedSignal",
     "",
     "image",
+    "undoClickedSignal",
+    "redoClickedSignal",
     "pixelChanged",
     "point",
     "onSaveClicked",
     "onLoadClicked",
+    "onCreateClicked",
+    "onUndoClicked",
+    "onRedoClicked",
+    "enableUndoRedo",
     "updateLabelImage",
     "updatePreviewImage",
-    "updateFramePreview",
+    "updateFrameSelector",
     "std::vector<QImage>",
-    "previewImages"
+    "previewImages",
+    "receiveOnionFrame",
+    "onionImage",
+    "disableOnionFrame",
+    "toggleActualPreview",
+    "checked",
+    "colorButtonClicked",
+    "colorButtonClosed"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[26];
+    uint offsetsAndSizes[52];
     char stringdata0[11];
     char stringdata1[17];
     char stringdata2[1];
     char stringdata3[6];
-    char stringdata4[13];
-    char stringdata5[6];
-    char stringdata6[14];
-    char stringdata7[14];
-    char stringdata8[17];
-    char stringdata9[19];
-    char stringdata10[19];
-    char stringdata11[20];
+    char stringdata4[18];
+    char stringdata5[18];
+    char stringdata6[13];
+    char stringdata7[6];
+    char stringdata8[14];
+    char stringdata9[14];
+    char stringdata10[16];
+    char stringdata11[14];
     char stringdata12[14];
+    char stringdata13[15];
+    char stringdata14[17];
+    char stringdata15[19];
+    char stringdata16[20];
+    char stringdata17[20];
+    char stringdata18[14];
+    char stringdata19[18];
+    char stringdata20[11];
+    char stringdata21[18];
+    char stringdata22[20];
+    char stringdata23[8];
+    char stringdata24[19];
+    char stringdata25[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -77,29 +103,55 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(11, 16),  // "fileLoadedSignal"
         QT_MOC_LITERAL(28, 0),  // ""
         QT_MOC_LITERAL(29, 5),  // "image"
-        QT_MOC_LITERAL(35, 12),  // "pixelChanged"
-        QT_MOC_LITERAL(48, 5),  // "point"
-        QT_MOC_LITERAL(54, 13),  // "onSaveClicked"
-        QT_MOC_LITERAL(68, 13),  // "onLoadClicked"
-        QT_MOC_LITERAL(82, 16),  // "updateLabelImage"
-        QT_MOC_LITERAL(99, 18),  // "updatePreviewImage"
-        QT_MOC_LITERAL(118, 18),  // "updateFramePreview"
-        QT_MOC_LITERAL(137, 19),  // "std::vector<QImage>"
-        QT_MOC_LITERAL(157, 13)   // "previewImages"
+        QT_MOC_LITERAL(35, 17),  // "undoClickedSignal"
+        QT_MOC_LITERAL(53, 17),  // "redoClickedSignal"
+        QT_MOC_LITERAL(71, 12),  // "pixelChanged"
+        QT_MOC_LITERAL(84, 5),  // "point"
+        QT_MOC_LITERAL(90, 13),  // "onSaveClicked"
+        QT_MOC_LITERAL(104, 13),  // "onLoadClicked"
+        QT_MOC_LITERAL(118, 15),  // "onCreateClicked"
+        QT_MOC_LITERAL(134, 13),  // "onUndoClicked"
+        QT_MOC_LITERAL(148, 13),  // "onRedoClicked"
+        QT_MOC_LITERAL(162, 14),  // "enableUndoRedo"
+        QT_MOC_LITERAL(177, 16),  // "updateLabelImage"
+        QT_MOC_LITERAL(194, 18),  // "updatePreviewImage"
+        QT_MOC_LITERAL(213, 19),  // "updateFrameSelector"
+        QT_MOC_LITERAL(233, 19),  // "std::vector<QImage>"
+        QT_MOC_LITERAL(253, 13),  // "previewImages"
+        QT_MOC_LITERAL(267, 17),  // "receiveOnionFrame"
+        QT_MOC_LITERAL(285, 10),  // "onionImage"
+        QT_MOC_LITERAL(296, 17),  // "disableOnionFrame"
+        QT_MOC_LITERAL(314, 19),  // "toggleActualPreview"
+        QT_MOC_LITERAL(334, 7),  // "checked"
+        QT_MOC_LITERAL(342, 18),  // "colorButtonClicked"
+        QT_MOC_LITERAL(361, 17)   // "colorButtonClosed"
     },
     "MainWindow",
     "fileLoadedSignal",
     "",
     "image",
+    "undoClickedSignal",
+    "redoClickedSignal",
     "pixelChanged",
     "point",
     "onSaveClicked",
     "onLoadClicked",
+    "onCreateClicked",
+    "onUndoClicked",
+    "onRedoClicked",
+    "enableUndoRedo",
     "updateLabelImage",
     "updatePreviewImage",
-    "updateFramePreview",
+    "updateFrameSelector",
     "std::vector<QImage>",
-    "previewImages"
+    "previewImages",
+    "receiveOnionFrame",
+    "onionImage",
+    "disableOnionFrame",
+    "toggleActualPreview",
+    "checked",
+    "colorButtonClicked",
+    "colorButtonClosed"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -111,34 +163,56 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   56,    2, 0x06,    1 /* Public */,
+       1,    1,  122,    2, 0x06,    1 /* Public */,
+       4,    0,  125,    2, 0x06,    3 /* Public */,
+       5,    0,  126,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    1,   59,    2, 0x0a,    3 /* Public */,
-       6,    0,   62,    2, 0x0a,    5 /* Public */,
-       7,    0,   63,    2, 0x0a,    6 /* Public */,
-       8,    1,   64,    2, 0x0a,    7 /* Public */,
-       9,    1,   67,    2, 0x0a,    9 /* Public */,
-      10,    1,   70,    2, 0x0a,   11 /* Public */,
+       6,    1,  127,    2, 0x0a,    5 /* Public */,
+       8,    0,  130,    2, 0x0a,    7 /* Public */,
+       9,    0,  131,    2, 0x0a,    8 /* Public */,
+      10,    0,  132,    2, 0x0a,    9 /* Public */,
+      11,    0,  133,    2, 0x0a,   10 /* Public */,
+      12,    0,  134,    2, 0x0a,   11 /* Public */,
+      13,    0,  135,    2, 0x0a,   12 /* Public */,
+      14,    1,  136,    2, 0x0a,   13 /* Public */,
+      15,    1,  139,    2, 0x0a,   15 /* Public */,
+      16,    1,  142,    2, 0x0a,   17 /* Public */,
+      19,    1,  145,    2, 0x0a,   19 /* Public */,
+      21,    1,  148,    2, 0x0a,   21 /* Public */,
+      22,    1,  151,    2, 0x0a,   23 /* Public */,
+      24,    0,  154,    2, 0x0a,   25 /* Public */,
+      25,    0,  155,    2, 0x0a,   26 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QImage,    3,
+    QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QPointF,    5,
+    QMetaType::Void, QMetaType::QPointF,    7,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QImage,    3,
     QMetaType::Void, QMetaType::QImage,    3,
-    QMetaType::Void, 0x80000000 | 11,   12,
+    QMetaType::Void, 0x80000000 | 17,   18,
+    QMetaType::Void, QMetaType::QImage,   20,
+    QMetaType::Void, QMetaType::QImage,   20,
+    QMetaType::Void, QMetaType::Bool,   23,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -155,6 +229,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'fileLoadedSignal'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
+        // method 'undoClickedSignal'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'redoClickedSignal'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'pixelChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QPointF, std::false_type>,
@@ -162,15 +240,36 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onLoadClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onCreateClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onUndoClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onRedoClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'enableUndoRedo'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'updateLabelImage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
         // method 'updatePreviewImage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
-        // method 'updateFramePreview'
+        // method 'updateFrameSelector'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>
+        QtPrivate::TypeAndForceComplete<std::vector<QImage>, std::false_type>,
+        // method 'receiveOnionFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
+        // method 'disableOnionFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QImage, std::false_type>,
+        // method 'toggleActualPreview'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'colorButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'colorButtonClosed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -182,12 +281,23 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->fileLoadedSignal((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
-        case 1: _t->pixelChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
-        case 2: _t->onSaveClicked(); break;
-        case 3: _t->onLoadClicked(); break;
-        case 4: _t->updateLabelImage((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
-        case 5: _t->updatePreviewImage((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
-        case 6: _t->updateFramePreview((*reinterpret_cast< std::add_pointer_t<std::vector<QImage>>>(_a[1]))); break;
+        case 1: _t->undoClickedSignal(); break;
+        case 2: _t->redoClickedSignal(); break;
+        case 3: _t->pixelChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 4: _t->onSaveClicked(); break;
+        case 5: _t->onLoadClicked(); break;
+        case 6: _t->onCreateClicked(); break;
+        case 7: _t->onUndoClicked(); break;
+        case 8: _t->onRedoClicked(); break;
+        case 9: _t->enableUndoRedo(); break;
+        case 10: _t->updateLabelImage((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
+        case 11: _t->updatePreviewImage((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
+        case 12: _t->updateFrameSelector((*reinterpret_cast< std::add_pointer_t<std::vector<QImage>>>(_a[1]))); break;
+        case 13: _t->receiveOnionFrame((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
+        case 14: _t->disableOnionFrame((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
+        case 15: _t->toggleActualPreview((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 16: _t->colorButtonClicked(); break;
+        case 17: _t->colorButtonClosed(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -196,6 +306,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             using _t = void (MainWindow::*)(QImage );
             if (_t _q_method = &MainWindow::fileLoadedSignal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (MainWindow::*)();
+            if (_t _q_method = &MainWindow::undoClickedSignal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (MainWindow::*)();
+            if (_t _q_method = &MainWindow::redoClickedSignal; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 2;
                 return;
             }
         }
@@ -221,13 +345,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 18)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 18;
     }
     return _id;
 }
@@ -237,5 +361,17 @@ void MainWindow::fileLoadedSignal(QImage _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void MainWindow::undoClickedSignal()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void MainWindow::redoClickedSignal()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 QT_WARNING_POP

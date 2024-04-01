@@ -41,15 +41,17 @@ constexpr auto qt_meta_stringdata_CLASSCanvasWidgetENDCLASS = QtMocHelpers::stri
     "CanvasWidget",
     "canvasClicked",
     "",
-    "point"
+    "point",
+    "mousePressed"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSCanvasWidgetENDCLASS_t {
-    uint offsetsAndSizes[8];
+    uint offsetsAndSizes[10];
     char stringdata0[13];
     char stringdata1[14];
     char stringdata2[1];
     char stringdata3[6];
+    char stringdata4[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSCanvasWidgetENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -58,12 +60,14 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSCanvasWidgetENDCLASS_t qt_meta_
         QT_MOC_LITERAL(0, 12),  // "CanvasWidget"
         QT_MOC_LITERAL(13, 13),  // "canvasClicked"
         QT_MOC_LITERAL(27, 0),  // ""
-        QT_MOC_LITERAL(28, 5)   // "point"
+        QT_MOC_LITERAL(28, 5),  // "point"
+        QT_MOC_LITERAL(34, 12)   // "mousePressed"
     },
     "CanvasWidget",
     "canvasClicked",
     "",
-    "point"
+    "point",
+    "mousePressed"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -83,10 +87,10 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSCanvasWidgetENDCLASS[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   20,    2, 0x06,    1 /* Public */,
+       1,    2,   20,    2, 0x06,    1 /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QPointF,    3,
+    QMetaType::Void, QMetaType::QPointF, QMetaType::Bool,    3,    4,
 
        0        // eod
 };
@@ -102,7 +106,8 @@ Q_CONSTINIT const QMetaObject CanvasWidget::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<CanvasWidget, std::true_type>,
         // method 'canvasClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QPointF, std::false_type>
+        QtPrivate::TypeAndForceComplete<QPointF, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>
     >,
     nullptr
 } };
@@ -113,13 +118,13 @@ void CanvasWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         auto *_t = static_cast<CanvasWidget *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->canvasClicked((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 0: _t->canvasClicked((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (CanvasWidget::*)(QPointF );
+            using _t = void (CanvasWidget::*)(QPointF , bool );
             if (_t _q_method = &CanvasWidget::canvasClicked; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
@@ -159,9 +164,9 @@ int CanvasWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void CanvasWidget::canvasClicked(QPointF _t1)
+void CanvasWidget::canvasClicked(QPointF _t1, bool _t2)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
