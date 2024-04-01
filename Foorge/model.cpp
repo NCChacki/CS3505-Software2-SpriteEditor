@@ -58,10 +58,9 @@ void Model::imageChanged(QPointF point, bool mousePressed)
 {
     QWidget* canvasWidget = qobject_cast<QWidget*>(sender());
 
-    QPointF transformedPoint(point.rx()/(canvasWidget->height()/frameSize), point.ry()/(canvasWidget->height()/frameSize));
+    QPointF transformedPoint((point.rx()/canvasWidget->height())*frameSize, (point.ry()/canvasWidget->height())*frameSize);
 
-
-    animationFrames.at(currentFrame).setPixel(transformedPoint,pen, mousePressed, paintEnabled);
+    animationFrames.at(currentFrame).setPixel(transformedPoint, pen, mousePressed, paintEnabled);
 
     emit imageUpdated(animationFrames.at(currentFrame).imageData);
 
