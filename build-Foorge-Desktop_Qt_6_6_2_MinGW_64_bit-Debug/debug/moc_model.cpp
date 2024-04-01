@@ -50,6 +50,7 @@ constexpr auto qt_meta_stringdata_CLASSModelENDCLASS = QtMocHelpers::stringData(
     "disableOnion",
     "imageChanged",
     "point",
+    "mousePressed",
     "timeToUpdatePreview",
     "addNewFrame",
     "nextFrame",
@@ -64,11 +65,15 @@ constexpr auto qt_meta_stringdata_CLASSModelENDCLASS = QtMocHelpers::stringData(
     "eraseClicked",
     "eraseScreen",
     "brushSizeChanged",
-    "newSize"
+    "newSize",
+    "pushSelectedFrame",
+    "pullSelectedFrame",
+    "undoFrame",
+    "redoFrame"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSModelENDCLASS_t {
-    uint offsetsAndSizes[54];
+    uint offsetsAndSizes[64];
     char stringdata0[6];
     char stringdata1[13];
     char stringdata2[1];
@@ -81,21 +86,26 @@ struct qt_meta_stringdata_CLASSModelENDCLASS_t {
     char stringdata9[13];
     char stringdata10[13];
     char stringdata11[6];
-    char stringdata12[20];
-    char stringdata13[12];
-    char stringdata14[10];
-    char stringdata15[14];
-    char stringdata16[17];
-    char stringdata17[13];
-    char stringdata18[12];
+    char stringdata12[13];
+    char stringdata13[20];
+    char stringdata14[12];
+    char stringdata15[10];
+    char stringdata16[14];
+    char stringdata17[17];
+    char stringdata18[13];
     char stringdata19[12];
     char stringdata20[12];
-    char stringdata21[13];
-    char stringdata22[9];
-    char stringdata23[13];
-    char stringdata24[12];
-    char stringdata25[17];
-    char stringdata26[8];
+    char stringdata21[12];
+    char stringdata22[13];
+    char stringdata23[9];
+    char stringdata24[13];
+    char stringdata25[12];
+    char stringdata26[17];
+    char stringdata27[8];
+    char stringdata28[18];
+    char stringdata29[18];
+    char stringdata30[10];
+    char stringdata31[10];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSModelENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -113,21 +123,26 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(103, 12),  // "disableOnion"
         QT_MOC_LITERAL(116, 12),  // "imageChanged"
         QT_MOC_LITERAL(129, 5),  // "point"
-        QT_MOC_LITERAL(135, 19),  // "timeToUpdatePreview"
-        QT_MOC_LITERAL(155, 11),  // "addNewFrame"
-        QT_MOC_LITERAL(167, 9),  // "nextFrame"
-        QT_MOC_LITERAL(177, 13),  // "previousFrame"
-        QT_MOC_LITERAL(191, 16),  // "frameRateChanged"
-        QT_MOC_LITERAL(208, 12),  // "newFrameRate"
-        QT_MOC_LITERAL(221, 11),  // "deleteFrame"
-        QT_MOC_LITERAL(233, 11),  // "toggleOnion"
-        QT_MOC_LITERAL(245, 11),  // "updateOnion"
-        QT_MOC_LITERAL(257, 12),  // "colorChanged"
-        QT_MOC_LITERAL(270, 8),  // "newColor"
-        QT_MOC_LITERAL(279, 12),  // "eraseClicked"
-        QT_MOC_LITERAL(292, 11),  // "eraseScreen"
-        QT_MOC_LITERAL(304, 16),  // "brushSizeChanged"
-        QT_MOC_LITERAL(321, 7)   // "newSize"
+        QT_MOC_LITERAL(135, 12),  // "mousePressed"
+        QT_MOC_LITERAL(148, 19),  // "timeToUpdatePreview"
+        QT_MOC_LITERAL(168, 11),  // "addNewFrame"
+        QT_MOC_LITERAL(180, 9),  // "nextFrame"
+        QT_MOC_LITERAL(190, 13),  // "previousFrame"
+        QT_MOC_LITERAL(204, 16),  // "frameRateChanged"
+        QT_MOC_LITERAL(221, 12),  // "newFrameRate"
+        QT_MOC_LITERAL(234, 11),  // "deleteFrame"
+        QT_MOC_LITERAL(246, 11),  // "toggleOnion"
+        QT_MOC_LITERAL(258, 11),  // "updateOnion"
+        QT_MOC_LITERAL(270, 12),  // "colorChanged"
+        QT_MOC_LITERAL(283, 8),  // "newColor"
+        QT_MOC_LITERAL(292, 12),  // "eraseClicked"
+        QT_MOC_LITERAL(305, 11),  // "eraseScreen"
+        QT_MOC_LITERAL(317, 16),  // "brushSizeChanged"
+        QT_MOC_LITERAL(334, 7),  // "newSize"
+        QT_MOC_LITERAL(342, 17),  // "pushSelectedFrame"
+        QT_MOC_LITERAL(360, 17),  // "pullSelectedFrame"
+        QT_MOC_LITERAL(378, 9),  // "undoFrame"
+        QT_MOC_LITERAL(388, 9)   // "redoFrame"
     },
     "Model",
     "imageUpdated",
@@ -141,6 +156,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
     "disableOnion",
     "imageChanged",
     "point",
+    "mousePressed",
     "timeToUpdatePreview",
     "addNewFrame",
     "nextFrame",
@@ -155,7 +171,11 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSModelENDCLASS_t qt_meta_stringd
     "eraseClicked",
     "eraseScreen",
     "brushSizeChanged",
-    "newSize"
+    "newSize",
+    "pushSelectedFrame",
+    "pullSelectedFrame",
+    "undoFrame",
+    "redoFrame"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -167,7 +187,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -175,26 +195,30 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  122,    2, 0x06,    1 /* Public */,
-       4,    1,  125,    2, 0x06,    3 /* Public */,
-       5,    1,  128,    2, 0x06,    5 /* Public */,
-       8,    1,  131,    2, 0x06,    7 /* Public */,
-       9,    1,  134,    2, 0x06,    9 /* Public */,
+       1,    1,  146,    2, 0x06,    1 /* Public */,
+       4,    1,  149,    2, 0x06,    3 /* Public */,
+       5,    1,  152,    2, 0x06,    5 /* Public */,
+       8,    1,  155,    2, 0x06,    7 /* Public */,
+       9,    1,  158,    2, 0x06,    9 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      10,    1,  137,    2, 0x0a,   11 /* Public */,
-      12,    0,  140,    2, 0x0a,   13 /* Public */,
-      13,    0,  141,    2, 0x0a,   14 /* Public */,
-      14,    0,  142,    2, 0x0a,   15 /* Public */,
-      15,    0,  143,    2, 0x0a,   16 /* Public */,
-      16,    1,  144,    2, 0x0a,   17 /* Public */,
-      18,    0,  147,    2, 0x0a,   19 /* Public */,
-      19,    0,  148,    2, 0x0a,   20 /* Public */,
-      20,    0,  149,    2, 0x0a,   21 /* Public */,
-      21,    1,  150,    2, 0x0a,   22 /* Public */,
-      23,    0,  153,    2, 0x0a,   24 /* Public */,
-      24,    0,  154,    2, 0x0a,   25 /* Public */,
-      25,    1,  155,    2, 0x0a,   26 /* Public */,
+      10,    2,  161,    2, 0x0a,   11 /* Public */,
+      13,    0,  166,    2, 0x0a,   14 /* Public */,
+      14,    0,  167,    2, 0x0a,   15 /* Public */,
+      15,    0,  168,    2, 0x0a,   16 /* Public */,
+      16,    0,  169,    2, 0x0a,   17 /* Public */,
+      17,    1,  170,    2, 0x0a,   18 /* Public */,
+      19,    0,  173,    2, 0x0a,   20 /* Public */,
+      20,    0,  174,    2, 0x0a,   21 /* Public */,
+      21,    0,  175,    2, 0x0a,   22 /* Public */,
+      22,    1,  176,    2, 0x0a,   23 /* Public */,
+      24,    0,  179,    2, 0x0a,   25 /* Public */,
+      25,    0,  180,    2, 0x0a,   26 /* Public */,
+      26,    1,  181,    2, 0x0a,   27 /* Public */,
+      28,    0,  184,    2, 0x0a,   29 /* Public */,
+      29,    0,  185,    2, 0x0a,   30 /* Public */,
+      30,    0,  186,    2, 0x0a,   31 /* Public */,
+      31,    0,  187,    2, 0x0a,   32 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QImage,    3,
@@ -204,19 +228,23 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSModelENDCLASS[] = {
     QMetaType::Void, QMetaType::QImage,    3,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QPointF,   11,
+    QMetaType::Void, QMetaType::QPointF, QMetaType::Bool,   11,   12,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   17,
+    QMetaType::Void, QMetaType::Int,   18,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QColor,   22,
+    QMetaType::Void, QMetaType::QColor,   23,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   26,
+    QMetaType::Void, QMetaType::QString,   27,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -248,6 +276,7 @@ Q_CONSTINIT const QMetaObject Model::staticMetaObject = { {
         // method 'imageChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QPointF, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'timeToUpdatePreview'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'addNewFrame'
@@ -274,7 +303,15 @@ Q_CONSTINIT const QMetaObject Model::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'brushSizeChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QString, std::false_type>
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        // method 'pushSelectedFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'pullSelectedFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'undoFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'redoFrame'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -290,7 +327,7 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 2: _t->sendPreviewFrames((*reinterpret_cast< std::add_pointer_t<std::vector<QImage>>>(_a[1]))); break;
         case 3: _t->enableOnion((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
         case 4: _t->disableOnion((*reinterpret_cast< std::add_pointer_t<QImage>>(_a[1]))); break;
-        case 5: _t->imageChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 5: _t->imageChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
         case 6: _t->timeToUpdatePreview(); break;
         case 7: _t->addNewFrame(); break;
         case 8: _t->nextFrame(); break;
@@ -303,6 +340,10 @@ void Model::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 15: _t->eraseClicked(); break;
         case 16: _t->eraseScreen(); break;
         case 17: _t->brushSizeChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 18: _t->pushSelectedFrame(); break;
+        case 19: _t->pullSelectedFrame(); break;
+        case 20: _t->undoFrame(); break;
+        case 21: _t->redoFrame(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -364,13 +405,13 @@ int Model::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 22;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 22)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 18;
+        _id -= 22;
     }
     return _id;
 }

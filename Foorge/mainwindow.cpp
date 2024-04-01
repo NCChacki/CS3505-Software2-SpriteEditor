@@ -15,9 +15,12 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("Foorge");
+
     //set up the color dialog box, for chosing colors
     colorPicker= new QColorDialog(parent);
-    ui->colorPickerLayout->addWidget(colorPicker);
+
+
 
     //set up warning msg box
     msgBox.setInformativeText("Do you want to save your changes?");
@@ -39,6 +42,16 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &QPushButton::clicked,
             &model,
             &Model::eraseClicked);
+
+    connect(ui->colorButton,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::colorButtonClicked);
+
+    connect(colorPicker,
+            &QDialog::finished,
+            this,
+            &MainWindow::colorButtonClosed);
 
     connect(ui->eraseScreen,
             &QPushButton::clicked,
@@ -139,7 +152,7 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
     connect(&model,
             &Model::sendPreviewFrames,
             this,
-            &MainWindow::updateFramePreview);
+            &MainWindow::updateFrameSelector);
 
     connect(ui->frameRateSlider,
             &QAbstractSlider::sliderMoved,
@@ -216,6 +229,11 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
     //         this,
     //         &MainWindow::frameSelectorUpdated);
 
+    connect(ui->actualSizePreview,
+            &QAbstractButton::toggled,
+            this,
+            &MainWindow::toggleActualPreview);
+
 }
 
 
@@ -262,7 +280,7 @@ void MainWindow::updatePreviewImage(QImage image)
     QPixmap pixmap = QPixmap::fromImage(image);
 
 
-    ui->previewLabel->setPixmap(pixmap.scaledToHeight(100,Qt::FastTransformation));
+    ui->previewLabel->setPixmap(pixmap.scaledToHeight(ui->previewLabel->geometry().height(),Qt::FastTransformation));
 }
 
 void MainWindow::onLoadClicked()
@@ -315,7 +333,7 @@ void MainWindow::onCreateClicked()
     }
 
     //we can change the max val to something else
-    int input = QInputDialog::getInt(this, tr("QInputDialog::getInt()"), tr("Please enter canvas size: "), 32, 32, 128, 1);
+    int input = QInputDialog::getInt(this, tr("QInputDialog::getInt()"), tr("Please enter canvas size: "), 32, 4, 128, 1);
     model.resetModel(input);
     canvasChanged = false;
 }
@@ -388,7 +406,7 @@ void MainWindow::closeEvent(QCloseEvent* closeEvent)
     }
 }
 
-void MainWindow::updateFramePreview(std::vector<QImage> previewImages)
+void MainWindow::updateFrameSelector(std::vector<QImage> previewImages)
 {
     //std::cout << "calling mainwindow update frame preview" << std::endl;
     ui->frameLabel1->setPixmap(QPixmap::fromImage(previewImages.at(0)).scaledToHeight(100,Qt::FastTransformation));
@@ -414,6 +432,37 @@ void MainWindow::disableOnionFrame(QImage onionImage)
     ui->onionLabel->setPixmap(onionPixmap.scaledToHeight(500,Qt::FastTransformation));
 
     ui->onionButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,255,150);}"));
+}
+
+void MainWindow::toggleActualPreview(bool checked)
+{
+
+    QRect currentGeometry = ui->previewLabel->geometry();
+
+    if(checked)
+    {
+        currentGeometry.setHeight(model.frameSize);
+        currentGeometry.setWidth(model.frameSize);
+
+
+    }
+    else
+    {
+        currentGeometry.setHeight(100);
+        currentGeometry.setWidth(100);
+    }
+
+    ui->previewLabel->setGeometry(currentGeometry);
+}
+void MainWindow::colorButtonClicked()
+{
+    colorPicker->open();
+    ui->colorButton->setEnabled(false);
+}
+
+void MainWindow::colorButtonClosed()
+{
+    ui->colorButton->setEnabled(true);
 }
 
 
