@@ -450,7 +450,7 @@
      <item>
       <widget class="QPushButton" name="eraseScreen">
        <property name="text">
-        <string>EraseScreen</string>
+        <string>Erase Screen</string>
        </property>
       </widget>
      </item>

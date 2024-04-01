@@ -322,7 +322,7 @@ public:
         undoButton->setText(QCoreApplication::translate("MainWindow", "Undo", nullptr));
         redoButton->setText(QCoreApplication::translate("MainWindow", "Redo", nullptr));
         eraseButton->setText(QCoreApplication::translate("MainWindow", "Erase", nullptr));
-        eraseScreen->setText(QCoreApplication::translate("MainWindow", "EraseScreen", nullptr));
+        eraseScreen->setText(QCoreApplication::translate("MainWindow", "Erase Screen", nullptr));
         onionButton->setText(QCoreApplication::translate("MainWindow", "Onion Button", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Pen Size", nullptr));
         frameLabel1->setText(QString());
