@@ -157,6 +157,9 @@ public slots:
     void colorButtonClosed();
 
 
+    void newColorSelected();
+
+
 
     //void frameSelectorUpdated(QImage image);
 

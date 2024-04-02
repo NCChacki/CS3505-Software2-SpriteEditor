@@ -31,7 +31,8 @@ void Frame::setPixel(QPointF point, QPen pen, bool mousePressed, bool paintCall)
 
     if(paintCall)
     {
-        std::cout<< painter.pen().color().alpha()<<std::endl;
+
+
         painter.drawPoint(point);
     }
     else

@@ -32,10 +32,7 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
     brushSizes.append({"1", "2", "3","4","5"});
     ui->brushSizeBox->addItems(brushSizes);
 
-    // connect(ui->brushSizeBox,
-    //         &QComboBox,
-    //         &model,
-    //         &Model::)
+
 
     //connect the erase buttons
     connect(ui->eraseButton,
@@ -225,15 +222,17 @@ MainWindow::MainWindow(Model& model, QWidget *parent)
             &QAbstractButton::clicked,
             &model,
             &Model::pullSelectedFrame);
-    // connect(&model,
-    //         &Model::addFrameToPreview,
-    //         this,
-    //         &MainWindow::frameSelectorUpdated);
+
 
     connect(ui->actualSizePreview,
             &QAbstractButton::toggled,
             this,
             &MainWindow::toggleActualPreview);
+
+    connect(colorPicker,
+            &QColorDialog::currentColorChanged,
+            this,
+            &MainWindow::newColorSelected);
 
 }
 
@@ -245,8 +244,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::pixelChanged(QPointF point)
 {
-    // std::cout<< point.rx() << " , " << point.ry() << std::endl;
-    // std::cout << "receiving coords in mainwindow ^" << std::endl;
+
     // How will we alert the model of this change?
     canvasChanged = true;
     ui->undoButton->setEnabled(true);
@@ -339,29 +337,6 @@ void MainWindow::onCreateClicked()
     model.resetModel(input);
     canvasChanged = false;
 }
-
-
-// void MainWindow::frameSelectorUpdated(QImage image)
-// {
-//     //Turn QImage to Qpixmap
-//     QPixmap pixmap = QPixmap::fromImage(image);
-
-//     std::cout << "calling frame selector update##########################" <<std::endl;
-//     //create a framelabel with the desired pixmap
-
-
-//     ui->frameLabel1->setPixmap(pixmap.scaledToHeight(80,Qt::FastTransformation));
-//     // ui->frameLabel2->setPixmap(pixmap.scaledToHeight(80,Qt::FastTransformation));
-//     // ui->frameLabel3->setPixmap(pixmap.scaledToHeight(80,Qt::FastTransformation));
-//     // ui->frameLabel4->setPixmap(pixmap.scaledToHeight(80,Qt::FastTransformation));
-
-
-//     //put the framelabel you created into the horizontal layout
-//     //ui->previewScrollArea->setWidget(frameLabel);
-
-//     //clean up the dynamically allocated QLabel
-//     //delete frameLabel;
-// }
 
 
 void MainWindow::onUndoClicked()
@@ -468,6 +443,12 @@ void MainWindow::colorButtonClicked()
 void MainWindow::colorButtonClosed()
 {
     ui->colorButton->setEnabled(true);
+}
+
+void MainWindow::newColorSelected()
+{
+    std::cout<<"new color selected, change erase"<<std::endl;
+    ui->eraseButton->setChecked(false);
 }
 
 

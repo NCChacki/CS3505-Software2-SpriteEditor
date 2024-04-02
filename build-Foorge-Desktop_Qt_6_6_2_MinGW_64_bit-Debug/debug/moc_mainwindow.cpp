@@ -63,11 +63,12 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "toggleActualPreview",
     "checked",
     "colorButtonClicked",
-    "colorButtonClosed"
+    "colorButtonClosed",
+    "newColorSelected"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
-    uint offsetsAndSizes[52];
+    uint offsetsAndSizes[54];
     char stringdata0[11];
     char stringdata1[17];
     char stringdata2[1];
@@ -94,6 +95,7 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata23[8];
     char stringdata24[19];
     char stringdata25[18];
+    char stringdata26[17];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -124,7 +126,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(314, 19),  // "toggleActualPreview"
         QT_MOC_LITERAL(334, 7),  // "checked"
         QT_MOC_LITERAL(342, 18),  // "colorButtonClicked"
-        QT_MOC_LITERAL(361, 17)   // "colorButtonClosed"
+        QT_MOC_LITERAL(361, 17),  // "colorButtonClosed"
+        QT_MOC_LITERAL(379, 16)   // "newColorSelected"
     },
     "MainWindow",
     "fileLoadedSignal",
@@ -151,7 +154,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "toggleActualPreview",
     "checked",
     "colorButtonClicked",
-    "colorButtonClosed"
+    "colorButtonClosed",
+    "newColorSelected"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -163,7 +167,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -171,26 +175,27 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  122,    2, 0x06,    1 /* Public */,
-       4,    0,  125,    2, 0x06,    3 /* Public */,
-       5,    0,  126,    2, 0x06,    4 /* Public */,
+       1,    1,  128,    2, 0x06,    1 /* Public */,
+       4,    0,  131,    2, 0x06,    3 /* Public */,
+       5,    0,  132,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    1,  127,    2, 0x0a,    5 /* Public */,
-       8,    0,  130,    2, 0x0a,    7 /* Public */,
-       9,    0,  131,    2, 0x0a,    8 /* Public */,
-      10,    0,  132,    2, 0x0a,    9 /* Public */,
-      11,    0,  133,    2, 0x0a,   10 /* Public */,
-      12,    0,  134,    2, 0x0a,   11 /* Public */,
-      13,    0,  135,    2, 0x0a,   12 /* Public */,
-      14,    1,  136,    2, 0x0a,   13 /* Public */,
-      15,    1,  139,    2, 0x0a,   15 /* Public */,
-      16,    1,  142,    2, 0x0a,   17 /* Public */,
-      19,    1,  145,    2, 0x0a,   19 /* Public */,
-      21,    1,  148,    2, 0x0a,   21 /* Public */,
-      22,    1,  151,    2, 0x0a,   23 /* Public */,
-      24,    0,  154,    2, 0x0a,   25 /* Public */,
-      25,    0,  155,    2, 0x0a,   26 /* Public */,
+       6,    1,  133,    2, 0x0a,    5 /* Public */,
+       8,    0,  136,    2, 0x0a,    7 /* Public */,
+       9,    0,  137,    2, 0x0a,    8 /* Public */,
+      10,    0,  138,    2, 0x0a,    9 /* Public */,
+      11,    0,  139,    2, 0x0a,   10 /* Public */,
+      12,    0,  140,    2, 0x0a,   11 /* Public */,
+      13,    0,  141,    2, 0x0a,   12 /* Public */,
+      14,    1,  142,    2, 0x0a,   13 /* Public */,
+      15,    1,  145,    2, 0x0a,   15 /* Public */,
+      16,    1,  148,    2, 0x0a,   17 /* Public */,
+      19,    1,  151,    2, 0x0a,   19 /* Public */,
+      21,    1,  154,    2, 0x0a,   21 /* Public */,
+      22,    1,  157,    2, 0x0a,   23 /* Public */,
+      24,    0,  160,    2, 0x0a,   25 /* Public */,
+      25,    0,  161,    2, 0x0a,   26 /* Public */,
+      26,    0,  162,    2, 0x0a,   27 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QImage,    3,
@@ -211,6 +216,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
     QMetaType::Void, QMetaType::QImage,   20,
     QMetaType::Void, QMetaType::QImage,   20,
     QMetaType::Void, QMetaType::Bool,   23,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -269,6 +275,8 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'colorButtonClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'colorButtonClosed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'newColorSelected'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -298,6 +306,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 15: _t->toggleActualPreview((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
         case 16: _t->colorButtonClicked(); break;
         case 17: _t->colorButtonClosed(); break;
+        case 18: _t->newColorSelected(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -345,13 +354,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 19)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 18;
+        _id -= 19;
     }
     return _id;
 }

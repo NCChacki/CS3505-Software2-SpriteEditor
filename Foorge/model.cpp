@@ -302,8 +302,7 @@ void Model::colorChanged(QColor newColor)
 
 void Model::eraseClicked()
 {
-    // QColor erase(0,0,0,0);
-    // pen.setColor(erase);
+
     paintEnabled=false;
 
 }
